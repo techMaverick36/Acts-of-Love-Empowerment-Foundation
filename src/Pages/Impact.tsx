@@ -80,7 +80,7 @@ const pillars = [
 		bg: "#f0faf4",
 		border: "#b3e6c8",
 		image:
-			"https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+			"https://images.unsplash.com/photo-1521493959102-bdd6677fdd81?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		summary:
 			"True transformation means equipping communities to be self-sufficient long after our teams leave. Our sustainable development programs build lasting economic and environmental resilience.",
 		highlights: [

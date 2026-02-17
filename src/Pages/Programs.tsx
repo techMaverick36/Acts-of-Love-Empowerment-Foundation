@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { FiArrowRight, FiCheckCircle, FiAlertCircle } from "react-icons/fi";
 
@@ -12,7 +11,7 @@ const programs = [
 		badge: "Most Popular",
 		badgeBg: "#D91E26",
 		image:
-			"https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+			"https://images.unsplash.com/photo-1521493959102-bdd6677fdd81?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		cost: "From $100/month",
 		description:
 			"Your monthly sponsorship directly covers school fees, healthcare, nutritious meals, and mentorship for a child in need. When you sponsor a child, you become a consistent presence in their life — someone they know is rooting for them.",
