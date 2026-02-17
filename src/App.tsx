@@ -1,11 +1,24 @@
-import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import AboutPage from "./Pages/About";
+import ProgramsPage from "./Pages/Programs";
+import ImpactPage from "./Pages/Impact";
+import ContactPage from "./Pages/Contact";
+import GetInvolvedPage from "./Pages/GetInvolved";
 
 const App = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+	return (
+		<Router>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/about" element={<AboutPage />} />
+				<Route path="/programs" element={<ProgramsPage />} />
+				<Route path="/impact" element={<ImpactPage />} />
+				<Route path="/contact" element={<ContactPage />} />
+				<Route path="/get-involved" element={<GetInvolvedPage />} />
+			</Routes>
+		</Router>
+	);
+};
 
-export default App
+export default App;
