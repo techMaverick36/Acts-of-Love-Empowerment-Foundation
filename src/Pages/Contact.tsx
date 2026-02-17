@@ -24,7 +24,7 @@ const faqs = [
 	},
 	{
 		q: "Is Acts of Love a registered NGO?",
-		a: "Yes. We are a registered non-governmental organization with the Corporate Affairs Commission (CAC) in Nigeria, and hold a valid tax exemption certificate.",
+		a: "Yes. We are a registered non-governmental organization with the NGO Bureau in Uganda, and hold a valid tax exemption certificate.",
 	},
 	{
 		q: "Can I visit your project sites?",
@@ -126,8 +126,8 @@ export default function ContactPage() {
 								{
 									icon: FiPhone,
 									label: "Call Us",
-									value: "+234 800 000 0000",
-									href: "tel:+2348000000000",
+									value: "+256 800 000 0000",
+									href: "tel:+2568000000000",
 								},
 								{
 									icon: FiClock,

@@ -39,7 +39,7 @@ const roles = [
 	{
 		title: "Legal & Advocacy Pro Bono",
 		commitment: "Case-based",
-		location: "Remote / Abuja",
+		location: "Remote / Kampala",
 		desc: "Provide legal support, policy advocacy, and rights-based counselling for beneficiaries and the organization.",
 	},
 	{
@@ -145,15 +145,15 @@ export default function GetInvolvedPage() {
 							>
 								You don't need to have money to make a difference. Your skills,
 								time, and passion are the most powerful things you can offer.
-								Join hundreds of volunteers already making their mark across
-								Nigeria.
+								Join the current volunteers already making their mark across
+								Uganda.
 							</p>
 							<p
 								className="text-base leading-relaxed"
 								style={{ color: "#4a4a4a" }}
 							>
 								Whether you're a healthcare professional, teacher, lawyer,
-								communications expert, or simply someone with time and heart —
+								communications expert, or simply someone with time and heart
 								there is a meaningful role waiting for you here.
 							</p>
 						</div>
@@ -390,7 +390,7 @@ export default function GetInvolvedPage() {
 										}
 										className="w-full border-2 rounded-lg px-4 py-2.5 text-sm outline-none"
 										style={{ borderColor: "#e2e8f0" }}
-										placeholder="+234 ..."
+										placeholder="+256 ..."
 									/>
 								</div>
 								<div>

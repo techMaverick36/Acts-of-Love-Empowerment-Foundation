@@ -58,7 +58,7 @@ export default function AboutPage() {
 					</h1>
 					<p className="text-gray-200 text-base md:text-lg">
 						For over 15 years, we have partnered with communities to create
-						sustainable, life-changing impact across Nigeria.
+						sustainable, life-changing impact across Uganda.
 					</p>
 				</div>
 			</section>
