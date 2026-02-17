@@ -1,7 +1,7 @@
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import { FiArrowRight, FiCheckCircle, FiAlertCircle } from "react-icons/fi";
-import PageHero from "../components/Hero";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -66,9 +66,6 @@ const programs = [
 ];
 
 function ProgramCard({ prog }: { prog: (typeof programs)[0] }) {
-	const [selected, setSelected] = useState(prog.amounts[0]);
-	const [custom, setCustom] = useState("");
-
 	return (
 		<div className="grid lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-gray-100 shadow-md">
 			{/* Image */}

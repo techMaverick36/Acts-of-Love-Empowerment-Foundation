@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
 	FiArrowRight,
-	FiChevronLeft,
-	FiChevronRight,
+	// FiChevronLeft,
+	// FiChevronRight,
 	FiActivity,
 	FiUsers,
 	FiBook,
@@ -14,25 +13,6 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
-
-const slides = [
-	{
-		url: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80",
-		alt: "Children in a community program",
-	},
-	{
-		url: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&q=80",
-		alt: "Healthcare volunteers",
-	},
-	{
-		url: "https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=1200&q=80",
-		alt: "Education and empowerment",
-	},
-	{
-		url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80",
-		alt: "Community development",
-	},
-];
 
 const impactAreas = [
 	{
@@ -70,16 +50,6 @@ const impactAreas = [
 ];
 
 export default function HomePage() {
-	const [current, setCurrent] = useState(0);
-
-	useEffect(() => {
-		const t = setInterval(
-			() => setCurrent((p) => (p + 1) % slides.length),
-			5000,
-		);
-		return () => clearInterval(t);
-	}, []);
-
 	return (
 		<div>
 			<Navbar />

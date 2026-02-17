@@ -10,7 +10,7 @@ import {
 	FiTwitter,
 	FiInstagram,
 } from "react-icons/fi";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 

@@ -1,30 +1,30 @@
-import { FiHeart, FiEye, FiUsers, FiAward, FiArrowRight } from "react-icons/fi";
+import { FiHeart, FiEye, FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const team = [
-	{
-		name: "Dr. Amara Okonkwo",
-		role: "Executive Director",
-		img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80",
-	},
-	{
-		name: "Chidi Nwachukwu",
-		role: "Director of Programs",
-		img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-	},
-	{
-		name: "Fatima Aliyu",
-		role: "Head of Partnerships",
-		img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
-	},
-	{
-		name: "Emeka Obi",
-		role: "Finance & Compliance",
-		img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80",
-	},
-];
+// const team = [
+// 	{
+// 		name: "Dr. Amara Okonkwo",
+// 		role: "Executive Director",
+// 		img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80",
+// 	},
+// 	{
+// 		name: "Chidi Nwachukwu",
+// 		role: "Director of Programs",
+// 		img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+// 	},
+// 	{
+// 		name: "Fatima Aliyu",
+// 		role: "Head of Partnerships",
+// 		img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+// 	},
+// 	{
+// 		name: "Emeka Obi",
+// 		role: "Finance & Compliance",
+// 		img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80",
+// 	},
+// ];
 
 const milestones = [
 	{
