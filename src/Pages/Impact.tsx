@@ -303,7 +303,7 @@ export default function ImpactPage() {
 								Your support amplifies every number.
 							</p>
 							<p className="text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
-								Every naira donated creates a real, measurable difference.
+								Every dollar donated creates a real, measurable difference.
 							</p>
 						</div>
 						<Link
