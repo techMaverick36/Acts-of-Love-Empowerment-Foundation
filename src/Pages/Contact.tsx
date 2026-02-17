@@ -16,7 +16,6 @@ import Footer from "../components/Footer";
 import { FaMapPin } from "react-icons/fa";
 import L from "leaflet";
 import { renderToStaticMarkup } from "react-dom/server";
-import { FaMap } from "react-icons/fa6";
 
 const faqs = [
 	{
