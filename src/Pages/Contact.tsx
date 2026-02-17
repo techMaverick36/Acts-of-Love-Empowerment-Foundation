@@ -13,6 +13,10 @@ import {
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { FaMapPin } from "react-icons/fa";
+import L from "leaflet";
+import { renderToStaticMarkup } from "react-dom/server";
+import { FaMap } from "react-icons/fa6";
 
 const faqs = [
 	{
@@ -48,6 +52,13 @@ export default function ContactPage() {
 		setSubmitted(true);
 	};
 	const position: [number, number] = [0.32678913755996225, 32.564701286507834];
+
+	const customMarkerIcon = L.divIcon({
+		html: renderToStaticMarkup(<FaMapPin size={30} color="#D91E26" />),
+		iconSize: [30, 30],
+		iconAnchor: [15, 30],
+		className: "bg-transparent",
+	});
 
 	return (
 		<div>
@@ -348,7 +359,7 @@ export default function ContactPage() {
 								attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 							/>
-							<Marker position={position}>
+							<Marker position={position} icon={customMarkerIcon}>
 								<Popup>
 									Act of Love Empowerment Foundation <br /> Kampala, Uganda.
 									{position[0]}, {position[1]}

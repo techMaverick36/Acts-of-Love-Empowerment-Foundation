@@ -259,7 +259,7 @@ export default function ImpactPage() {
 					<div className="text-center mb-14">
 						<p
 							className="text-sm font-semibold tracking-widest uppercase mb-3"
-							style={{ color: "#639E90" }}
+							style={{ color: "#fdf4ee" }}
 						>
 							Our Numbers
 						</p>
