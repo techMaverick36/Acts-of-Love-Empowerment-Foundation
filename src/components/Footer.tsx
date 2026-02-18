@@ -116,15 +116,15 @@ export default function Footer() {
 						<ul className="space-y-5 text-sm text-blue-100/80">
 							<li className="flex items-start gap-4">
 								<FiMapPin className="text-[#F26421] shrink-0 mt-1" size={18} />
-								<span>123 Hope Street, Victoria Island, Kampala, Uganda</span>
+								<span>Bunamwaya, Wakiso District, Uganda</span>
 							</li>
 							<li className="flex items-center gap-4">
 								<FiPhone className="text-[#F26421] shrink-0" size={18} />
-								<span>+256 (0) 123 456 7890</span>
+								<span>+256 779150875</span>
 							</li>
 							<li className="flex items-center gap-4">
 								<FiMail className="text-[#F26421] shrink-0" size={18} />
-								<span className="break-all">info@actsoflove.org</span>
+								<span className="break-all">actsofloveempowerment@gmail.com</span>
 							</li>
 						</ul>
 					</div>

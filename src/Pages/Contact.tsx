@@ -50,7 +50,7 @@ export default function ContactPage() {
 		e.preventDefault();
 		setSubmitted(true);
 	};
-	const position: [number, number] = [0.32678913755996225, 32.564701286507834];
+	const position: [number, number] = [0.264913, 32.546467];
 
 	const customMarkerIcon = L.divIcon({
 		html: renderToStaticMarkup(<FaMapPin size={30} color="#D91E26" />),
@@ -105,8 +105,8 @@ export default function ContactPage() {
 							style={{ color: "#4a4a4a" }}
 						>
 							Whether you have a question about programs, want to make a
-							donation, or are interested in volunteering or partnering — our
-							team is ready to help.
+							donation, or are interested in volunteering or partnering our team
+							is ready to help.
 						</p>
 
 						<div className="flex flex-col gap-6">
@@ -114,20 +114,20 @@ export default function ContactPage() {
 								{
 									icon: FiMapPin,
 									label: "Our Office",
-									value: "kampala, uganda",
+									value: "Bunamwaya, Wakiso District, Uganda",
 									href: null,
 								},
 								{
 									icon: FiMail,
 									label: "Email Us",
-									value: "info@actsoflove.org",
-									href: "mailto:info@actsoflove.org",
+									value: "actsofloveempowerment@gmail.com",
+									href: "mailto:actsofloveempowerment@gmail.com",
 								},
 								{
 									icon: FiPhone,
 									label: "Call Us",
-									value: "+256 800 000 0000",
-									href: "tel:+2568000000000",
+									value: "+256 779150875",
+									href: "tel:+256779150875",
 								},
 								{
 									icon: FiClock,
@@ -360,7 +360,7 @@ export default function ContactPage() {
 							/>
 							<Marker position={position} icon={customMarkerIcon}>
 								<Popup>
-									Act of Love Empowerment Foundation <br /> Kampala, Uganda.
+									Act of Love Empowerment Foundation <br /> Bunamwaya, Wakiso.
 									{position[0]}, {position[1]}
 								</Popup>
 							</Marker>

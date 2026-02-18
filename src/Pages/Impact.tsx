@@ -27,13 +27,13 @@ const pillars = [
 		summary:
 			"We deliver life-saving and preventive healthcare to communities that would otherwise go without, through a network of mobile clinics, trained community health workers, and partner hospitals.",
 		highlights: [
-			"Free mobile clinics serving 15+ communities annually",
+			"We plan to launch Free mobile clinics serving 15+ communities annually",
 			"Maternal & child health programs reducing infant mortality",
 			"HIV/AIDS awareness and prevention campaigns",
 			"Mental health support and community counselling",
 			"Disease surveillance and epidemic response teams",
 		],
-		stat: { val: "100+", label: "Patients Served Annually" },
+		stat: { val: "0+", label: "Patients Served Annually" },
 	},
 	{
 		icon: FiUsers,
@@ -44,15 +44,15 @@ const pillars = [
 		image:
 			"https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
 		summary:
-			"We fight for the full participation of every person in society — from persons with disabilities to women facing systemic barriers to young people navigating a difficult world.",
+			"We fight for the full participation of every person in society from persons with disabilities to women facing systemic barriers to young people navigating a difficult world.",
 		highlights: [
-			"Assistive devices and rehabilitation support for PWDs",
+			"We plan to provide assistive devices and rehabilitation support for PWDs",
 			"Gender equity and women's economic empowerment programs",
 			"Safe spaces and support for survivors of gender-based violence",
 			"Youth leadership development and mentorship",
 			"Legal aid and rights advocacy clinics",
 		],
-		stat: { val: "10+", label: "Individuals Supported" },
+		stat: { val: "0+", label: "Individuals Supported" },
 	},
 	{
 		icon: FiBook,
@@ -63,15 +63,15 @@ const pillars = [
 		image:
 			"https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80",
 		summary:
-			"Education is the most powerful tool for breaking the cycle of poverty. We invest in learners at every stage — from early childhood to vocational training — to unlock lifelong potential.",
+			"Education is the most powerful tool for breaking the cycle of poverty. We invest in learners at every stage from early childhood to vocational training to unlock lifelong potential.",
 		highlights: [
-			"Full scholarships covering tuition, materials, and feeding",
+			"We plan to provide full scholarships covering tuition, materials, and feeding",
 			"Adult literacy and numeracy programs for women",
 			"STEM outreach in underserved secondary schools",
 			"School infrastructure: classrooms, toilets, libraries",
 			"Teacher training and capacity building",
 		],
-		stat: { val: "600+", label: "Students Supported" },
+		stat: { val: "0+", label: "Students Supported" },
 	},
 	{
 		icon: FiSun,
@@ -84,33 +84,33 @@ const pillars = [
 		summary:
 			"True transformation means equipping communities to be self-sufficient long after our teams leave. Our sustainable development programs build lasting economic and environmental resilience.",
 		highlights: [
-			"Clean water access: borehole drilling and water treatment",
+			"We plan to provide clean water access: borehole drilling and water treatment",
 			"Agribusiness training and cooperative farming support",
 			"Solar energy installation for off-grid communities",
 			"Micro-enterprise grants and SME capacity building",
 			"Environmental conservation and tree planting campaigns",
 		],
-		stat: { val: "20+", label: "Households Reached" },
+		stat: { val: "0+", label: "Households Reached" },
 	},
 ];
 
 const stats = [
 	{
 		icon: FiPeople,
-		val: "100+",
+		val: "0+",
 		label: "Lives Directly Impacted",
 		sub: "Across all 4 pillars",
 	},
 	{
 		icon: FiMapPin,
-		val: "15+",
+		val: "0+",
 		label: "Communities Served",
 		sub: "Nationwide reach",
 	},
-	{ icon: FiAward, val: "15+", label: "Years of Service", sub: "Founded 2025" },
+	{ icon: FiAward, val: "0+", label: "Years of Service", sub: "Founded 2025" },
 	{
 		icon: FiHeart,
-		val: "20+",
+		val: "0+",
 		label: "Dedicated Volunteers",
 		sub: "Giving their time",
 	},

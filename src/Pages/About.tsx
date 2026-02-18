@@ -57,7 +57,7 @@ export default function AboutPage() {
 						<span className="block text-[#639E90]">Compassion & Action</span>
 					</h1>
 					<p className="text-gray-200 text-base md:text-lg">
-						For over 15 years, we have partnered with communities to create
+						We plan to partner with communities to create
 						sustainable, life-changing impact across Uganda.
 					</p>
 				</div>
@@ -96,7 +96,7 @@ export default function AboutPage() {
 								className="text-base leading-relaxed mb-8"
 								style={{ color: "#4a4a4a" }}
 							>
-								We work not just for communities, but with them — listening,
+								We work not just for communities, but with them listening,
 								co-designing, and walking alongside people as they build the
 								lives they deserve. Our model is built on trust, transparency,
 								and the conviction that every person carries dignity worth
@@ -406,7 +406,7 @@ export default function AboutPage() {
 						className="text-base leading-relaxed mb-8"
 						style={{ color: "rgba(255,255,255,0.75)" }}
 					>
-						Whether you give, volunteer, or partner with us — you become part of
+						Whether you give, volunteer, or partner with us you become part of
 						a community changing lives every single day.
 					</p>
 					<div className="flex flex-wrap justify-center gap-4">

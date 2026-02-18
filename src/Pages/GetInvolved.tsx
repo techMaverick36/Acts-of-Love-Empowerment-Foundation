@@ -352,7 +352,7 @@ export default function GetInvolvedPage() {
 										onChange={(e) => setForm({ ...form, name: e.target.value })}
 										className="w-full border-2 rounded-lg px-4 py-2.5 text-sm outline-none transition-colors"
 										style={{ borderColor: "#e2e8f0" }}
-										placeholder="e.g. Amara Okonkwo"
+										placeholder="e.g. Jane Doe"
 									/>
 								</div>
 								<div>

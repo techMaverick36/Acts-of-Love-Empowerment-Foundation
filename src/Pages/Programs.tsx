@@ -14,7 +14,7 @@ const programs = [
 			"https://images.unsplash.com/photo-1521493959102-bdd6677fdd81?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		cost: "From $100/month",
 		description:
-			"Your monthly sponsorship directly covers school fees, healthcare, nutritious meals, and mentorship for a child in need. When you sponsor a child, you become a consistent presence in their life — someone they know is rooting for them.",
+			"Your monthly sponsorship directly covers school fees, healthcare, nutritious meals, and mentorship for a child in need. When you sponsor a child, you become a consistent presence in their life someone they know is rooting for them.",
 		includes: [
 			"Full school fees and learning materials",
 			"Monthly healthcare checkups and medications",
@@ -33,7 +33,7 @@ const programs = [
 			"https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
 		cost: "From $500",
 		description:
-			"Fund clean water access, community health centers, school construction, or agricultural support projects that lift entire villages toward self-sufficiency. Your gift doesn't just help one person — it transforms an entire ecosystem.",
+			"Fund clean water access, community health centers, school construction, or agricultural support projects that lift entire villages toward self-sufficiency. Your gift doesn't just help one person  it transforms an entire ecosystem.",
 		includes: [
 			"Borehole drilling and clean water access",
 			"Community health center construction & equipment",
@@ -52,7 +52,7 @@ const programs = [
 			"https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
 		cost: "Any amount helps",
 		description:
-			"Rush critical funds to individuals facing life-threatening health crises — surgeries, emergency procedures, medications — who have no other means of support. Time-sensitive giving saves lives.",
+			"Rush critical funds to individuals facing life-threatening health crises surgeries, emergency procedures, medications  who have no other means of support. Time-sensitive giving saves lives.",
 		includes: [
 			"Emergency surgery and procedure funding",
 			"Critical medications and post-op care",
