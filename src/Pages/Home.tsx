@@ -220,7 +220,7 @@ export default function HomePage() {
 						{[
 							{ val: "5+", label: "Lives Impacted" },
 							{ val: "2+", label: "Communities Served" },
-							{ val: "1+", label: "Years of Service" },
+							{ val: "less than a year", label: "Years of Service" },
 							{ val: "5+", label: "Volunteers" },
 						].map((s) => (
 							<div key={s.label}>
