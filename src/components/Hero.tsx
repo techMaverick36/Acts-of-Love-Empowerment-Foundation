@@ -111,7 +111,7 @@ export default function Hero() {
 					</div>
 
 					{/* Impact Stats */}
-					<div className="hidden lg:grid grid-cols-3 gap-12 border-t border-white/20 pt-8 max-w-3xl">
+					{/* <div className="hidden lg:grid grid-cols-3 gap-12 border-t border-white/20 pt-8 max-w-3xl">
 						{[
 							{ label: "Lives Impacted", val: "1+" },
 							{ label: "Communities Served", val: "0+" },
@@ -126,7 +126,7 @@ export default function Hero() {
 								</p>
 							</div>
 						))}
-					</div>
+					</div> */}
 				</div>
 			</div>
 

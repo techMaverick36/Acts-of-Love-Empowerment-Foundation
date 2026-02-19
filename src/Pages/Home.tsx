@@ -218,10 +218,10 @@ export default function HomePage() {
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
 						{[
-							{ val: "0+", label: "Lives Impacted" },
-							{ val: "0+", label: "Communities Served" },
-							{ val: "0+", label: "Years of Service" },
-							{ val: "0+", label: "Volunteers" },
+							{ val: "5+", label: "Lives Impacted" },
+							{ val: "2+", label: "Communities Served" },
+							{ val: "1+", label: "Years of Service" },
+							{ val: "5+", label: "Volunteers" },
 						].map((s) => (
 							<div key={s.label}>
 								<p className="font-serif text-5xl font-bold text-white mb-2">
