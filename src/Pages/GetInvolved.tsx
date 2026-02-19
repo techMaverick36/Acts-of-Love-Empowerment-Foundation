@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
 	FiClock,
 	FiGlobe,
@@ -10,6 +10,7 @@ import {
 } from "react-icons/fi";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useLocation } from "react-router-dom";
 
 const roles = [
 	{
@@ -69,7 +70,7 @@ const perks = [
 	{
 		icon: FiUsers,
 		title: "Strong Community",
-		desc: "Join a network of 500+ like-minded volunteers committed to change.",
+		desc: "Join a growing network of like-minded volunteers committed to change.",
 	},
 	{
 		icon: FiCheckCircle,
@@ -92,6 +93,16 @@ export default function GetInvolvedPage() {
 		message: "",
 	});
 	const [submitted, setSubmitted] = useState(false);
+	const { hash } = useLocation();
+
+	useEffect(() => {
+		if (hash) {
+			const el = document.querySelector(hash);
+			if (el) {
+				setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+			}
+		}
+	}, [hash]);
 
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
@@ -122,7 +133,7 @@ export default function GetInvolvedPage() {
 			</section>
 
 			{/* ── VOLUNTEER INTRO ── */}
-			<section className="py-20" style={{ backgroundColor: "#eef3fb" }}>
+			<section id="volunteer" className="py-20 scroll-mt-28" style={{ backgroundColor: "#eef3fb" }}>
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="grid lg:grid-cols-2 gap-16 items-center">
 						<div>
@@ -145,7 +156,7 @@ export default function GetInvolvedPage() {
 							>
 								You don't need to have money to make a difference. Your skills,
 								time, and passion are the most powerful things you can offer.
-								Join the current volunteers already making their mark across
+								Join our growing team of volunteers already making their mark across
 								Uganda.
 							</p>
 							<p
@@ -242,13 +253,13 @@ export default function GetInvolvedPage() {
 							className="text-sm font-semibold tracking-widest uppercase mb-3"
 							style={{ color: "#D91E26" }}
 						>
-							Open Roles
+							Open Volunteer Roles
 						</p>
 						<h2
 							className="font-serif text-4xl font-bold"
 							style={{ color: "#204487" }}
 						>
-							Find Your Role
+							Find Your Volunteer Role
 						</h2>
 					</div>
 					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
@@ -446,30 +457,34 @@ export default function GetInvolvedPage() {
 			</section>
 
 			{/* ── PARTNERSHIP ── */}
-			<section className="py-20" style={{ backgroundColor: "#08415C" }}>
+			<section className="py-24" style={{ backgroundColor: "#08415C" }}>
 				<div className="max-w-4xl mx-auto px-6 text-center">
+					{/* Decorative line */}
+					<div className="flex justify-center mb-6">
+						<span className="h-px w-16 bg-[#639E90]"></span>
+					</div>
 					<p
-						className="text-sm font-semibold tracking-widest uppercase mb-4"
+						className="text-sm font-semibold tracking-widest uppercase mb-5"
 						style={{ color: "#639E90" }}
 					>
 						Partnerships
 					</p>
-					<h2 className="font-serif text-4xl font-bold text-white mb-4">
+					<h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6">
 						Become an Organisational Partner
 					</h2>
 					<p
-						className="text-base leading-relaxed mb-8"
+						className="text-base md:text-lg leading-relaxed mb-12 max-w-2xl mx-auto"
 						style={{ color: "rgba(255,255,255,0.75)" }}
 					>
-						Corporations, institutions, and faith organizations are invited to
-						partner with us through funding, capacity, and shared advocacy.
-						Let's design something impactful together.
+						We're looking for organizations that share our vision. Whether through
+						funding, capacity building, or shared advocacy — let's create
+						lasting impact together.
 					</p>
 					<a
 						href="mailto:partnerships@actsoflove.org"
-						className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold rounded border-2 border-white border-opacity-50 text-white hover:bg-white hover:text-blue-800 transition-colors"
+						className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold rounded-lg border-2 border-white/50 text-white hover:bg-white hover:text-[#08415C] transition-all duration-300"
 					>
-						Discuss Partnership <FiArrowRight size={16} />
+						Discuss Partnership <FiArrowRight size={18} />
 					</a>
 				</div>
 			</section>

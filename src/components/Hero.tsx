@@ -10,7 +10,7 @@ const slides = [
 	{
 		url: "https://images.unsplash.com/photo-1521493959102-bdd6677fdd81?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		alt: "Children in a community program",
-		title: "Empowering Young Minds.",
+		title: "Empowering The Young Through",
 		highlight: "Education",
 		description:
 			"We provide access to inclusive and quality education that breaks the cycle of poverty.",
@@ -74,10 +74,10 @@ export default function Hero() {
 			))}
 
 			{/* Content */}
-			<div className="relative z-10 h-full flex items-center px-6 md:px-12 lg:px-24 lg:-right-60">
+			<div className="relative z-10 h-full flex items-center px-6 pt-28 md:pt-32 lg:pt-0 md:px-12 lg:px-24 lg:-right-60">
 				<div className="max-w-3xl text-white">
 					{/* Tagline */}
-					<div className="flex items-center gap-3 mb-6">
+					<div className="flex items-center gap-3 mb-8">
 						<span className="h-px w-10 bg-[#639E90]"></span>
 						<p className="uppercase tracking-[0.3em] text-xs md:text-sm font-semibold text-[#639E90]">
 							Acts of Love Empowerment Foundation
@@ -85,7 +85,7 @@ export default function Hero() {
 					</div>
 
 					{/* Dynamic Headline */}
-					<h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6 transition-all duration-700">
+					<h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.2] tracking-tight mb-8 transition-all duration-700">
 						{slides[current].title}{" "}
 						<span className="text-[#639E90] italic">
 							{slides[current].highlight}
@@ -93,7 +93,7 @@ export default function Hero() {
 					</h1>
 
 					{/* Dynamic Description */}
-					<p className="text-gray-200 text-lg md:text-xl max-w-2xl leading-relaxed mb-10">
+					<p className="text-gray-200 text-lg md:text-xl max-w-2xl leading-loose mb-12">
 						{slides[current].description}
 					</p>
 

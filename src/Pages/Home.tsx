@@ -89,7 +89,7 @@ export default function HomePage() {
 								tag: "Our Mission",
 								tagColor: "#D91E26",
 								title: "Empowering Communities to Flourish",
-								body: "Our Mission is to provide support to communities by enhancing education, promoting better health practices, inclusion, and sustainable environmental development, so that everyone has a fair chance at living a productive life",
+								body: "Our Mission is to provide support to communities by enhancing education, promoting better health practices, inclusion, and sustainable development, so that everyone has a fair chance at living a productive life",
 							},
 							{
 								icon: FiEye,
@@ -136,7 +136,7 @@ export default function HomePage() {
 					</div>
 					<div className="text-center">
 						<Link
-							to="/about"
+							to="/about#principles"
 							className="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:opacity-80"
 							style={{ color: "#204487" }}
 						>
@@ -269,13 +269,13 @@ export default function HomePage() {
 						{[
 							{
 								title: "Sponsor a Child",
-								cost: "From $100/month",
+								cost: "Any amount helps",
 								img: "https://images.unsplash.com/photo-1521493959102-bdd6677fdd81?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 								badge: "Most Popular",
 							},
 							{
 								title: "Help a Community",
-								cost: "From $10",
+								cost: "Any amount helps",
 								img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80",
 								badge: null,
 							},
@@ -372,10 +372,10 @@ export default function HomePage() {
 						style={{ color: "#4a4a4a" }}
 					>
 						Your skills and passion are the most powerful things you can offer.
-						Join hundreds of volunteers already making their mark.
+						Join our growing team of volunteers already making their mark.
 					</p>
 					<Link
-						to="/get-involved"
+						to="/get-involved#volunteer"
 						className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white rounded hover:opacity-90 transition-opacity"
 						style={{ backgroundColor: "#D91E26" }}
 					>

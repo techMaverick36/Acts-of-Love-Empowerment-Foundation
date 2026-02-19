@@ -1,5 +1,6 @@
-import { FiHeart, FiEye, FiArrowRight } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { FiHeart, FiArrowRight, FiShield, FiUsers, FiStar, FiTarget, FiGlobe } from "react-icons/fi";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -35,6 +36,17 @@ const milestones = [
 ];
 
 export default function AboutPage() {
+	const { hash } = useLocation();
+
+	useEffect(() => {
+		if (hash) {
+			const el = document.querySelector(hash);
+			if (el) {
+				setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+			}
+		}
+	}, [hash]);
+
 	return (
 		<div>
 			<Navbar />
@@ -139,151 +151,95 @@ export default function AboutPage() {
 				</div>
 			</section>
 
-			{/* ── MISSION & VISION ── */}
-			<section className="py-20" style={{ backgroundColor: "#eef3fb" }}>
+			{/* ── OUR PRINCIPLES ── */}
+			<section id="principles" className="py-20 scroll-mt-24" style={{ backgroundColor: "#eef3fb" }}>
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="text-center max-w-2xl mx-auto mb-14">
 						<p
 							className="text-sm font-semibold tracking-widest uppercase mb-3"
 							style={{ color: "#D91E26" }}
 						>
-							Purpose & Direction
+							What Guides Us
 						</p>
 						<h2
-							className="font-serif text-4xl font-bold"
+							className="font-serif text-4xl font-bold mb-4"
 							style={{ color: "#204487" }}
 						>
-							Mission & Vision
+							Our Principles
 						</h2>
+						<p
+							className="text-base leading-relaxed"
+							style={{ color: "#4a4a4a" }}
+						>
+							These principles shape every decision we make and every program we build. They are the foundation of who we are.
+						</p>
 					</div>
-					<div className="grid md:grid-cols-2 gap-8">
-						<div className="bg-white rounded-2xl p-10 border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-							<div
-								className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
-								style={{ backgroundColor: "#204487" }}
-							>
-								<FiHeart size={26} className="text-white" />
-							</div>
-							<p
-								className="text-xs font-bold tracking-widest uppercase mb-3"
-								style={{ color: "#D91E26" }}
-							>
-								Our Mission
-							</p>
-							<h3
-								className="font-serif text-2xl font-bold mb-4"
-								style={{ color: "#204487" }}
-							>
-								Empowering Communities to Flourish
-							</h3>
-							<p
-								className="text-base leading-relaxed mb-6"
-								style={{ color: "#4a4a4a" }}
-							>
-								Our Mission is to provide support to communities by enhancing
-								education, promoting better health practices, inclusion, and
-								sustainable environmental development, so that everyone has a
-								fair chance at living a productive life
-							</p>
-							<ul
-								className="flex flex-col gap-2 pt-6 border-t"
-								style={{ borderColor: "#e8eef8" }}
-							>
-								{[
-									"Community-driven programming",
-									"Long-term, sustainable solutions",
-									"Dignity-centered service delivery",
-								].map((i) => (
-									<li
-										key={i}
-										className="flex items-start gap-2 text-sm"
-										style={{ color: "#4a4a4a" }}
-									>
-										<span
-											className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-											style={{ backgroundColor: "#00A54F" }}
-										/>
-										{i}
-									</li>
-								))}
-							</ul>
-						</div>
-						<div className="bg-white rounded-2xl p-10 border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-							<div
-								className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
-								style={{ backgroundColor: "#D91E26" }}
-							>
-								<FiEye size={26} className="text-white" />
-							</div>
-							<p
-								className="text-xs font-bold tracking-widest uppercase mb-3"
-								style={{ color: "#204487" }}
-							>
-								Our Vision
-							</p>
-							<h3
-								className="font-serif text-2xl font-bold mb-4"
-								style={{ color: "#204487" }}
-							>
-								A World Where Everyone Thrives
-							</h3>
-							<p
-								className="text-base leading-relaxed mb-6"
-								style={{ color: "#4a4a4a" }}
-							>
-								Our Vision is to create an inclusive world where every
-								individual has an opportunity to live a dignified, empowered,
-								and fulfilled life, regardless of their background.
-							</p>
-							<ul
-								className="flex flex-col gap-2 pt-6 border-t"
-								style={{ borderColor: "#e8eef8" }}
-							>
-								{[
-									"Equal access to opportunity",
-									"Inclusive growth for all communities",
-									"Resilient, self-sustaining societies",
-								].map((i) => (
-									<li
-										key={i}
-										className="flex items-start gap-2 text-sm"
-										style={{ color: "#4a4a4a" }}
-									>
-										<span
-											className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-											style={{ backgroundColor: "#D91E26" }}
-										/>
-										{i}
-									</li>
-								))}
-							</ul>
-						</div>
-					</div>
-
-					{/* Values */}
-					<div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 						{[
-							{ label: "Compassion", color: "#D91E26" },
-							{ label: "Transparency", color: "#204487" },
-							{ label: "Integrity", color: "#00A54F" },
-							{ label: "Inclusion", color: "#F26421" },
-						].map((v) => (
-							<div
-								key={v.label}
-								className="bg-white rounded-xl px-5 py-4 text-center border border-blue-100"
-							>
+							{
+								icon: FiHeart,
+								title: "Compassion First",
+								desc: "Every action we take is rooted in love and genuine care for the communities we serve. We lead with empathy in all that we do.",
+								color: "#D91E26",
+							},
+							{
+								icon: FiShield,
+								title: "Integrity & Transparency",
+								desc: "We are open, honest, and accountable in everything we do from how we use funds to how we report our impact.",
+								color: "#204487",
+							},
+							{
+								icon: FiUsers,
+								title: "Inclusion & Dignity",
+								desc: "We believe every person deserves to be treated with dignity and respect, regardless of background, identity, or circumstance.",
+								color: "#F26421",
+							},
+							{
+								icon: FiGlobe,
+								title: "Community Ownership",
+								desc: "We work with communities, not just for them. Our programs are co-designed with the people they are meant to serve.",
+								color: "#639E90",
+							},
+							{
+								icon: FiTarget,
+								title: "Sustainable Impact",
+								desc: "We focus on long-term solutions over short-term fixes, building programs that continue to deliver value for generations.",
+								color: "#00A54F",
+							},
+							{
+								icon: FiStar,
+								title: "Excellence & Stewardship",
+								desc: "We hold ourselves to the highest standards of service delivery, ensuring that every resource is used wisely and purposefully.",
+								color: "#204487",
+							},
+						].map((p) => {
+							const Icon = p.icon;
+							return (
 								<div
-									className="w-2 h-2 rounded-full mx-auto mb-2"
-									style={{ backgroundColor: v.color }}
-								/>
-								<p
-									className="text-sm font-semibold"
-									style={{ color: "#1D1E1F" }}
+									key={p.title}
+									className="bg-white rounded-2xl p-8 border border-blue-100 shadow-sm hover:shadow-md transition-shadow duration-300"
 								>
-									{v.label}
-								</p>
-							</div>
-						))}
+									<div
+										className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+										style={{ backgroundColor: p.color }}
+									>
+										<Icon size={22} className="text-white" />
+									</div>
+									<h3
+										className="font-serif text-xl font-bold mb-3"
+										style={{ color: "#204487" }}
+									>
+										{p.title}
+									</h3>
+									<p
+										className="text-sm leading-relaxed"
+										style={{ color: "#4a4a4a" }}
+									>
+										{p.desc}
+									</p>
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			</section>

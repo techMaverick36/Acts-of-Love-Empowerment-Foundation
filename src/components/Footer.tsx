@@ -43,7 +43,7 @@ export default function Footer() {
 						</Link>
 
 						<p className="text-blue-100/80 text-sm leading-relaxed max-w-xs">
-							Dedicated to transforming lives through sustainable healthcare,
+							Committed to transforming lives through sustainable healthcare,
 							education, and community empowerment initiatives across Uganda.
 						</p>
 

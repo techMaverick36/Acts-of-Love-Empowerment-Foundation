@@ -28,22 +28,23 @@ export default function Navbar() {
 			<div className="max-w-7xl mx-auto px-6">
 				<div className="flex items-center justify-between h-20">
 					{/* Logo */}
-					<Link to={"/"} className="flex items-center gap-2">
-						<div className="w-9 h-9 rounded-full flex items-center justify-end">
+					<Link to={"/"} className="flex items-center gap-3">
+						<div className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center flex-shrink-0">
 							<img
 								src="./logo.png"
 								alt="Acts of Love Empowerment Foundation Logo"
+								className="w-full h-full object-contain"
 							/>
 						</div>
 						<div className="leading-tight">
 							<p
-								className="font-serif font-bold text-base leading-none"
+								className="font-serif font-bold text-lg md:text-xl leading-none"
 								style={{ color: "#204487" }}
 							>
 								Acts of Love
 							</p>
 							<p
-								className="text-xs tracking-widest uppercase"
+								className="text-[0.65rem] md:text-xs tracking-widest uppercase"
 								style={{ color: "#639E90" }}
 							>
 								Empowerment Foundation
@@ -90,7 +91,7 @@ export default function Navbar() {
 					{/* Donate Button */}
 					<div className="hidden md:block">
 						<a
-							href={`/get-involved`}
+							href={`/programs`}
 							className="inline-block px-6 py-2.5 text-sm font-semibold text-white rounded transition-opacity duration-200 hover:opacity-90"
 							style={{ backgroundColor: "#D91E26" }}
 						>
@@ -123,7 +124,7 @@ export default function Navbar() {
 						</NavLink>
 					))}
 					<NavLink
-						to={`/get-involved`}
+						to={`/programs`}
 						className="inline-block px-6 py-2.5 text-sm font-semibold text-white rounded text-center mt-2"
 						style={{ backgroundColor: "#D91E26" }}
 					>
