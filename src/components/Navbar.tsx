@@ -90,13 +90,13 @@ export default function Navbar() {
 
 					{/* Donate Button */}
 					<div className="hidden md:block">
-						<a
-							href={`/programs`}
+						<Link
+							to={`/donate`}
 							className="inline-block px-6 py-2.5 text-sm font-semibold text-white rounded transition-opacity duration-200 hover:opacity-90"
 							style={{ backgroundColor: "#D91E26" }}
 						>
-							Donate Now
-						</a>
+							Donate
+						</Link>
 					</div>
 
 					{/* Mobile Menu Toggle */}
@@ -117,18 +117,23 @@ export default function Navbar() {
 						<NavLink
 							key={link.name}
 							to={link.path}
-							className="text-sm font-medium py-1"
-							style={{ color: "#1D1E1F" }}
+							className={({ isActive }) =>
+								`text-sm font-medium py-1 transition-colors ${
+									isActive ? "text-[#D91E26]" : "text-[#1D1E1F]"
+								}`
+							}
+							onClick={() => setMenuOpen(false)}
 						>
 							{link.name}
 						</NavLink>
 					))}
 					<NavLink
-						to={`/programs`}
+						to={`/donate`}
 						className="inline-block px-6 py-2.5 text-sm font-semibold text-white rounded text-center mt-2"
 						style={{ backgroundColor: "#D91E26" }}
+						onClick={() => setMenuOpen(false)}
 					>
-						Donate Now
+						Donate
 					</NavLink>
 				</div>
 			)}

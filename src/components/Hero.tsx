@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
 	FiArrowRight,
-	FiChevronLeft,
-	FiChevronRight,
+	// FiChevronLeft,
+	// FiChevronRight,
 	FiHeart,
 } from "react-icons/fi";
 
@@ -51,8 +52,8 @@ export default function Hero() {
 		return () => clearInterval(timer);
 	}, []);
 
-	const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
-	const next = () => setCurrent((c) => (c + 1) % slides.length);
+	// const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
+	// const next = () => setCurrent((c) => (c + 1) % slides.length);
 
 	return (
 		<section className="relative h-[90vh] md:h-screen w-full overflow-hidden font-sans">
@@ -73,42 +74,48 @@ export default function Hero() {
 				</div>
 			))}
 
-			{/* Content */}
-			<div className="relative z-10 h-full flex items-center px-6 pt-28 md:pt-32 lg:pt-0 md:px-12 lg:px-24 lg:-right-60">
-				<div className="max-w-3xl text-white">
+   {/* Content */}
+   <div className="relative z-10 h-full flex items-center justify-center lg:justify-start px-6 pt-20 sm:pt-28 md:pt-32 lg:pt-0 md:px-12 lg:px-24">
+       <div className="max-w-3xl text-white md:text-center lg:text-left">
 					{/* Tagline */}
-					<div className="flex items-center gap-3 mb-8">
-						<span className="h-px w-10 bg-[#639E90]"></span>
-						<p className="uppercase tracking-[0.3em] text-xs md:text-sm font-semibold text-[#639E90]">
-							Acts of Love Empowerment Foundation
-						</p>
-					</div>
+     <div className="flex items-center gap-3 mb-4 sm:mb-8 md:justify-center lg:justify-start">
+                        <span className="h-px w-6 sm:w-10 bg-[#639E90]"></span>
+                        <p className="uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs md:text-sm font-semibold text-[#639E90]">
+                            Acts of Love Empowerment Foundation
+                        </p>
+                    </div>
 
 					{/* Dynamic Headline */}
-					<h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.2] tracking-tight mb-8 transition-all duration-700">
-						{slides[current].title}{" "}
-						<span className="text-[#639E90] italic">
-							{slides[current].highlight}
-						</span>
-					</h1>
+     <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight sm:leading-[1.2] tracking-tight mb-4 sm:mb-8 transition-all duration-700">
+                        {slides[current].title}{" "}
+                        <span className="text-[#639E90] italic">
+                            {slides[current].highlight}
+                        </span>
+                    </h1>
 
 					{/* Dynamic Description */}
-					<p className="text-gray-200 text-lg md:text-xl max-w-2xl leading-loose mb-12">
-						{slides[current].description}
-					</p>
+     <p className="text-gray-200 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed sm:leading-loose mb-8 sm:mb-12 mx-auto lg:mx-0">
+                        {slides[current].description}
+                    </p>
 
 					{/* CTA Buttons */}
-					<div className="flex flex-col sm:flex-row gap-4 mb-16">
-						<button className="group flex items-center justify-center gap-3 bg-[#D91E26] text-white px-8 py-4 rounded-full font-semibold transition-all hover:bg-[#b81a20] hover:scale-105 active:scale-95 shadow-xl">
-							<FiHeart className="group-hover:animate-pulse" />
-							Donate Now
-						</button>
+     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-16 sm:justify-center lg:justify-start">
+                        <Link
+                            to="/donate"
+                            className="group flex items-center justify-center gap-3 bg-[#D91E26] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all hover:bg-[#b81a20] hover:scale-105 active:scale-95 shadow-xl text-sm sm:text-base"
+                        >
+                            <FiHeart className="group-hover:animate-pulse" />
+                            Donate
+                        </Link>
 
-						<button className="flex items-center justify-center gap-2 border-2 border-white/40 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition-all">
-							Become a Partner
-							<FiArrowRight />
-						</button>
-					</div>
+      <Link
+                            to="/get-involved#partnerships"
+                            className="flex items-center justify-center gap-2 border-2 border-white/40 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white hover:text-black transition-all text-sm sm:text-base"
+                        >
+                            Become a Partner
+                            <FiArrowRight />
+                        </Link>
+                    </div>
 
 					{/* Impact Stats */}
 					{/* <div className="hidden lg:grid grid-cols-3 gap-12 border-t border-white/20 pt-8 max-w-3xl">
@@ -131,7 +138,7 @@ export default function Hero() {
 			</div>
 
 			{/* Navigation Arrows */}
-			<div className="absolute right-8 bottom-24 md:bottom-auto md:top-1/2 md:-translate-y-1/2 flex flex-col gap-4 z-20">
+			{/* <div className="absolute right-8 bottom-24 md:bottom-auto md:top-1/2 md:-translate-y-1/2 flex flex-col gap-4 z-20">
 				<button
 					onClick={prev}
 					className="p-4 rounded-full border border-white/30 text-white hover:bg-white hover:text-black transition-all backdrop-blur-md"
@@ -144,7 +151,7 @@ export default function Hero() {
 				>
 					<FiChevronRight size={24} />
 				</button>
-			</div>
+			</div> */}
 
 			{/* Slide Progress Bars */}
 			<div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-4 z-20">

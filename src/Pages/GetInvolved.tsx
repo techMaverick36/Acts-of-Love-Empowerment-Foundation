@@ -457,7 +457,7 @@ export default function GetInvolvedPage() {
 			</section>
 
 			{/* ── PARTNERSHIP ── */}
-			<section className="py-24" style={{ backgroundColor: "#08415C" }}>
+			<section id="partnerships" className="py-24 scroll-mt-24" style={{ backgroundColor: "#08415C" }}>
 				<div className="max-w-4xl mx-auto px-6 text-center">
 					{/* Decorative line */}
 					<div className="flex justify-center mb-6">

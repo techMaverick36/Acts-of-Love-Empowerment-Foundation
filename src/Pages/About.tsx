@@ -52,7 +52,7 @@ export default function AboutPage() {
 			<Navbar />
 
 			{/* ── PAGE HERO ── */}
-			<section className="relative h-[45vh] min-h-[340px] flex items-center justify-center text-center overflow-hidden">
+			<section className="relative min-h-[60vh] md:h-[45vh] flex items-center justify-center text-center overflow-hidden py-20 sm:py-24">
 				<img
 					src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=1600&q=80"
 					alt="Community impact"
@@ -64,11 +64,11 @@ export default function AboutPage() {
 					<p className="uppercase tracking-[0.3em] text-xs mb-4 font-semibold text-[#f85407]">
 						About Acts of Love
 					</p>
-					<h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-4">
+					<h1 className="font-serif break-words text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-snug sm:leading-tight mb-3 sm:mb-4">
 						Building Hope Through
 						<span className="block text-[#639E90]">Compassion & Action</span>
 					</h1>
-					<p className="text-gray-200 text-base md:text-lg">
+					<p className="text-gray-200 text-sm sm:text-base md:text-lg">
 						We plan to partner with communities to create
 						sustainable, life-changing impact across Uganda.
 					</p>
@@ -76,9 +76,9 @@ export default function AboutPage() {
 			</section>
 
 			{/* ── INTRO ── */}
-			<section className="p-20 bg-white ">
+			<section className="py-12 md:py-20 bg-white">
 				<div className="max-w-7xl mx-auto px-6">
-					<div className="grid lg:grid-cols-2 gap-16 items-center">
+					<div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
 						<div>
 							<p
 								className="text-sm font-semibold tracking-widest uppercase mb-4"
@@ -98,7 +98,7 @@ export default function AboutPage() {
 							>
 								Acts of Love Empowerment Foundation was founded in January 2026
 								by a small group of passionate Ugandans who believed that change
-								begins at the community level. We Picture this world where every
+								begins at the community level. We envisioned a world where every
 								person, regardless of their circumstances, has the opportunity
 								to thrive. We started with a simple mission: to empower
 								vulnerable communities through compassionate action and
@@ -122,15 +122,14 @@ export default function AboutPage() {
 								See Our Impact <FiArrowRight size={15} />
 							</Link>
 						</div>
-						<div className="relative">
+						<div className="relative mt-8 lg:mt-0">
 							<img
 								src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
 								alt="Community work"
-								className="rounded-2xl w-full object-cover"
-								style={{ height: 440 }}
+								className="rounded-2xl w-full object-cover shadow-2xl h-[300px] md:h-[440px]"
 							/>
 							<div
-								className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-lg border border-blue-100"
+								className="absolute -bottom-6 -left-0 md:-left-6 bg-white rounded-2xl p-6 shadow-lg border border-blue-100 hidden sm:block"
 								style={{ maxWidth: 220 }}
 							>
 								<p
@@ -367,11 +366,11 @@ export default function AboutPage() {
 					</p>
 					<div className="flex flex-wrap justify-center gap-4">
 						<Link
-							to="/programs"
+							to="/donate"
 							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded hover:opacity-90 transition-opacity"
 							style={{ backgroundColor: "#D91E26" }}
 						>
-							Donate Now <FiArrowRight size={16} />
+							Donate <FiArrowRight size={16} />
 						</Link>
 						<Link
 							to="/get-involved"

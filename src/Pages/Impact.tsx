@@ -122,7 +122,7 @@ export default function ImpactPage() {
 			<Navbar />
 
 			{/* ── PAGE HERO ── */}
-			<section className="relative h-[45vh] min-h-[340px] flex items-center justify-center text-center overflow-hidden">
+			<section className="relative min-h-[60vh] md:h-[45vh] flex items-center justify-center text-center overflow-hidden py-20 sm:py-24">
 				<img
 					src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=1600&q=80"
 					alt="Community impact"
@@ -134,11 +134,11 @@ export default function ImpactPage() {
 					<p className="uppercase tracking-[0.3em] text-xs mb-4 font-semibold text-[#F26421]">
 						Our Impacts
 					</p>
-					<h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-4">
+					<h1 className="font-serif break-words text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-snug sm:leading-tight mb-3 sm:mb-4">
 						Transforming Lives{" "}
 						<span className="block text-[#639E90]">Actions & Results</span>
 					</h1>
-					<p className="text-gray-200 text-base md:text-lg">
+					<p className="text-gray-200 text-sm sm:text-base md:text-lg">
 						Every number tells a story of lives changed, communities uplifted,
 						and a brighter future forged together.
 					</p>

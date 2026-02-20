@@ -265,8 +265,8 @@ export default function HomePage() {
 							Every gift goes directly toward programs that transform lives.
 						</p>
 					</div>
-					<div className="grid md:grid-cols-3 gap-8 mb-10">
-						{[
+     <div className="grid md:grid-cols-3 gap-8 mb-10">
+                        {[
 							{
 								title: "Sponsor a Child",
 								cost: "Any amount helps",
@@ -285,56 +285,60 @@ export default function HomePage() {
 								img: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80",
 								badge: "Urgent",
 							},
-						].map((c) => (
-							<div
-								key={c.title}
-								className="group rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-							>
-								<div className="relative h-48 overflow-hidden">
-									<img
-										src={c.img}
-										alt={c.title}
-										className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-									/>
-									<div
-										className="absolute inset-0"
-										style={{ backgroundColor: "rgba(32,68,135,0.35)" }}
-									/>
-									{c.badge && (
-										<span
-											className="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full text-white"
-											style={{ backgroundColor: "#D91E26" }}
-										>
-											{c.badge}
-										</span>
-									)}
-								</div>
-								<div className="p-6">
-									<h3
-										className="font-serif text-xl font-bold mb-2"
-										style={{ color: "#1D1E1F" }}
-									>
-										{c.title}
-									</h3>
-									<div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
-										<span
-											className="text-sm font-semibold"
-											style={{ color: "#204487" }}
-										>
-											{c.cost}
-										</span>
-										<Link
-											to="/programs"
-											className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-white rounded hover:opacity-90 transition-opacity"
-											style={{ backgroundColor: "#D91E26" }}
-										>
-											Give Now <FiArrowRight size={13} />
-										</Link>
-									</div>
-								</div>
-							</div>
-						))}
-					</div>
+      ].map((c) => (
+                            <div
+                                key={c.title}
+                                className="group rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#204487] flex flex-col bg-white/90"
+                            >
+                                <div className="relative h-48 overflow-hidden">
+                                    <img
+                                        src={c.img}
+                                        alt={c.title}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                    <div
+                                        className="absolute inset-0"
+                                        style={{
+                                            background:
+                                                "linear-gradient(180deg, rgba(32,68,135,0.15) 0%, rgba(32,68,135,0.45) 100%)",
+                                        }}
+                                    />
+                                    {c.badge && (
+                                        <span
+                                            className="absolute top-4 left-4 text-[10px] tracking-wide font-extrabold px-3 py-1 rounded-full text-white shadow-sm uppercase"
+                                            style={{ backgroundColor: "#D91E26" }}
+                                        >
+                                            {c.badge}
+                                        </span>
+                                    )}
+                                </div>
+                                <div className="p-6 flex flex-col h-full">
+                                    <h3
+                                        className="font-serif text-xl md:text-2xl font-bold mb-1.5"
+                                        style={{ color: "#1D1E1F" }}
+                                    >
+                                        {c.title}
+                                    </h3>
+                                    <p className="text-xs text-gray-500">Acts of Love Empowerment Foundation</p>
+                                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 mt-5 pt-4 border-t border-gray-100">
+                                        <span
+                                            className="text-sm font-semibold"
+                                            style={{ color: "#204487" }}
+                                        >
+                                            {c.cost}
+                                        </span>
+                                        <Link
+                                            to="/programs"
+                                            aria-label={`Give Away: ${c.title}`}
+                                            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white rounded-full transition-all bg-[#D91E26] hover:bg-[#b81a20] hover:scale-[1.02] active:scale-95 w-full lg:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#D91E26]"
+                                        >
+                                            Give Away <FiArrowRight size={14} />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
 					<div className="text-center">
 						<Link
 							to="/programs"

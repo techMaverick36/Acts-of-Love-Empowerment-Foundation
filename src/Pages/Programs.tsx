@@ -206,7 +206,7 @@ export default function ProgramsPage() {
 				<div className="max-w-7xl mx-auto px-6 flex flex-wrap gap-8 items-center justify-between">
 					{[
 						{ label: "100% of donations fund programs", color: "#00A54F" },
-					
+						{ label: "Registered Non-profit", color: "#00A54F" },
 						{ label: "Transparent reporting to all donors", color: "#D91E26" },
 					].map((item) => (
 						<div key={item.label} className="flex items-center gap-2">
