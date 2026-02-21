@@ -328,11 +328,11 @@ export default function HomePage() {
                                             {c.cost}
                                         </span>
                                         <Link
-                                            to="/programs"
+                                            to="/donate"
                                             aria-label={`Give Away: ${c.title}`}
                                             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white rounded-full transition-all bg-[#D91E26] hover:bg-[#b81a20] hover:scale-[1.02] active:scale-95 w-full lg:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#D91E26]"
                                         >
-                                            Give Away <FiArrowRight size={14} />
+                                            Donate <FiArrowRight size={14} />
                                         </Link>
                                     </div>
                                 </div>

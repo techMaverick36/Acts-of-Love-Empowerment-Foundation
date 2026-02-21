@@ -333,12 +333,19 @@ export default function ProgramsPage() {
 						waiting for surgery. A mother could be waiting for care. Every
 						contribution today goes directly to urgent cases.
 					</p>
-					<button
-						className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white rounded hover:opacity-90 transition-opacity"
-						style={{ backgroundColor: "#D91E26" }}
-					>
-						Give to Emergency Fund <FiArrowRight size={18} />
-					</button>
+     <Link
+                        to="/donate"
+                        state={{
+                            designation: "Medical Emergency Fund",
+                            suggestedAmount: 100,
+                            frequency: "one-time",
+                        }}
+                        aria-label="Give to the Medical Emergency Fund"
+                        className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white rounded hover:opacity-90 transition-opacity"
+                        style={{ backgroundColor: "#D91E26" }}
+                    >
+                        Give to Emergency Fund <FiArrowRight size={18} />
+                    </Link>
 				</div>
 			</section>
 

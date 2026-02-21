@@ -1,41 +1,65 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FiHeart, FiArrowRight } from "react-icons/fi";
 
 const donationAmounts = [
-	{ label: "$10", value: 10 },
-	{ label: "$25", value: 25 },
-	{ label: "$50", value: 50 },
-	{ label: "$100", value: 100 },
-	{ label: "Other", value: "other" },
+    { label: "$10", value: 10 },
+    { label: "$25", value: 25 },
+    { label: "$50", value: 50 },
+    { label: "$100", value: 100 },
+    { label: "Other", value: "other" },
+];
+
+const donationReasons = [
+    "Where needed most",
+    "Education & Scholarships",
+    "Healthcare & Medical Support",
+    "Women & Youth Empowerment",
+    "Medical Emergency Fund",
+    "Food Relief",
+    "Shelter & Community Projects",
+    "Other",
 ];
 
 export default function DonatePage() {
-	const navigate = useNavigate();
-	const [amount, setAmount] = useState<number | string>(25);
-	const [customAmount, setCustomAmount] = useState("");
-	const [formData, setFormData] = useState({
-		firstName: "",
-		lastName: "",
-		email: "",
-		frequency: "one-time",
-	});
+    const navigate = useNavigate();
+    const location = useLocation();
+    const preset = (location.state as any) || {};
+
+    const [amount, setAmount] = useState<number | string>(() =>
+        preset.suggestedAmount ?? 25
+    );
+    const [customAmount, setCustomAmount] = useState("");
+    const initialReason = (preset.designation as string) || "Where needed most";
+    const [reason, setReason] = useState<string>(
+        donationReasons.includes(initialReason) ? initialReason : initialReason ? "Other" : "Where needed most"
+    );
+    const [otherReason, setOtherReason] = useState(
+        donationReasons.includes(initialReason) ? "" : initialReason || ""
+    );
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        frequency: preset.frequency ?? "one-time",
+    });
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		const finalAmount = amount === "other" ? customAmount : amount;
-		// In a real app, we would pass this data to checkout via state or context
-		navigate("/checkout", { state: { amount: finalAmount, ...formData } });
-	};
+        const finalAmount = amount === "other" ? customAmount : amount;
+        const finalReason = reason === "Other" ? otherReason.trim() : reason;
+        // In a real app, we would pass this data to checkout via state or context
+        navigate("/checkout", { state: { amount: finalAmount, reason: finalReason, ...formData } });
+    };
 
 	return (
 		<div className="min-h-screen bg-gray-50 pt-20">
 			<Navbar />
-			<main className="max-w-4xl mx-auto px-6 py-16">
+	  <main className="max-w-6xl mx-auto px-6 py-16">
 				<div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-					<div className="grid md:grid-cols-2">
+					<div className="grid md:grid-cols-[2fr_3fr]">
 						{/* Left side: Info */}
 						<div className="bg-[#204487] text-white p-8 md:p-12">
 							<div className="mb-8">
@@ -64,16 +88,26 @@ export default function DonatePage() {
 										Monthly donations help us plan for long-term community growth.
 									</p>
 								</div>
-							</div>
-						</div>
+       </div>
+                        </div>
 
-						{/* Right side: Form */}
-						<div className="p-8 md:p-12">
-							<form onSubmit={handleSubmit} className="space-y-6">
-								{/* Frequency */}
-								<div className="flex gap-4 p-1 bg-gray-100 rounded-lg mb-8">
-									{["one-time", "monthly"].map((freq) => (
-										<button
+                        {/* Right side: Form */}
+                        <div className="p-8 md:p-12">
+                            {preset.designation && (
+                                <div className="mb-6 p-3 rounded-xl border-2 border-[#F26421]/30 bg-[#F26421]/5">
+                                    <p className="text-xs font-bold tracking-wider text-[#F26421] uppercase mb-1">
+                                        Designated Gift
+                                    </p>
+                                    <p className="text-sm text-gray-700">
+                                        Suggested designation: <span className="font-semibold">{preset.designation}</span>
+                                    </p>
+                                </div>
+                            )}
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                {/* Frequency */}
+                                <div className="flex gap-4 p-1 bg-gray-100 rounded-lg mb-8">
+                                    {["one-time", "monthly"].map((freq) => (
+                                        <button
 											key={freq}
 											type="button"
 											onClick={() => setFormData({ ...formData, frequency: freq })}
@@ -86,13 +120,53 @@ export default function DonatePage() {
 											{freq.charAt(0).toUpperCase() + freq.slice(1)}
 										</button>
 									))}
-								</div>
+        </div>
 
-								{/* Amount Selection */}
-								<div>
-									<label className="block text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-										Select Amount
-									</label>
+        {/* Donation Reason */}
+        <div>
+            <label className="block text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
+                Donation Reason
+            </label>
+            <div className="grid sm:grid-cols-2 gap-3 mb-3" role="group" aria-label="Donation reason">
+                {donationReasons.map((r) => (
+                    <button
+                        key={r}
+                        type="button"
+                        onClick={() => setReason(r)}
+                        className={`text-left px-4 py-3 text-sm font-semibold rounded-xl border-2 transition-all ${
+                            reason === r
+                                ? "border-[#204487] bg-[#204487]/5 text-[#204487]"
+                                : "border-gray-200 text-gray-600 hover:border-gray-300"
+                        }`}
+                        aria-pressed={reason === r}
+                    >
+                        {r}
+                    </button>
+                ))}
+            </div>
+            {reason === "Other" && (
+                <div className="mt-2">
+                    <label className="block text-xs font-bold text-gray-500 mb-1 uppercase tracking-wider" htmlFor="other-reason">
+                        Please specify
+                    </label>
+                    <input
+                        id="other-reason"
+                        type="text"
+                        required
+                        placeholder="Type your donation reason"
+                        value={otherReason}
+                        onChange={(e) => setOtherReason(e.target.value)}
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#204487] focus:outline-none transition-all"
+                    />
+                </div>
+            )}
+        </div>
+
+        {/* Amount Selection */}
+        <div>
+            <label className="block text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
+                Select Amount
+            </label>
 									<div className="grid grid-cols-3 gap-3 mb-4">
 										{donationAmounts.map((amt) => (
 											<button
