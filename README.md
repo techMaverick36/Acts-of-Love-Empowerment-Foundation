@@ -1,73 +1,77 @@
-# React + TypeScript + Vite
+# Acts of Love Empowerment Foundation — Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React + TypeScript + Vite project.
 
-Currently, two official plugins are available:
+## EmailJS Integration (Forms)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The site uses EmailJS to send submissions to your email on these pages:
+- Volunteer application: `src/Pages/GetInvolved.tsx`
+- Contact message: `src/Pages/Contact.tsx`
 
-## React Compiler
+### 1) Install dependency
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+npm i @emailjs/browser
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2) Create EmailJS service and template
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Go to https://www.emailjs.com/ and sign in.
+2. Create a new Email Service (choose your email provider).
+3. Create an Email Template with variables used by both forms. Required across both:
+   - `name`
+   - `email`
+   - `message`
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+   Optional (form-specific):
+   - `phone` (Volunteer form)
+   - `role` (Volunteer form)
+   - `subject` (Contact form)
+4. Copy your Service ID, Template ID, and Public Key.
+
+### 3) Add environment variables
+
+Create a `.env` file in the project root (same folder as `package.json`) and add:
+
 ```
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+Restart the dev server after changing env vars.
+
+### 4) Field mapping
+
+`GetInvolved.tsx` (Volunteer) sends:
+
+```
+{
+  name: form.name,
+  email: form.email,
+  phone: form.phone,
+  role: form.role || 'Not specified',
+  message: form.message
+}
+```
+
+`Contact.tsx` (Contact) sends:
+
+```
+{
+  name: form.name,
+  email: form.email,
+  subject: form.subject || 'General Enquiry',
+  message: form.message
+}
+```
+
+Make sure your EmailJS template references the same variable names, e.g. `{{name}}`, `{{email}}`, etc. Variables that aren’t sent by a given form can be marked optional in the template or wrapped in conditionals.
+
+### 5) UI Behavior
+
+- Both forms disable the button and show “Sending…” while the request is in flight.
+- On success, forms clear and a confirmation panel is shown.
+- On failure, a small error alert is displayed at the top of the form.
+
+If you need to adjust recipients or email content, do that inside your EmailJS template settings.

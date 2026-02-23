@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 import {
 	FiClock,
 	FiGlobe,
@@ -93,6 +94,8 @@ export default function GetInvolvedPage() {
 		message: "",
 	});
 	const [submitted, setSubmitted] = useState(false);
+	const [sending, setSending] = useState(false);
+	const [error, setError] = useState<string | null>(null);
 	const { hash } = useLocation();
 
 	useEffect(() => {
@@ -104,9 +107,47 @@ export default function GetInvolvedPage() {
 		}
 	}, [hash]);
 
-	const handleSubmit = (e: any) => {
+	const handleSubmit = async (e: any) => {
 		e.preventDefault();
-		setSubmitted(true);
+		setError(null);
+		setSending(true);
+
+		// Read EmailJS credentials from Vite env
+		const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+		const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+		const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+
+		if (!serviceId || !templateId || !publicKey) {
+			setSending(false);
+			setError(
+				"Email service is not configured. Please add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID and VITE_EMAILJS_PUBLIC_KEY to your .env file."
+			);
+			return;
+		}
+
+		try {
+			await emailjs.send(
+				serviceId,
+				templateId,
+				{
+					name: form.name,
+					email: form.email,
+					phone: form.phone,
+					role: form.role || "Not specified",
+					message: form.message,
+				},
+				{ publicKey }
+			);
+
+			setSubmitted(true);
+			setForm({ name: "", email: "", phone: "", role: "", message: "" });
+		} catch (err) {
+			setError(
+				`Error: ${err}We couldn't send your application right now. Please try again in a moment or contact us directly.`
+			);
+		} finally {
+			setSending(false);
+		}
 	};
 
 	return (
@@ -345,10 +386,18 @@ export default function GetInvolvedPage() {
 							</p>
 						</div>
 					) : (
-						<form
-							onSubmit={handleSubmit}
-							className="bg-white rounded-2xl p-8 border border-blue-100 shadow-sm flex flex-col gap-5"
-						>
+ 					<form
+ 						onSubmit={handleSubmit}
+ 						className="bg-white rounded-2xl p-8 border border-blue-100 shadow-sm flex flex-col gap-5"
+ 					>
+ 						{error && (
+ 							<div
+ 								className="text-sm p-3 rounded-md border"
+ 								style={{ backgroundColor: "#fff5f5", borderColor: "#fecaca", color: "#991b1b" }}
+ 							>
+ 								{error}
+ 							</div>
+ 						)}
 							<div className="grid sm:grid-cols-2 gap-5">
 								<div>
 									<label
@@ -444,14 +493,15 @@ export default function GetInvolvedPage() {
 									placeholder="Tell us a little about yourself and your motivation..."
 								/>
 							</div>
-							<button
-								type="submit"
-								className="w-full py-3.5 text-sm font-semibold text-white rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
-								style={{ backgroundColor: "#D91E26" }}
-							>
-								Submit Application <FiArrowRight size={15} />
-							</button>
-						</form>
+ 						<button
+ 							type="submit"
+ 							disabled={sending}
+ 							className="w-full py-3.5 text-sm font-semibold text-white rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70 disabled:cursor-not-allowed"
+ 							style={{ backgroundColor: "#D91E26" }}
+ 						>
+ 							{sending ? "Sending..." : "Submit Application"} <FiArrowRight size={15} />
+ 						</button>
+ 					</form>
 					)}
 				</div>
 			</section>

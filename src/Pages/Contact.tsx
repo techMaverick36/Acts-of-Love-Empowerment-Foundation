@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
 	FiMail,
 	FiPhone,
@@ -44,11 +45,50 @@ export default function ContactPage() {
 		message: "",
 	});
 	const [submitted, setSubmitted] = useState(false);
+	const [sending, setSending] = useState(false);
+	const [error, setError] = useState<string | null>(null);
 	const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-	const handleSubmit = (e: any) => {
+	const handleSubmit = async (e: any) => {
 		e.preventDefault();
-		setSubmitted(true);
+		setError(null);
+		setSending(true);
+
+		// Read EmailJS credentials from Vite env
+		const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+		const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+		const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+
+		if (!serviceId || !templateId || !publicKey) {
+			setSending(false);
+			setError(
+				"Email service is not configured. Please add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID and VITE_EMAILJS_PUBLIC_KEY to your .env file."
+			);
+			return;
+		}
+
+		try {
+			await emailjs.send(
+				serviceId,
+				templateId,
+				{
+					name: form.name,
+					email: form.email,
+					subject: form.subject || "General Enquiry",
+					message: form.message,
+				},
+				{ publicKey }
+			);
+
+			setSubmitted(true);
+			setForm({ name: "", email: "", subject: "", message: "" });
+		} catch (err) {
+			setError(
+				`Error: ${err}We couldn't send your message right now. Please try again shortly or email us directly.`
+			);
+		} finally {
+			setSending(false);
+		}
 	};
 	const position: [number, number] = [0.264913, 32.546467];
 
@@ -240,7 +280,15 @@ export default function ContactPage() {
 								>
 									Send Us a Message
 								</h3>
-								<form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    				<form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    					{error && (
+    						<div
+    							className="text-sm p-3 rounded-md border"
+    							style={{ backgroundColor: "#fff5f5", borderColor: "#fecaca", color: "#991b1b" }}
+    						>
+    							{error}
+    						</div>
+    					)}
 									<div className="grid sm:grid-cols-2 gap-5">
 										<div>
 											<label
@@ -323,14 +371,15 @@ export default function ContactPage() {
 											placeholder="Tell us how we can help..."
 										/>
 									</div>
-									<button
-										type="submit"
-										className="w-full py-3.5 text-sm font-semibold text-white rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
-										style={{ backgroundColor: "#D91E26" }}
-									>
-										Send Message <FiArrowRight size={15} />
-									</button>
-								</form>
+    					<button
+    						type="submit"
+    						disabled={sending}
+    						className="w-full py-3.5 text-sm font-semibold text-white rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70 disabled:cursor-not-allowed"
+    						style={{ backgroundColor: "#D91E26" }}
+    					>
+    						{sending ? "Sending..." : "Send Message"} <FiArrowRight size={15} />
+    					</button>
+    				</form>
 							</div>
 						)}
 					</div>
