@@ -1,57 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Home -->
   <url>
     <loc>https://actsofloveempowerment.org/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-02-23T16:17:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- About -->
   <url>
     <loc>https://actsofloveempowerment.org/about</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-02-23T16:17:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Programs -->
   <url>
     <loc>https://actsofloveempowerment.org/programs</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-02-23T16:17:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Impact -->
   <url>
     <loc>https://actsofloveempowerment.org/impact</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-02-23T16:17:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Contact -->
   <url>
     <loc>https://actsofloveempowerment.org/contact</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-02-23T16:17:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- Get Involved / Volunteer -->
   <url>
     <loc>https://actsofloveempowerment.org/get-involved</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-02-23T16:17:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Donate -->
   <url>
     <loc>https://actsofloveempowerment.org/donate</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-02-23T16:17:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
