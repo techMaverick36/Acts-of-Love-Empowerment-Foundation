@@ -78,13 +78,15 @@ export default function ContactPage() {
 					message: form.message,
 				},
 				{ publicKey }
-			);
+			).catch((error) => {
+				throw new Error(error.text || error.message || "Failed to send email");
+			});
 
 			setSubmitted(true);
-			setForm({ name: "", email: "", subject: "", message: "" });
-		} catch (err) {
+			setForm({name: "", email: "", subject: "", message: ""});
+		} catch (err: any) {
 			setError(
-				`Error: ${err}We couldn't send your message right now. Please try again shortly or email us directly.`
+				err?.message || "We couldn't send your message right now. Please try again shortly or email us directly."
 			);
 		} finally {
 			setSending(false);
