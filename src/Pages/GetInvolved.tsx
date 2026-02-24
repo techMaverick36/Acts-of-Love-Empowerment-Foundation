@@ -531,7 +531,7 @@ export default function GetInvolvedPage() {
 						lasting impact together.
 					</p>
 					<a
-						href="mailto:actsofloveempowerment@gmail.com"
+						href="/contact"
 						className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold rounded-lg border-2 border-white/50 text-white hover:bg-white hover:text-[#08415C] transition-all duration-300"
 					>
 						Discuss Partnership <FiArrowRight size={18} />
