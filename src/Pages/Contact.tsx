@@ -106,9 +106,9 @@ export default function ContactPage() {
 			<Navbar />
 
 			{/* ── PAGE HERO ── */}
-			<section className="relative h-[45vh] min-h-[340px] flex items-center justify-center text-center overflow-hidden">
+			<section className="relative h-[60vh] min-h-[420px] flex items-center justify-center text-center overflow-hidden">
 				<img
-					src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=1600&q=80"
+					src="./D-4231r_39.jpg"
 					alt="Community impact"
 					className="absolute inset-0 w-full h-full object-cover"
 				/>

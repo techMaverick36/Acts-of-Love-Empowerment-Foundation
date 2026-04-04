@@ -156,8 +156,8 @@ export default function GetInvolvedPage() {
 			{/* ── PAGE HERO ── */}
 			<section className="relative h-[45vh] min-h-[340px] flex items-center justify-center text-center overflow-hidden">
 				<img
-					src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=1600&q=80"
-					alt="Community impact"
+					src="/D-4231r_17.jpg"
+					alt="Volunteers sorting school supplies for distribution"
 					className="absolute inset-0 w-full h-full object-cover"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
@@ -211,8 +211,8 @@ export default function GetInvolvedPage() {
 						</div>
 						<div className="relative">
 							<img
-								src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80"
-								alt="Volunteers at work"
+								src="/D-4231r_22.jpg"
+								alt="Acts of Love volunteer with children"
 								className="rounded-2xl w-full object-cover"
 								style={{ height: 400 }}
 							/>

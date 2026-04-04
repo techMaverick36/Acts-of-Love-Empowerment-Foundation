@@ -9,36 +9,36 @@ import {
 
 const slides = [
 	{
-		url: "https://images.unsplash.com/photo-1521493959102-bdd6677fdd81?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-		alt: "Children in a community program",
+		url: "/D-4231r.jpg",
+		alt: "Children seated at Acts of Love school mission",
 		title: "Empowering The Young Through",
 		highlight: "Education",
 		description:
 			"We provide access to inclusive and quality education that breaks the cycle of poverty.",
 	},
 	{
-		url: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1600&q=80",
-		alt: "Healthcare volunteers serving communities",
+		url: "/D-4231r_31.jpg",
+		alt: "Acts of Love Foundation team distributing to children",
 		title: "Restoring Hope Through",
-		highlight: "Healthcare",
+		highlight: "Action",
 		description:
-			"Improving community health through outreach programs and medical support initiatives.",
+			"Reaching communities directly with the resources, care, and support they deserve.",
 	},
 	{
-		url: "https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=1600&q=80",
-		alt: "Education and empowerment",
+		url: "/D-4231r_51.jpg",
+		alt: "Acts of Love Foundation team and children celebrating together",
 		title: "Building Inclusive",
 		highlight: "Communities",
 		description:
 			"Championing inclusion and dignity so every individual thrives regardless of background.",
 	},
 	{
-		url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1600&q=80",
-		alt: "Community development",
-		title: "Driving Sustainable",
-		highlight: "Development",
+		url: "/D-4231r_52.jpg",
+		alt: "Acts of Love Foundation team",
+		title: "Driven by Passion,",
+		highlight: "Led by Love",
 		description:
-			"Creating lasting environmental, social and economic transformation for future generations.",
+			"Our dedicated team works tirelessly to create lasting, generational change across Uganda.",
 	},
 ];
 

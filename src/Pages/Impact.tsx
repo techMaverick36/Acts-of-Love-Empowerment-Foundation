@@ -41,8 +41,7 @@ const pillars = [
 		accent: "#F26421",
 		bg: "#fdf4ee",
 		border: "#f8ceae",
-		image:
-			"https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
+		image: "/D-4231r_20.jpg",
 		summary:
 			"We fight for the full participation of every person in society from persons with disabilities to women facing systemic barriers to young people navigating a difficult world.",
 		highlights: [
@@ -60,8 +59,7 @@ const pillars = [
 		accent: "#204487",
 		bg: "#eef3fb",
 		border: "#b5c8ed",
-		image:
-			"https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80",
+		image: "/D-4231r_18.jpg",
 		summary:
 			"Education is the most powerful tool for breaking the cycle of poverty. We invest in learners at every stage from early childhood to vocational training to unlock lifelong potential.",
 		highlights: [
@@ -71,7 +69,7 @@ const pillars = [
 			"School infrastructure: classrooms, toilets, libraries",
 			"Teacher training and capacity building",
 		],
-		stat: { val: "0+", label: "Students Supported" },
+		stat: { val: "50+", label: "Students Supported" },
 	},
 	{
 		icon: FiSun,
@@ -79,8 +77,7 @@ const pillars = [
 		accent: "#00A54F",
 		bg: "#f0faf4",
 		border: "#b3e6c8",
-		image:
-			"https://images.unsplash.com/photo-1521493959102-bdd6677fdd81?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		image: "/D-4231r_54.jpg",
 		summary:
 			"True transformation means equipping communities to be self-sufficient long after our teams leave. Our sustainable development programs build lasting economic and environmental resilience.",
 		highlights: [
@@ -97,13 +94,13 @@ const pillars = [
 const stats = [
 	{
 		icon: FiPeople,
-		val: "0+",
+		val: "50+",
 		label: "Lives Directly Impacted",
 		sub: "Across all 4 pillars",
 	},
 	{
 		icon: FiMapPin,
-		val: "0+",
+		val: "1",
 		label: "Communities Served",
 		sub: "Nationwide reach",
 	},
@@ -124,8 +121,8 @@ export default function ImpactPage() {
 			{/* ── PAGE HERO ── */}
 			<section className="relative min-h-[60vh] md:h-[45vh] flex items-center justify-center text-center overflow-hidden py-20 sm:py-24">
 				<img
-					src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=1600&q=80"
-					alt="Community impact"
+					src="/D-4231r_31.jpg"
+					alt="Acts of Love Foundation distributing supplies to children"
 					className="absolute inset-0 w-full h-full object-cover"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />

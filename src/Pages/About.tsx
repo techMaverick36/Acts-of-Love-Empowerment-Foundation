@@ -35,6 +35,13 @@ const milestones = [
 	},
 ];
 
+function getMonthsActive() {
+	const founded = new Date(2026, 1, 1); // February 2026
+	const now = new Date();
+	const months = (now.getFullYear() - founded.getFullYear()) * 12 + (now.getMonth() - founded.getMonth());
+	return months <= 1 ? "1 month" : `${months} months`;
+}
+
 export default function AboutPage() {
 	const { hash } = useLocation();
 
@@ -54,8 +61,8 @@ export default function AboutPage() {
 			{/* ── PAGE HERO ── */}
 			<section className="relative min-h-[60vh] md:h-[45vh] flex items-center justify-center text-center overflow-hidden py-20 sm:py-24">
 				<img
-					src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=1600&q=80"
-					alt="Community impact"
+					src="/D-4231r_52.jpg"
+					alt="Acts of Love Foundation team"
 					className="absolute inset-0 w-full h-full object-cover"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
@@ -124,8 +131,8 @@ export default function AboutPage() {
 						</div>
 						<div className="relative mt-8 lg:mt-0">
 							<img
-								src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
-								alt="Community work"
+								src="/D-4231r_37.jpg"
+								alt="Acts of Love Foundation distributing to children"
 								className="rounded-2xl w-full object-cover shadow-2xl h-[300px] md:h-[440px]"
 							/>
 							<div
@@ -257,7 +264,7 @@ export default function AboutPage() {
 							className="font-serif text-4xl font-bold"
 							style={{ color: "#204487" }}
 						>
-							2 months of Impact
+							{getMonthsActive()} of Impact
 						</h2>
 					</div>
 					<div className="relative">

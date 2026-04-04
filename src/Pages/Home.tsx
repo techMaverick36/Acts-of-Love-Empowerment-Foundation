@@ -218,8 +218,8 @@ export default function HomePage() {
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
 						{[
-							{ val: "5+", label: "Lives Impacted" },
-							{ val: "2+", label: "Communities Served" },
+							{ val: "50+", label: "Lives Impacted" },
+							{ val: "1", label: "Communities Served" },
 							{ val: "1", label: "Years of Service" },
 							{ val: "5+", label: "Volunteers" },
 						].map((s) => (
@@ -270,13 +270,13 @@ export default function HomePage() {
 							{
 								title: "Sponsor a Child",
 								cost: "Any amount helps",
-								img: "https://images.unsplash.com/photo-1521493959102-bdd6677fdd81?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+								img: "/D-4231r_21.jpg",
 								badge: "Most Popular",
 							},
 							{
 								title: "Help a Community",
 								cost: "Any amount helps",
-								img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80",
+								img: "/D-4231r_30.jpg",
 								badge: null,
 							},
 							{

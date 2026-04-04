@@ -10,8 +10,7 @@ const programs = [
 		title: "Sponsor a Child",
 		badge: "Most Popular",
 		badgeBg: "#D91E26",
-		image:
-			"https://images.unsplash.com/photo-1521493959102-bdd6677fdd81?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		image: "/D-4231r_9.jpg",
 		cost: "Any amount helps",
 		description:
 			"Your monthly sponsorship directly covers school fees, healthcare, nutritious meals, and mentorship for a child in need. When you sponsor a child, you become a consistent presence in their life someone they know is rooting for them.",
@@ -29,8 +28,7 @@ const programs = [
 		title: "Help a Community",
 		badge: null,
 		badgeBg: null,
-		image:
-			"https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
+		image: "/D-4231r_54.jpg",
 		cost: "Any amount helps",
 		description:
 			"Fund clean water access, community health centers, school construction, or agricultural support projects that lift entire villages toward self-sufficiency. Your gift doesn't just help one person  it transforms an entire ecosystem.",
@@ -181,10 +179,10 @@ export default function ProgramsPage() {
 		<div>
 			<Navbar />
 			{/* ── PAGE HERO ── */}
-			<section className="relative h-[45vh] min-h-[340px] flex items-center justify-center text-center overflow-hidden">
+			<section className="relative h-[60vh] min-h-[420px] flex items-center justify-center text-center overflow-hidden">
 				<img
-					src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=1600&q=80"
-					alt="Community impact"
+					src="/D-4231r_41.jpg"
+					alt="School children in uniform"
 					className="absolute inset-0 w-full h-full object-cover"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
