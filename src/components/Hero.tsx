@@ -74,9 +74,10 @@ export default function Hero() {
 				</div>
 			))}
 
-   {/* Content */}
-   <div className="relative z-10 h-full flex items-center justify-center lg:justify-start px-6 pt-20 sm:pt-28 md:pt-32 lg:pt-0 md:px-12 lg:px-24">
-       <div className="max-w-3xl text-white md:text-center lg:text-left">
+			{/* Content */}
+			<div className="relative z-10 h-full flex items-center pt-20 sm:pt-28 md:pt-32 lg:pt-0">
+				<div className="max-w-7xl mx-auto px-6 w-full">
+				<div className="max-w-3xl text-white md:text-center lg:text-left">
 					{/* Tagline */}
      <div className="flex items-center gap-3 mb-4 sm:mb-8 md:justify-center lg:justify-start">
                         <span className="h-px w-6 sm:w-10 bg-[#639E90]"></span>
@@ -134,6 +135,7 @@ export default function Hero() {
 							</div>
 						))}
 					</div> */}
+				</div>
 				</div>
 			</div>
 
