@@ -168,8 +168,8 @@ export default function ContactPage() {
 								{
 									icon: FiPhone,
 									label: "Call Us",
-									value: "+256 779150875",
-									href: "tel:+256779150875",
+									value: "+256 740093081",
+									href: "tel:+256740093081",
 								},
 								{
 									icon: FiClock,

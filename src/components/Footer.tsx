@@ -120,7 +120,7 @@ export default function Footer() {
 							</li>
 							<li className="flex items-center gap-4">
 								<FiPhone className="text-[#F26421] shrink-0" size={18} />
-								<span>+256 779150875</span>
+								<span>+256 740093081</span>
 							</li>
 							<li className="flex items-center gap-4">
 								<FiMail className="text-[#F26421] shrink-0" size={18} />
