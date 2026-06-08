@@ -4,41 +4,25 @@ import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-// const team = [
-// 	{
-// 		name: "Dr. Amara Okonkwo",
-// 		role: "Executive Director",
-// 		img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80",
-// 	},
-// 	{
-// 		name: "Chidi Nwachukwu",
-// 		role: "Director of Programs",
-// 		img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-// 	},
-// 	{
-// 		name: "Fatima Aliyu",
-// 		role: "Head of Partnerships",
-// 		img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
-// 	},
-// 	{
-// 		name: "Emeka Obi",
-// 		role: "Finance & Compliance",
-// 		img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80",
-// 	},
-// ];
-
 const milestones = [
 	{
-		year: "2026",
+		year: "January 2026",
 		event:
-			"Foundation established in Kampala Uganda with a focus on community health.",
+			"Foundation established in Kampala, Uganda, with a focus on community health and education. First community outreach reaches 50+ people in Wakiso District.",
+	},
+	{
+		year: "June 2026",
+		event:
+			"Second community outreach completed, serving 80 additional people across a second community. Total lives reached rises to 130+ across 2 communities.",
 	},
 ];
 
 function getMonthsActive() {
-	const founded = new Date(2026, 1, 1); // February 2026
+	const founded = new Date(2026, 0, 1);
 	const now = new Date();
-	const months = (now.getFullYear() - founded.getFullYear()) * 12 + (now.getMonth() - founded.getMonth());
+	const months =
+		(now.getFullYear() - founded.getFullYear()) * 12 +
+		(now.getMonth() - founded.getMonth());
 	return months <= 1 ? "1 month" : `${months} months`;
 }
 
@@ -59,33 +43,33 @@ export default function AboutPage() {
 			<Navbar />
 
 			{/* ── PAGE HERO ── */}
-			<section className="relative min-h-[60vh] md:h-[45vh] flex items-center justify-center text-center overflow-hidden py-20 sm:py-24">
+			<section className="relative min-h-[60vh] md:h-[50vh] flex items-center justify-center text-center overflow-hidden py-20 sm:py-24">
 				<img
 					src="/D-4231r_52.jpg"
 					alt="Acts of Love Foundation team"
 					className="absolute inset-0 w-full h-full object-cover"
 				/>
-				<div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+				<div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black/70" />
 
 				<div className="relative z-10 px-6 max-w-3xl">
-					<p className="uppercase tracking-[0.3em] text-xs mb-4 font-semibold text-[#f85407]">
+					<p className="uppercase tracking-[0.3em] text-xs mb-4 font-semibold text-[#F26421]">
 						About Acts of Love
 					</p>
-					<h1 className="font-serif break-words text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-snug sm:leading-tight mb-3 sm:mb-4">
-						Building Hope Through
-						<span className="block text-[#639E90]">Compassion & Action</span>
+					<h1 className="font-serif wrap-break-word text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-snug sm:leading-tight mb-4">
+						Serving Families With
+						<span className="block text-[#639E90]">Care and Consistency</span>
 					</h1>
-					<p className="text-gray-200 text-sm sm:text-base md:text-lg">
-						We plan to partner with communities to create
-						sustainable, life-changing impact across Uganda.
+					<p className="text-gray-200 text-sm sm:text-base md:text-lg max-w-xl mx-auto">
+						We work with communities in Uganda on education, health, inclusion,
+						and practical family support.
 					</p>
 				</div>
 			</section>
 
 			{/* ── INTRO ── */}
-			<section className="py-12 md:py-20 bg-white">
+			<section className="py-16 md:py-24 bg-white">
 				<div className="max-w-7xl mx-auto px-6">
-					<div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+					<div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
 						<div>
 							<p
 								className="text-sm font-semibold tracking-widest uppercase mb-4"
@@ -94,62 +78,54 @@ export default function AboutPage() {
 								Our Story
 							</p>
 							<h2
-								className="font-serif text-4xl font-bold mb-6"
+								className="font-serif text-4xl font-bold mb-4"
 								style={{ color: "#204487" }}
 							>
-								Born from a Desire to Serve
+								Started With a Desire to Serve
 							</h2>
-							<p
-								className="text-base leading-relaxed mb-4"
-								style={{ color: "#4a4a4a" }}
-							>
+							<div className="w-14 h-1 rounded mb-6" style={{ backgroundColor: "#F26421" }} />
+							<p className="text-base leading-relaxed mb-4" style={{ color: "#4a4a4a" }}>
 								Acts of Love Empowerment Foundation was founded in January 2026
-								by a small group of passionate Ugandans who believed that change
-								begins at the community level. We envisioned a world where every
-								person, regardless of their circumstances, has the opportunity
-								to thrive. We started with a simple mission: to empower
-								vulnerable communities through compassionate action and
-								sustainable development.
+								by a small group of Ugandans who wanted to serve families close
+								to home. The work began with a simple belief: children and adults
+								deserve support that respects their dignity.
 							</p>
-							<p
-								className="text-base leading-relaxed mb-8"
-								style={{ color: "#4a4a4a" }}
-							>
-								We work not just for communities, but with them listening,
-								co-designing, and walking alongside people as they build the
-								lives they deserve. Our model is built on trust, transparency,
-								and the conviction that every person carries dignity worth
-								protecting.
+							<p className="text-base leading-relaxed mb-8" style={{ color: "#4a4a4a" }}>
+								Community members help decide what support is needed, whether
+								that means school materials, health outreach, food support, or
+								referrals for care. We report clearly to donors and treat every
+								person we serve with respect.
 							</p>
 							<Link
 								to="/impact"
-								className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-white rounded hover:opacity-90 transition-opacity"
+								className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
 								style={{ backgroundColor: "#204487" }}
 							>
-								See Our Impact <FiArrowRight size={15} />
+								See Our Work <FiArrowRight size={15} />
 							</Link>
 						</div>
 						<div className="relative mt-8 lg:mt-0">
 							<img
 								src="/D-4231r_37.jpg"
 								alt="Acts of Love Foundation distributing to children"
-								className="rounded-2xl w-full object-cover shadow-2xl h-[300px] md:h-[440px]"
+								className="rounded-2xl w-full object-cover shadow-2xl"
+								style={{ height: 460 }}
 							/>
 							<div
-								className="absolute -bottom-6 -left-0 md:-left-6 bg-white rounded-2xl p-6 shadow-lg border border-blue-100 hidden sm:block"
+								className="absolute -bottom-6 left-0 md:-left-6 bg-white rounded-2xl p-6 shadow-lg border border-blue-100 hidden sm:block"
 								style={{ maxWidth: 220 }}
 							>
 								<p
 									className="font-serif text-4xl font-bold mb-1"
 									style={{ color: "#204487" }}
 								>
-									2 +
+									{getMonthsActive()}
 								</p>
 								<p className="text-sm font-medium" style={{ color: "#1D1E1F" }}>
-									months with trusted services
+									of purposeful service
 								</p>
 								<p className="text-xs mt-1" style={{ color: "#888" }}>
-									Est. 2026, Kampala, Uganda
+									Est. 2026 · Kampala, Uganda
 								</p>
 							</div>
 						</div>
@@ -158,7 +134,11 @@ export default function AboutPage() {
 			</section>
 
 			{/* ── OUR PRINCIPLES ── */}
-			<section id="principles" className="py-20 scroll-mt-24" style={{ backgroundColor: "#eef3fb" }}>
+			<section
+				id="principles"
+				className="py-20 scroll-mt-28"
+				style={{ backgroundColor: "#eef3fb" }}
+			>
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="text-center max-w-2xl mx-auto mb-14">
 						<p
@@ -173,11 +153,10 @@ export default function AboutPage() {
 						>
 							Our Principles
 						</h2>
-						<p
-							className="text-base leading-relaxed"
-							style={{ color: "#4a4a4a" }}
-						>
-							These principles shape every decision we make and every program we build. They are the foundation of who we are.
+						<div className="w-14 h-1 rounded mx-auto mb-5" style={{ backgroundColor: "#F26421" }} />
+						<p className="text-base leading-relaxed" style={{ color: "#4a4a4a" }}>
+							These principles guide our decisions, our programs, and the way
+							we treat people.
 						</p>
 					</div>
 					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -185,37 +164,37 @@ export default function AboutPage() {
 							{
 								icon: FiHeart,
 								title: "Compassion First",
-								desc: "Every action we take is rooted in love and genuine care for the communities we serve. We lead with empathy in all that we do.",
+								desc: "Every action starts with care for the communities we serve. We listen before we act.",
 								color: "#D91E26",
 							},
 							{
 								icon: FiShield,
 								title: "Integrity & Transparency",
-								desc: "We are open, honest, and accountable in everything we do from how we use funds to how we report our impact.",
+								desc: "We are open about how funds are used, how programs are run, and what results we can show.",
 								color: "#204487",
 							},
 							{
 								icon: FiUsers,
 								title: "Inclusion & Dignity",
-								desc: "We believe every person deserves to be treated with dignity and respect, regardless of background, identity, or circumstance.",
+								desc: "Every person deserves dignity and respect, regardless of background, identity, or circumstance.",
 								color: "#F26421",
 							},
 							{
 								icon: FiGlobe,
 								title: "Community Ownership",
-								desc: "We work with communities, not just for them. Our programs are co-designed with the people they are meant to serve.",
+								desc: "Community members help shape programs so support matches real needs.",
 								color: "#639E90",
 							},
 							{
 								icon: FiTarget,
-								title: "Sustainable Impact",
-								desc: "We focus on long-term solutions over short-term fixes, building programs that continue to deliver value for generations.",
+								title: "Long-Term Care",
+								desc: "We choose practical programs that can keep helping families after the first visit or donation.",
 								color: "#00A54F",
 							},
 							{
 								icon: FiStar,
 								title: "Excellence & Stewardship",
-								desc: "We hold ourselves to the highest standards of service delivery, ensuring that every resource is used wisely and purposefully.",
+								desc: "We use every resource carefully and keep our service standards high.",
 								color: "#204487",
 							},
 						].map((p) => {
@@ -223,10 +202,10 @@ export default function AboutPage() {
 							return (
 								<div
 									key={p.title}
-									className="bg-white rounded-2xl p-8 border border-blue-100 shadow-sm hover:shadow-md transition-shadow duration-300"
+									className="bg-white rounded-2xl p-8 border border-blue-100 shadow-sm hover:shadow-md transition-all duration-300 group"
 								>
 									<div
-										className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+										className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
 										style={{ backgroundColor: p.color }}
 									>
 										<Icon size={22} className="text-white" />
@@ -237,10 +216,7 @@ export default function AboutPage() {
 									>
 										{p.title}
 									</h3>
-									<p
-										className="text-sm leading-relaxed"
-										style={{ color: "#4a4a4a" }}
-									>
+									<p className="text-sm leading-relaxed" style={{ color: "#4a4a4a" }}>
 										{p.desc}
 									</p>
 								</div>
@@ -258,14 +234,15 @@ export default function AboutPage() {
 							className="text-sm font-semibold tracking-widest uppercase mb-3"
 							style={{ color: "#D91E26" }}
 						>
-							Our Journey
+							Our Timeline
 						</p>
 						<h2
-							className="font-serif text-4xl font-bold"
+							className="font-serif text-4xl font-bold mb-4"
 							style={{ color: "#204487" }}
 						>
-							{getMonthsActive()} of Impact
+							{getMonthsActive()} of Service
 						</h2>
+						<div className="w-14 h-1 rounded mx-auto" style={{ backgroundColor: "#F26421" }} />
 					</div>
 					<div className="relative">
 						<div
@@ -276,10 +253,14 @@ export default function AboutPage() {
 							{milestones.map((m, i) => (
 								<div
 									key={m.year}
-									className={`relative flex items-start gap-6 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+									className={`relative flex items-start gap-6 ${
+										i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+									}`}
 								>
 									<div
-										className={`flex-1 ${i % 2 === 0 ? "md:text-right" : "md:text-left"} pl-14 md:pl-0`}
+										className={`flex-1 ${
+											i % 2 === 0 ? "md:text-right" : "md:text-left"
+										} pl-14 md:pl-0`}
 									>
 										<div
 											className="bg-white rounded-xl p-5 border border-blue-100 shadow-sm inline-block text-left"
@@ -291,16 +272,13 @@ export default function AboutPage() {
 											>
 												{m.year}
 											</p>
-											<p
-												className="text-sm leading-relaxed"
-												style={{ color: "#4a4a4a" }}
-											>
+											<p className="text-sm leading-relaxed" style={{ color: "#4a4a4a" }}>
 												{m.event}
 											</p>
 										</div>
 									</div>
 									<div
-										className="absolute left-3.5 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full border-4 border-white shadow-sm flex-shrink-0 mt-4"
+										className="absolute left-3.5 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full border-4 border-white shadow-sm shrink-0 mt-4"
 										style={{ backgroundColor: "#204487" }}
 									/>
 									<div className="flex-1 hidden md:block" />
@@ -311,83 +289,44 @@ export default function AboutPage() {
 				</div>
 			</section>
 
-			{/* ── TEAM ── */}
-			{/* <section className="py-20" style={{ backgroundColor: "#eef3fb" }}>
-				<div className="max-w-7xl mx-auto px-6">
-					<div className="text-center max-w-xl mx-auto mb-14">
-						<p
-							className="text-sm font-semibold tracking-widest uppercase mb-3"
-							style={{ color: "#D91E26" }}
-						>
-							Our People
-						</p>
-						<h2
-							className="font-serif text-4xl font-bold"
-							style={{ color: "#204487" }}
-						>
-							Leadership Team
-						</h2>
-					</div>
-					<div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
-						{team.map((m) => (
-							<div
-								key={m.name}
-								className="bg-white rounded-2xl overflow-hidden border border-blue-100 shadow-sm hover:shadow-md transition-shadow group"
-							>
-								<div className="h-56 overflow-hidden">
-									<img
-										src={m.img}
-										alt={m.name}
-										className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-									/>
-								</div>
-								<div className="p-5">
-									<p
-										className="font-serif font-bold text-base"
-										style={{ color: "#1D1E1F" }}
-									>
-										{m.name}
-									</p>
-									<p className="text-sm mt-1" style={{ color: "#639E90" }}>
-										{m.role}
-									</p>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</section> */}
-
 			{/* ── CTA ── */}
-			<section className="py-20" style={{ backgroundColor: "#08415C" }}>
-				<div className="max-w-3xl mx-auto px-6 text-center">
+			<section
+				className="relative py-20 overflow-hidden"
+				style={{ backgroundColor: "#08415C" }}
+			>
+				<div className="max-w-3xl mx-auto px-6 text-center relative z-10">
+					<div className="flex justify-center mb-6">
+						<span className="h-px w-16 bg-[#639E90]" />
+					</div>
 					<h2 className="font-serif text-4xl font-bold text-white mb-4">
-						Be Part of the Story
+						Join the Work
 					</h2>
 					<p
-						className="text-base leading-relaxed mb-8"
+						className="text-base leading-relaxed mb-10"
 						style={{ color: "rgba(255,255,255,0.75)" }}
 					>
-						Whether you give, volunteer, or partner with us you become part of
-						a community changing lives every single day.
+						Your gift, time, or partnership can help a child stay in school,
+						a family reach care, or a community receive practical support.
 					</p>
 					<div className="flex flex-wrap justify-center gap-4">
 						<Link
 							to="/donate"
-							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded hover:opacity-90 transition-opacity"
+							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
 							style={{ backgroundColor: "#D91E26" }}
 						>
 							Donate <FiArrowRight size={16} />
 						</Link>
 						<Link
 							to="/get-involved"
-							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold rounded border-2 border-white border-opacity-50 text-white hover:bg-white hover:text-blue-800 transition-colors"
+							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded-full border-2 hover:bg-white hover:text-[#08415C] transition-all duration-200"
+							style={{ borderColor: "rgba(255,255,255,0.4)" }}
 						>
 							Volunteer <FiArrowRight size={16} />
 						</Link>
 					</div>
 				</div>
 			</section>
+
 			<Footer />
 		</div>
 	);

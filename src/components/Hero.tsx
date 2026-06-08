@@ -11,34 +11,34 @@ const slides = [
 	{
 		url: "/D-4231r.jpg",
 		alt: "Children seated at Acts of Love school mission",
-		title: "Empowering The Young Through",
+		title: "Helping Children Stay In",
 		highlight: "Education",
 		description:
-			"We provide access to inclusive and quality education that breaks the cycle of poverty.",
+			"We support school fees, learning materials, meals, and care for children who need a steady start.",
 	},
 	{
 		url: "/D-4231r_31.jpg",
 		alt: "Acts of Love Foundation team distributing to children",
-		title: "Restoring Hope Through",
-		highlight: "Action",
+		title: "Showing Up With",
+		highlight: "Practical Care",
 		description:
-			"Reaching communities directly with the resources, care, and support they deserve.",
+			"Our team visits families, listens first, and connects people with the support they need.",
 	},
 	{
 		url: "/D-4231r_51.jpg",
 		alt: "Acts of Love Foundation team and children celebrating together",
-		title: "Building Inclusive",
+		title: "Making Room For",
 		highlight: "Communities",
 		description:
-			"Championing inclusion and dignity so every individual thrives regardless of background.",
+			"We work with children, women, young people, and persons with disabilities so more people can take part in community life.",
 	},
 	{
 		url: "/D-4231r_52.jpg",
 		alt: "Acts of Love Foundation team",
-		title: "Driven by Passion,",
+		title: "Guided by Care,",
 		highlight: "Led by Love",
 		description:
-			"Our dedicated team works tirelessly to create lasting, generational change across Uganda.",
+			"Our volunteers and partners give time, skills, and resources to families across Uganda.",
 	},
 ];
 
@@ -118,12 +118,12 @@ export default function Hero() {
                         </Link>
                     </div>
 
-					{/* Impact Stats */}
+					{/* Stats */}
 					{/* <div className="hidden lg:grid grid-cols-3 gap-12 border-t border-white/20 pt-8 max-w-3xl">
 						{[
-							{ label: "Lives Impacted", val: "1+" },
+							{ label: "Lives Reached", val: "1+" },
 							{ label: "Communities Served", val: "0+" },
-							{ label: "Years of Impact", val: "0+" },
+							{ label: "Years Active", val: "0+" },
 						].map((stat, idx) => (
 							<div key={idx}>
 								<p className="text-white text-3xl font-serif font-bold hover:text-[#F26421] transition-colors">

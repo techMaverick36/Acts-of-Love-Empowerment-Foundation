@@ -25,13 +25,13 @@ const pillars = [
 		image:
 			"https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
 		summary:
-			"We deliver life-saving and preventive healthcare to communities that would otherwise go without, through a network of mobile clinics, trained community health workers, and partner hospitals.",
+			"We support preventive and urgent healthcare for communities with limited access to clinics, health workers, and partner hospitals.",
 		highlights: [
-			"We plan to launch Free mobile clinics serving 15+ communities annually",
-			"Maternal & child health programs reducing infant mortality",
+			"We plan to launch free mobile clinics for 15+ communities each year",
+			"Maternal and child health support",
 			"HIV/AIDS awareness and prevention campaigns",
 			"Mental health support and community counselling",
-			"Disease surveillance and epidemic response teams",
+			"Disease monitoring and emergency health response",
 		],
 		stat: { val: "0+", label: "Patients Served Annually" },
 	},
@@ -43,10 +43,10 @@ const pillars = [
 		border: "#f8ceae",
 		image: "/D-4231r_20.jpg",
 		summary:
-			"We fight for the full participation of every person in society from persons with disabilities to women facing systemic barriers to young people navigating a difficult world.",
+			"We support the full participation of persons with disabilities, women, and young people who face barriers in daily life.",
 		highlights: [
 			"We plan to provide assistive devices and rehabilitation support for PWDs",
-			"Gender equity and women's economic empowerment programs",
+			"Women's economic support and skills programs",
 			"Safe spaces and support for survivors of gender-based violence",
 			"Youth leadership development and mentorship",
 			"Legal aid and rights advocacy clinics",
@@ -61,15 +61,15 @@ const pillars = [
 		border: "#b5c8ed",
 		image: "/D-4231r_18.jpg",
 		summary:
-			"Education is the most powerful tool for breaking the cycle of poverty. We invest in learners at every stage from early childhood to vocational training to unlock lifelong potential.",
+			"We support learners from early childhood through vocational training with fees, materials, meals, and mentoring.",
 		highlights: [
 			"We plan to provide full scholarships covering tuition, materials, and feeding",
 			"Adult literacy and numeracy programs for women",
 			"STEM outreach in underserved secondary schools",
 			"School infrastructure: classrooms, toilets, libraries",
-			"Teacher training and capacity building",
+			"Teacher training and school support",
 		],
-		stat: { val: "50+", label: "Students Supported" },
+		stat: { val: "130+", label: "Students Supported" },
 	},
 	{
 		icon: FiSun,
@@ -79,12 +79,12 @@ const pillars = [
 		border: "#b3e6c8",
 		image: "/D-4231r_54.jpg",
 		summary:
-			"True transformation means equipping communities to be self-sufficient long after our teams leave. Our sustainable development programs build lasting economic and environmental resilience.",
+			"We help communities plan beyond a single donation through clean water, farming support, solar access, and small business support.",
 		highlights: [
 			"We plan to provide clean water access: borehole drilling and water treatment",
 			"Agribusiness training and cooperative farming support",
 			"Solar energy installation for off-grid communities",
-			"Micro-enterprise grants and SME capacity building",
+			"Small business grants and practical training",
 			"Environmental conservation and tree planting campaigns",
 		],
 		stat: { val: "0+", label: "Households Reached" },
@@ -94,20 +94,20 @@ const pillars = [
 const stats = [
 	{
 		icon: FiPeople,
-		val: "50+",
-		label: "Lives Directly Impacted",
+		val: "130+",
+		label: "Lives Directly Reached",
 		sub: "Across all 4 pillars",
 	},
 	{
 		icon: FiMapPin,
-		val: "1",
+		val: "2",
 		label: "Communities Served",
-		sub: "Nationwide reach",
+		sub: "Wakiso District, Uganda",
 	},
-	{ icon: FiAward, val: "0+", label: "Years of Service", sub: "Founded 2025" },
+	{ icon: FiAward, val: "2026", label: "Year Founded", sub: "Kampala, Uganda" },
 	{
 		icon: FiHeart,
-		val: "0+",
+		val: "5+",
 		label: "Dedicated Volunteers",
 		sub: "Giving their time",
 	},
@@ -129,15 +129,15 @@ export default function ImpactPage() {
 
 				<div className="relative z-10 px-6 max-w-3xl">
 					<p className="uppercase tracking-[0.3em] text-xs mb-4 font-semibold text-[#F26421]">
-						Our Impacts
+						Our Work
 					</p>
 					<h1 className="font-serif break-words text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-snug sm:leading-tight mb-3 sm:mb-4">
-						Transforming Lives{" "}
-						<span className="block text-[#639E90]">Actions & Results</span>
+						Practical Support{" "}
+						<span className="block text-[#639E90]">For Daily Needs</span>
 					</h1>
 					<p className="text-gray-200 text-sm sm:text-base md:text-lg">
-						Every number tells a story of lives changed, communities uplifted,
-						and a brighter future forged together.
+						These are the areas where we serve children, families, and
+						communities across Uganda.
 					</p>
 				</div>
 			</section>
@@ -238,7 +238,7 @@ export default function ImpactPage() {
 									</ul>
 									<Link
 										to="/programs"
-										className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded hover:opacity-90 transition-opacity"
+										className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
 										style={{ backgroundColor: p.accent }}
 									>
 										Support This Program <FiArrowRight size={15} />
@@ -261,7 +261,7 @@ export default function ImpactPage() {
 							Our Numbers
 						</p>
 						<h2 className="font-serif text-4xl font-bold text-white">
-							The Impact We've Made
+							What We've Done So Far
 						</h2>
 					</div>
 					<div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
@@ -297,18 +297,18 @@ export default function ImpactPage() {
 					>
 						<div>
 							<p className="font-serif text-2xl font-bold text-white mb-1">
-								Your support amplifies every number.
+								Your support helps the work continue.
 							</p>
 							<p className="text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
-								Every dollar donated creates a real, measurable difference.
+								Every donation helps cover real program costs.
 							</p>
 						</div>
 						<Link
 							to="/programs"
-							className="flex-shrink-0 inline-block px-8 py-3.5 text-sm font-semibold text-white rounded hover:opacity-90 transition-opacity whitespace-nowrap"
+							className="flex-shrink-0 inline-block px-8 py-3.5 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity whitespace-nowrap"
 							style={{ backgroundColor: "#D91E26" }}
 						>
-							Make Your Impact
+							Give Support
 						</Link>
 					</div>
 				</div>

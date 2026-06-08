@@ -36,7 +36,7 @@ const roles = [
 		title: "Fundraising & Events",
 		commitment: "Project-based",
 		location: "On-site or Remote",
-		desc: "Organize fundraising events, donor drives, and community awareness campaigns for the foundation.",
+		desc: "Organize fundraising events, donor drives, and community awareness work for the foundation.",
 	},
 	{
 		title: "Legal & Advocacy Pro Bono",
@@ -56,22 +56,22 @@ const perks = [
 	{
 		icon: FiClock,
 		title: "Flexible Commitment",
-		desc: "Choose your own hours — weekends, evenings, or full-time deployments.",
+		desc: "Choose hours that fit your life, including weekends, evenings, or full-time field work.",
 	},
 	{
 		icon: FiGlobe,
-		title: "National Reach",
-		desc: "Serve in field programs, admin roles, or remote support — wherever you are.",
+		title: "Different Ways to Help",
+		desc: "Serve in field programs, admin roles, or remote support, depending on where you are.",
 	},
 	{
 		icon: FiSmile,
-		title: "Real Impact",
-		desc: "You'll see, hear, and feel the difference your time makes in real lives.",
+		title: "Close-Up Service",
+		desc: "Volunteer time goes into real work: visits, mentoring, reporting, events, and care.",
 	},
 	{
 		icon: FiUsers,
 		title: "Strong Community",
-		desc: "Join a growing network of like-minded volunteers committed to change.",
+		desc: "Join volunteers who care about children, families, and practical community support.",
 	},
 	{
 		icon: FiCheckCircle,
@@ -81,7 +81,7 @@ const perks = [
 	{
 		icon: FiMail,
 		title: "Ongoing Support",
-		desc: "Our team provides training, tools, and support for every volunteer role.",
+		desc: "Our team provides training and support for every volunteer role.",
 	},
 ];
 
@@ -154,7 +154,7 @@ export default function GetInvolvedPage() {
 		<div>
 			<Navbar />
 			{/* ── PAGE HERO ── */}
-			<section className="relative h-[45vh] min-h-[340px] flex items-center justify-center text-center overflow-hidden">
+			<section className="relative min-h-[60vh] md:h-[45vh] flex items-center justify-center text-center overflow-hidden py-20 sm:py-24">
 				<img
 					src="/D-4231r_17.jpg"
 					alt="Volunteers sorting school supplies for distribution"
@@ -164,11 +164,11 @@ export default function GetInvolvedPage() {
 
 				<div className="relative z-10 px-6 max-w-3xl">
 					<p className="uppercase tracking-[0.3em] text-xs mb-4 font-semibold text-[#F26421]">
-						Change A Life
+						Get Involved
 					</p>
 					<h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-4">
-						Get Involved
-						<span className="block text-[#639E90]">To Save a Life</span>
+						Give Time, Skill, or Support
+						<span className="block text-[#639E90]">Where It Is Needed</span>
 					</h1>
 				</div>
 			</section>
@@ -189,24 +189,22 @@ export default function GetInvolvedPage() {
 								style={{ color: "#204487" }}
 							>
 								Volunteer Your Time,{" "}
-								<span style={{ color: "#D91E26" }}>Change a Life</span>
+								<span style={{ color: "#D91E26" }}>Help a Family</span>
 							</h2>
 							<p
 								className="text-base leading-relaxed mb-4"
 								style={{ color: "#4a4a4a" }}
 							>
-								You don't need to have money to make a difference. Your skills,
-								time, and passion are the most powerful things you can offer.
-								Join our growing team of volunteers already making their mark across
-								Uganda.
+								Your skills and time can help with clinics, mentoring,
+								fundraising, reports, events, and community visits. Our volunteers
+								serve children and families across Uganda.
 							</p>
 							<p
 								className="text-base leading-relaxed"
 								style={{ color: "#4a4a4a" }}
 							>
-								Whether you're a healthcare professional, teacher, lawyer,
-								communications expert, or simply someone with time and heart
-								there is a meaningful role waiting for you here.
+								Healthcare workers, teachers, lawyers, communications people,
+								and volunteers with time to give can all find useful work here.
 							</p>
 						</div>
 						<div className="relative">
@@ -243,13 +241,13 @@ export default function GetInvolvedPage() {
 							className="text-sm font-semibold tracking-widest uppercase mb-3"
 							style={{ color: "#D91E26" }}
 						>
-							What You Get
+							Volunteer Support
 						</p>
 						<h2
 							className="font-serif text-4xl font-bold"
 							style={{ color: "#204487" }}
 						>
-							Why Volunteer With Us
+							What Volunteers Receive
 						</h2>
 					</div>
 					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -300,7 +298,7 @@ export default function GetInvolvedPage() {
 							className="font-serif text-4xl font-bold"
 							style={{ color: "#204487" }}
 						>
-							Find Your Volunteer Role
+							Find a Volunteer Role
 						</h2>
 					</div>
 					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
@@ -490,13 +488,13 @@ export default function GetInvolvedPage() {
 									}
 									className="w-full border-2 rounded-lg px-4 py-3 text-sm outline-none resize-none"
 									style={{ borderColor: "#e2e8f0" }}
-									placeholder="Tell us a little about yourself and your motivation..."
+									placeholder="Tell us a little about yourself and why this work matters to you..."
 								/>
 							</div>
  						<button
  							type="submit"
  							disabled={sending}
- 							className="w-full py-3.5 text-sm font-semibold text-white rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70 disabled:cursor-not-allowed"
+ 							className="w-full py-3.5 text-sm font-semibold text-white rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70 disabled:cursor-not-allowed"
  							style={{ backgroundColor: "#D91E26" }}
  						>
  							{sending ? "Sending..." : "Submit Application"} <FiArrowRight size={15} />
@@ -526,13 +524,13 @@ export default function GetInvolvedPage() {
 						className="text-base md:text-lg leading-relaxed mb-12 max-w-2xl mx-auto"
 						style={{ color: "rgba(255,255,255,0.75)" }}
 					>
-						We're looking for organizations that share our vision. Whether through
-						funding, capacity building, or shared advocacy — let's create
-						lasting impact together.
+						We're looking for organizations that care about education, health,
+						inclusion, and community support. Partnerships can include funding,
+						training, supplies, advocacy, or shared field work.
 					</p>
 					<a
 						href="/contact"
-						className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold rounded-lg border-2 border-white/50 text-white hover:bg-white hover:text-[#08415C] transition-all duration-300"
+						className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold rounded-full border-2 border-white/50 text-white hover:bg-white hover:text-[#08415C] transition-all duration-300"
 					>
 						Discuss Partnership <FiArrowRight size={18} />
 					</a>

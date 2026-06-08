@@ -21,11 +21,11 @@ import { renderToStaticMarkup } from "react-dom/server";
 const faqs = [
 	{
 		q: "How do I know my donation reaches beneficiaries?",
-		a: "We publish annual impact reports, quarterly donor updates, and maintain a transparent financial audit process. Every program has measurable output metrics we report publicly.",
+		a: "We share donor updates, program reports, and financial records. Each program tracks clear outputs, such as children supported, supplies delivered, or visits completed.",
 	},
 	{
-		q: "Is Acts of Love a registered NGO?",
-		a: "Yes. We are a registered non-governmental organization with the NGO Bureau in Uganda, and hold a valid tax exemption certificate.",
+		q: "Is Acts of Love a legitimate organisation?",
+		a: "Yes. Acts of Love Empowerment Foundation is a non-profit organisation based in Kampala, Uganda. We use funds responsibly and keep clear records for donors and partners.",
 	},
 	{
 		q: "Can I visit your project sites?",
@@ -33,7 +33,7 @@ const faqs = [
 	},
 	{
 		q: "How quickly will I hear back after volunteering?",
-		a: "Our volunteer coordinator responds to all applications within 48 business hours. You'll receive an email with next steps and a brief onboarding questionnaire.",
+		a: "Our volunteer coordinator responds to applications within 48 business hours. The reply includes next steps and a brief onboarding questionnaire.",
 	},
 ];
 
@@ -119,8 +119,8 @@ export default function ContactPage() {
 						Contact Us
 					</p>
 					<h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-4">
-						Let Us Hear From You
-						<span className="block text-[#639E90]">Save Lives Together</span>
+						Reach Out to Our Team
+						<span className="block text-[#639E90]">We're Ready to Listen</span>
 					</h1>
 				</div>
 			</section>
@@ -146,9 +146,8 @@ export default function ContactPage() {
 							className="text-base leading-relaxed mb-10"
 							style={{ color: "#4a4a4a" }}
 						>
-							Whether you have a question about programs, want to make a
-							donation, or are interested in volunteering or partnering our team
-							is ready to help.
+							Questions about programs, donations, volunteering, or partnerships
+							are welcome. Our team is ready to help.
 						</p>
 
 						<div className="flex flex-col gap-6">
@@ -174,7 +173,7 @@ export default function ContactPage() {
 								{
 									icon: FiClock,
 									label: "Office Hours",
-									value: "Mon – Fri: 8am – 5pm EAT",
+									value: "Mon - Fri: 8am - 5pm EAT",
 									href: null,
 								},
 							].map((c) => {
@@ -267,11 +266,11 @@ export default function ContactPage() {
 									className="font-serif text-2xl font-bold mb-3"
 									style={{ color: "#204487" }}
 								>
-									Message Sent!
+									Message Sent
 								</h3>
 								<p className="text-base" style={{ color: "#4a4a4a" }}>
-									Thank you for reaching out. Our team will respond to your
-									message within 1–2 business days.
+									Thank you for writing to us. Our team will respond to your
+									message within 1-2 business days.
 								</p>
 							</div>
 						) : (
@@ -376,7 +375,7 @@ export default function ContactPage() {
     					<button
     						type="submit"
     						disabled={sending}
-    						className="w-full py-3.5 text-sm font-semibold text-white rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70 disabled:cursor-not-allowed"
+    						className="w-full py-3.5 text-sm font-semibold text-white rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70 disabled:cursor-not-allowed"
     						style={{ backgroundColor: "#D91E26" }}
     					>
     						{sending ? "Sending..." : "Send Message"} <FiArrowRight size={15} />
@@ -434,7 +433,7 @@ export default function ContactPage() {
 							className="font-serif text-4xl font-bold"
 							style={{ color: "#204487" }}
 						>
-							Frequently Asked Questions
+							Common Questions
 						</h2>
 					</div>
 					<div className="flex flex-col gap-3">

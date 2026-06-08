@@ -67,7 +67,7 @@ export default function CheckoutPage() {
 								<div>
 									<h3 className="font-bold text-gray-800">Payment Method</h3>
 									<p className="text-xs text-gray-500">
-										All transactions are encrypted and secure.
+										Payment details are protected during checkout.
 									</p>
 								</div>
 							</div>
@@ -97,15 +97,15 @@ export default function CheckoutPage() {
 
 							<div className="bg-yellow-50 border border-yellow-100 p-4 rounded-xl mb-8">
 								<p className="text-xs text-yellow-800 leading-relaxed">
-									<strong>Note:</strong> This is a demonstration checkout page. 
-									In the production environment, a secure payment gateway (like Stripe 
-									or Flutterwave) would be integrated here to process your payment.
+									<strong>Note:</strong> This is a demonstration checkout page.
+									A live site would connect to Stripe, Flutterwave, or another payment
+									provider before processing your donation.
 								</p>
 							</div>
 
 							<Link
 								to="/"
-								className="block w-full text-center bg-[#D91E26] text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-[#b81a20] transition-all"
+								className="block w-full text-center bg-[#D91E26] text-white py-4 rounded-full font-bold text-lg shadow-lg hover:bg-[#b81a20] transition-all"
 							>
 								Complete Donation
 							</Link>

@@ -16,7 +16,7 @@ const donationReasons = [
     "Where needed most",
     "Education & Scholarships",
     "Healthcare & Medical Support",
-    "Women & Youth Empowerment",
+    "Women & Youth Support",
     "Medical Emergency Fund",
     "Food Relief",
     "Shelter & Community Projects",
@@ -65,27 +65,26 @@ export default function DonatePage() {
 							<div className="mb-8">
 								<FiHeart className="text-[#F26421] w-12 h-12 mb-4" />
 								<h1 className="text-3xl font-serif font-bold mb-4">
-									Make an Impact
+									Make a Donation
 								</h1>
 								<p className="text-blue-100 leading-relaxed">
-									Your donation directly supports our education, healthcare,
-									and empowerment programs. Thank you for being a part of
-									the change.
+									Your donation supports education, healthcare, food relief,
+									and community programs. Thank you for helping us serve.
 								</p>
 							</div>
 							<div className="space-y-6">
 								<div className="flex gap-4">
 									<div className="w-1.5 h-auto bg-[#639E90] rounded-full" />
 									<p className="text-sm">
-										<span className="block font-bold mb-1">Transparent</span>
+										<span className="block font-bold mb-1">Clear Use of Funds</span>
 										100% of your donation goes directly to our field programs.
 									</p>
 								</div>
 								<div className="flex gap-4">
 									<div className="w-1.5 h-auto bg-[#D91E26] rounded-full" />
 									<p className="text-sm">
-										<span className="block font-bold mb-1">Sustainable</span>
-										Monthly donations help us plan for long-term community growth.
+										<span className="block font-bold mb-1">Steady Support</span>
+										Monthly donations help us plan school, health, and family support.
 									</p>
 								</div>
        </div>
@@ -111,7 +110,7 @@ export default function DonatePage() {
 											key={freq}
 											type="button"
 											onClick={() => setFormData({ ...formData, frequency: freq })}
-											className={`flex-1 py-2 text-sm font-semibold rounded-md transition-all ${
+											className={`flex-1 py-2 text-sm font-semibold rounded-full transition-all ${
 												formData.frequency === freq
 													? "bg-white text-[#204487] shadow-sm"
 													: "text-gray-500 hover:text-[#204487]"
@@ -125,7 +124,7 @@ export default function DonatePage() {
         {/* Donation Reason */}
         <div>
             <label className="block text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                Donation Reason
+                Donation Purpose
             </label>
             <div className="grid sm:grid-cols-2 gap-3 mb-3" role="group" aria-label="Donation reason">
                 {donationReasons.map((r) => (
@@ -133,7 +132,7 @@ export default function DonatePage() {
                         key={r}
                         type="button"
                         onClick={() => setReason(r)}
-                        className={`text-left px-4 py-3 text-sm font-semibold rounded-xl border-2 transition-all ${
+                        className={`text-left px-4 py-3 text-sm font-semibold rounded-full border-2 transition-all ${
                             reason === r
                                 ? "border-[#204487] bg-[#204487]/5 text-[#204487]"
                                 : "border-gray-200 text-gray-600 hover:border-gray-300"
@@ -173,7 +172,7 @@ export default function DonatePage() {
 												key={amt.label}
 												type="button"
 												onClick={() => setAmount(amt.value)}
-												className={`py-3 text-sm font-bold rounded-xl border-2 transition-all ${
+												className={`py-3 text-sm font-bold rounded-full border-2 transition-all ${
 													amount === amt.value
 														? "border-[#D91E26] bg-[#D91E26]/5 text-[#D91E26]"
 														: "border-gray-200 text-gray-600 hover:border-gray-300"
@@ -249,7 +248,7 @@ export default function DonatePage() {
 
 								<button
 									type="submit"
-									className="w-full bg-[#D91E26] text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-[#b81a20] transition-all flex items-center justify-center gap-2 group"
+									className="w-full bg-[#D91E26] text-white py-4 rounded-full font-bold text-lg shadow-lg hover:bg-[#b81a20] transition-all flex items-center justify-center gap-2 group"
 								>
 									Continue to Checkout
 									<FiArrowRight className="group-hover:translate-x-1 transition-transform" />
