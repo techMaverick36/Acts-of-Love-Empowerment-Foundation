@@ -291,9 +291,13 @@ export default function AboutPage() {
 
 			{/* ── CTA ── */}
 			<section
-				className="relative py-20 overflow-hidden"
-				style={{ backgroundColor: "#08415C" }}
+				className="relative py-20 overflow-hidden  bg-gray-900"
 			>
+				<img
+					src="/IMG_0934.jpg"
+					alt="Acts of Love Foundation community outreach"
+					className="absolute inset-0 w-full h-full object-cover opacity-20"
+				/>
 				<div className="max-w-3xl mx-auto px-6 text-center relative z-10">
 					<div className="flex justify-center mb-6">
 						<span className="h-px w-16 bg-[#639E90]" />
@@ -319,15 +323,4 @@ export default function AboutPage() {
 						<Link
 							to="/get-involved"
 							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded-full border-2 hover:bg-white hover:text-[#08415C] transition-all duration-200"
-							style={{ borderColor: "rgba(255,255,255,0.4)" }}
-						>
-							Volunteer <FiArrowRight size={16} />
-						</Link>
-					</div>
-				</div>
-			</section>
-
-			<Footer />
-		</div>
-	);
-}
+							style={{ borderColor: "rgba(255,255,255,0.4)"

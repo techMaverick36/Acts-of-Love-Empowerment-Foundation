@@ -25,17 +25,17 @@ const slides = [
 			"Our team visits families, listens first, and connects people with the support they need.",
 	},
 	{
-		url: "/D-4231r_51.jpg",
-		alt: "Acts of Love Foundation team and children celebrating together",
-		title: "Making Room For",
+		url: "/IMG_0934.jpg",
+		alt: "Acts of Love Foundation team and community members gathered together",
+		title: "Building Inclusive",
 		highlight: "Communities",
 		description:
 			"We work with children, women, young people, and persons with disabilities so more people can take part in community life.",
 	},
 	{
-		url: "/D-4231r_52.jpg",
-		alt: "Acts of Love Foundation team",
-		title: "Guided by Care,",
+		url: "/IMG_0955.jpg",
+		alt: "Acts of Love Foundation team standing together at community outreach",
+		title: "Driven by Passion,",
 		highlight: "Led by Love",
 		description:
 			"Our volunteers and partners give time, skills, and resources to families across Uganda.",
@@ -168,9 +168,3 @@ export default function Hero() {
 								i === current ? "translate-x-0" : "-translate-x-full"
 							}`}
 						/>
-					</button>
-				))}
-			</div>
-		</section>
-	);
-}

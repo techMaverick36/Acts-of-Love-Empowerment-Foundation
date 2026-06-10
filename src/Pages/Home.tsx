@@ -267,7 +267,7 @@ export default function HomePage() {
 			</section>
 
 			{/* ── STATS BAND ── */}
-			<section className="py-20" style={{ backgroundColor: "#204487" }}>
+			{/* <section className="py-20" style={{ backgroundColor: "#204487" }}>
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="text-center mb-14">
 						<p
@@ -317,7 +317,7 @@ export default function HomePage() {
 						</Link>
 					</div>
 				</div>
-			</section>
+			</section> */}
 
 			{/* ── IMPACT STORY / QUOTE ── */}
 			<section className="py-20" style={{ backgroundColor: "#08415C" }}>
@@ -424,7 +424,7 @@ export default function HomePage() {
 							{
 								title: "Medical Emergencies",
 								cost: "Any amount helps",
-								img: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80",
+								img: "/IMG_0951.jpg",
 								badge: "Urgent",
 								desc: "Send urgent support for surgery, medicine, transport, and recovery care.",
 							},
@@ -443,7 +443,7 @@ export default function HomePage() {
 										className="absolute inset-0"
 										style={{
 											background:
-												"linear-gradient(180deg, rgba(32,68,135,0.1) 0%, rgba(32,68,135,0.5) 100%)",
+												"linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.42) 100%)",
 										}}
 									/>
 									{c.badge && (
@@ -505,7 +505,7 @@ export default function HomePage() {
 					className="absolute inset-0"
 					style={{
 						background:
-							"linear-gradient(90deg, rgba(8,65,92,0.9) 0%, rgba(29,30,31,0.68) 48%, rgba(217,30,38,0.34) 100%), linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.55) 100%)",
+							"linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.52) 55%, rgba(0,0,0,0.28) 100%)",
 					}}
 				/>
 				<div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
@@ -552,3 +552,4 @@ export default function HomePage() {
 		</div>
 	);
 }
+                                                                                                                                  

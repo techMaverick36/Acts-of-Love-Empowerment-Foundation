@@ -37,7 +37,7 @@ const programs = [
 		title: "Help a Community",
 		badge: null,
 		badgeBg: null,
-		image: "/D-4231r_54.jpg",
+		image: "/IMG_0934.jpg",
 		cost: "Any amount helps",
 		description:
 			"Support clean water access, community health needs, school improvements, or farming projects. Your gift helps families solve practical problems together.",
@@ -359,7 +359,7 @@ function ProgramCard({
 				/>
 				<div
 					className="absolute inset-0"
-					style={{ backgroundColor: "rgba(32,68,135,0.5)" }}
+					style={{ backgroundColor: "rgba(0,0,0,0.32)" }}
 				/>
 				{prog.badge && (
 					<span
@@ -600,3 +600,4 @@ export default function ProgramsPage() {
 		</div>
 	);
 }
+     
