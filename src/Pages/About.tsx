@@ -323,4 +323,15 @@ export default function AboutPage() {
 						<Link
 							to="/get-involved"
 							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded-full border-2 hover:bg-white hover:text-[#08415C] transition-all duration-200"
-							style={{ borderColor: "rgba(255,255,255,0.4)"
+							style={{ borderColor: "rgba(255,255,255,0.4)" }}
+						>
+							Volunteer <FiArrowRight size={16} />
+						</Link>
+					</div>
+				</div>
+			</section>
+
+			<Footer />
+		</div>
+	);
+}

@@ -77,7 +77,7 @@ const pillars = [
 		accent: "#00A54F",
 		bg: "#f0faf4",
 		border: "#b3e6c8",
-		image: "/D-4231r_54.jpg",
+		image: "/IMG_0934.jpg",
 		summary:
 			"We help communities plan beyond a single donation through clean water, farming support, solar access, and small business support.",
 		highlights: [
@@ -87,7 +87,7 @@ const pillars = [
 			"Small business grants and practical training",
 			"Environmental conservation and tree planting campaigns",
 		],
-		stat: { val: "0+", label: "Households Reached" },
+		stat: { val: "80+", label: "Households Reached" },
 	},
 ];
 

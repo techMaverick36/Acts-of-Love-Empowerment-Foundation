@@ -168,3 +168,9 @@ export default function Hero() {
 								i === current ? "translate-x-0" : "-translate-x-full"
 							}`}
 						/>
+					</button>
+				))}
+			</div>
+		</section>
+	);
+}
