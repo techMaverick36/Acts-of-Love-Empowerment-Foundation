@@ -10,7 +10,7 @@ import {
 	FiShield,
 	FiCheckCircle,
 	FiAward,
-	FiMapPin,
+	
 } from "react-icons/fi";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
