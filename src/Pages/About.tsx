@@ -1,4 +1,4 @@
-import { FiHeart, FiArrowRight, FiShield, FiUsers, FiStar, FiTarget, FiGlobe } from "react-icons/fi";
+import { FiArrowRight, FiShield, FiUsers, FiTarget, FiGlobe } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
@@ -85,16 +85,16 @@ export default function AboutPage() {
 							</h2>
 							<div className="w-14 h-1 rounded mb-6" style={{ backgroundColor: "#F26421" }} />
 							<p className="text-base leading-relaxed mb-4" style={{ color: "#4a4a4a" }}>
-								Acts of Love Empowerment Foundation was founded in January 2026
-								by a small group of Ugandans who wanted to serve families close
-								to home. The work began with a simple belief: children and adults
-								deserve support that respects their dignity.
+								Acts of Love Empowerment Foundation is an organization committed to improving
+								people's lives through Education, Inclusive support, and Sustainable development.
+
+
 							</p>
 							<p className="text-base leading-relaxed mb-8" style={{ color: "#4a4a4a" }}>
-								Community members help decide what support is needed, whether
-								that means school materials, health outreach, food support, or
-								referrals for care. We report clearly to donors and treat every
-								person we serve with respect.
+								Our work starts with listening. Communities help shape the programs they receive,
+								and we report clearly to donors while treating every person we serve with respect.
+
+
 							</p>
 							<Link
 								to="/impact"
@@ -159,43 +159,31 @@ export default function AboutPage() {
 							we treat people.
 						</p>
 					</div>
-					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+					<div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 						{[
 							{
-								icon: FiHeart,
-								title: "Compassion First",
-								desc: "Every action starts with care for the communities we serve. We listen before we act.",
-								color: "#D91E26",
+								icon: FiUsers,
+								title: "Participation and Ownership",
+								desc: "Success depends on community involvement from the planning stages through to completion, to ensure that projects are appropriately managed after the organization hands over.",
+								color: "#204487",
 							},
 							{
 								icon: FiShield,
-								title: "Integrity & Transparency",
-								desc: "We are open about how funds are used, how programs are run, and what results we can show.",
-								color: "#204487",
-							},
-							{
-								icon: FiUsers,
-								title: "Inclusion & Dignity",
-								desc: "Every person deserves dignity and respect, regardless of background, identity, or circumstance.",
-								color: "#F26421",
-							},
-							{
-								icon: FiGlobe,
-								title: "Community Ownership",
-								desc: "Community members help shape programs so support matches real needs.",
-								color: "#639E90",
+								title: "Equity and Social Justice",
+								desc: "Growth must be fair, providing equal access to resources and opportunities regardless of gender, religion, age, or socioeconomic status.",
+								color: "#D91E26",
 							},
 							{
 								icon: FiTarget,
-								title: "Long-Term Care",
-								desc: "We choose practical programs that can keep helping families after the first visit or donation.",
+								title: "Empowerment and Capacity Building",
+								desc: "Providing the tools, skills, and knowledge necessary for communities to lead their own development rather than creating dependency.",
 								color: "#00A54F",
 							},
 							{
-								icon: FiStar,
-								title: "Excellence & Stewardship",
-								desc: "We use every resource carefully and keep our service standards high.",
-								color: "#204487",
+								icon: FiGlobe,
+								title: "Transparency and Accountability",
+								desc: "Maintaining open records of fund allocation and providing regular updates on progress, to build trust with both donors and beneficiaries for long-term survival.",
+								color: "#639E90",
 							},
 						].map((p) => {
 							const Icon = p.icon;
@@ -325,7 +313,7 @@ export default function AboutPage() {
 							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded-full border-2 hover:bg-white hover:text-[#08415C] transition-all duration-200"
 							style={{ borderColor: "rgba(255,255,255,0.4)" }}
 						>
-							Volunteer <FiArrowRight size={16} />
+							Get Involved <FiArrowRight size={16} />
 						</Link>
 					</div>
 				</div>

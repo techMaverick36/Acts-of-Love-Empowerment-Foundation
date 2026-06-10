@@ -23,7 +23,7 @@ const programs = [
 		image: "/D-4231r_9.jpg",
 		cost: "Any amount helps",
 		description:
-			"Your monthly sponsorship helps cover school fees, healthcare, meals, and mentorship for a child. Steady support helps a child keep learning and growing with care around them.",
+			"Sponsorship gives a vulnerable child a bright future. It covers school fees, meals, school uniforms, and scholastic materials. Children born into poverty who gain access to education are proven to break the poverty cycle and become successful independent adults. Their education can help their whole family escape the poverty trap, often for generations to come.",
 		includes: [
 			"Full school fees and learning materials",
 			"Monthly healthcare checkups and medications",
@@ -40,7 +40,7 @@ const programs = [
 		image: "/IMG_0934.jpg",
 		cost: "Any amount helps",
 		description:
-			"Support clean water access, community health needs, school improvements, or farming projects. Your gift helps families solve practical problems together.",
+			"Sometimes the community needs emergency intervention, and there isn't time for long-term projects. Such cases include mudslides, flooding that destroys schools and homes, among other unforeseen disasters that demand immediate intervention.",
 		includes: [
 			"Borehole drilling and clean water access",
 			"Community health center construction & equipment",
@@ -57,7 +57,7 @@ const programs = [
 		image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80",
 		cost: "Any amount helps",
 		description:
-			"Send urgent funds to people facing serious health crises, including surgery, emergency procedures, medication, transport, and recovery care.",
+			"Our Medical Response Fund is an initiative that gives you the ability to intervene in medical emergencies, helping especially children and single-parent households access medical treatment they couldn't otherwise afford.",
 		includes: [
 			"Emergency surgery and procedure funding",
 			"Critical medications and post-op care",

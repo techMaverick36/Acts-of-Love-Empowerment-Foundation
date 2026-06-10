@@ -195,16 +195,16 @@ export default function GetInvolvedPage() {
 								className="text-base leading-relaxed mb-4"
 								style={{ color: "#4a4a4a" }}
 							>
-								Your skills and time can help with clinics, mentoring,
-								fundraising, reports, events, and community visits. Our volunteers
-								serve children and families across Uganda.
+								Have you got time, energy, or expertise to share? Volunteers make an enormous contribution to our work.
+								There are many ways you can make a difference as we work together to improve the lives of vulnerable communities around the world.
+
 							</p>
 							<p
 								className="text-base leading-relaxed"
 								style={{ color: "#4a4a4a" }}
 							>
-								Healthcare workers, teachers, lawyers, communications people,
-								and volunteers with time to give can all find useful work here.
+								Our volunteers can choose from various projects to ensure their interests and strengths are best utilized during their time with Acts of Love Empowerment Foundation.
+								Email us at info@actsofloveempowermentfoundation.org to find your team.
 							</p>
 						</div>
 						<div className="relative">
@@ -518,15 +518,15 @@ export default function GetInvolvedPage() {
 						Partnerships
 					</p>
 					<h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6">
-						Become an Organisational Partner
+						Partner With Us
 					</h2>
 					<p
 						className="text-base md:text-lg leading-relaxed mb-12 max-w-2xl mx-auto"
 						style={{ color: "rgba(255,255,255,0.75)" }}
 					>
-						We're looking for organizations that care about education, health,
-						inclusion, and community support. Partnerships can include funding,
-						training, supplies, advocacy, or shared field work.
+						We are keen to initiate partnerships with organizations that share our ambition. Together we can empower
+						communities, improve projects, and strengthen relationships. Talk to a member of our team if our values
+						and goals align with your Corporate Social Responsibilities and strategies.
 					</p>
 					<a
 						href="/contact"

@@ -23,7 +23,7 @@ const impactAreas = [
 		accent: "#00A54F",
 		bg: "#f0faf4",
 		border: "#b3e6c8",
-		desc: "Health support gives families room to work, study, and care for one another.",
+		desc: "A healthy community can focus on creating a better, stable future.",
 	},
 	{
 		icon: FiUsers,
@@ -31,7 +31,7 @@ const impactAreas = [
 		accent: "#F26421",
 		bg: "#fdf4ee",
 		border: "#f8ceae",
-		desc: "Support for people who are often left out, including women, youth, and persons with disabilities.",
+		desc: "Ensuring that all people, regardless of their background, identity, or circumstances, can participate in and benefit from societal progress.",
 	},
 	{
 		icon: FiBook,
@@ -39,7 +39,7 @@ const impactAreas = [
 		accent: "#204487",
 		bg: "#eef3fb",
 		border: "#b5c8ed",
-		desc: "School fees, learning materials, meals, and mentoring for young people.",
+		desc: "We believe that quality education sets young people up for lifelong success.",
 	},
 	{
 		icon: FiSun,
@@ -47,7 +47,7 @@ const impactAreas = [
 		accent: "#00A54F",
 		bg: "#f0faf4",
 		border: "#b3e6c8",
-		desc: "Clean water, farming support, and practical projects that help families plan ahead.",
+		desc: "Focusing on Environmental, Social, and Economic projects that meet our present needs without compromising the ability of future generations to meet their own needs.",
 	},
 ];
 
@@ -133,13 +133,10 @@ export default function HomePage() {
 							</h2>
 							<div className="w-14 h-1 rounded mb-6" style={{ backgroundColor: "#F26421" }} />
 							<p className="text-base leading-relaxed mb-4" style={{ color: "#4a4a4a" }}>
-								Acts of Love Empowerment Foundation is a non-profit organisation in Uganda
-								supporting children and families through education, health, inclusion, and
-								community development.
+								Acts of Love Empowerment Foundation is an organization committed to improving people's lives through Education, Inclusive support, and Sustainable development.
 							</p>
 							<p className="text-base leading-relaxed mb-8" style={{ color: "#4a4a4a" }}>
-								Our work starts with listening. Communities help shape the support they
-								receive, from school needs to health outreach and family care.
+								Our work starts with listening. Communities help shape the programs they receive, from school needs to health outreach and family care.
 							</p>
 							<Link
 								to="/about"
@@ -159,16 +156,16 @@ export default function HomePage() {
 								bg: "#204487",
 								tag: "Our Mission",
 								tagColor: "#D91E26",
-								title: "Support That Starts Close to Home",
-								body: "Our mission is to support communities through education, better health practices, inclusion, and practical development, so more people have a fair chance to live with dignity.",
+								title: "A Fair Chance at a Productive Life",
+								body: "Our mission is to provide support to communities by enhancing education, promoting better health practices, inclusion, and sustainable environmental development, so that everyone has a fair chance at living a productive life.",
 							},
 							{
 								icon: FiEye,
 								bg: "#D91E26",
 								tag: "Our Vision",
 								tagColor: "#204487",
-								title: "Dignity for Every Person",
-								body: "Our vision is a fairer world where every person has the chance to learn, receive care, take part, and live with dignity, whatever their background.",
+								title: "An Inclusive World for Every Individual",
+								body: "Our vision is to create an inclusive world where every individual has an opportunity to live a dignified, empowered, and fulfilled life, regardless of their background.",
 							},
 						].map((c) => {
 							const Icon = c.icon;
@@ -402,7 +399,7 @@ export default function HomePage() {
 							Ways To Give
 						</h2>
 						<p className="text-base leading-relaxed" style={{ color: "#4a4a4a" }}>
-							Every gift goes directly to education, health, food, and community support.
+							We believe that to give is not to cast away — it is to store for the future. When we come together to tackle the world's toughest challenges, we invest in a greater future. Change is possible, but only through collective generosity.
 						</p>
 					</div>
 					<div className="grid md:grid-cols-3 gap-8 mb-10">
@@ -412,14 +409,14 @@ export default function HomePage() {
 								cost: "Any amount helps",
 								img: "/D-4231r_21.jpg",
 								badge: "Most Popular",
-								desc: "Provide school fees, healthcare support, and daily meals for a child.",
+								desc: "Sponsorship gives a vulnerable child a bright future. It covers school fees, meals, school uniforms, and scholastic materials — proven to help children break the poverty cycle.",
 							},
 							{
 								title: "Help a Community",
 								cost: "Any amount helps",
 								img: "/D-4231r_30.jpg",
 								badge: null,
-								desc: "Support clean water, clinic needs, and farming projects for communities.",
+								desc: "Sometimes communities need emergency intervention without time for long-term projects — cases like mudslides or flooding that demand immediate response.",
 							},
 							{
 								title: "Medical Emergencies",
