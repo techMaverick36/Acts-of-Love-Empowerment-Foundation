@@ -424,7 +424,7 @@ export default function HomePage() {
 							{
 								title: "Medical Emergencies",
 								cost: "Any amount helps",
-								img: "/IMG_0951.jpg",
+								img: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80",
 								badge: "Urgent",
 								desc: "Send urgent support for surgery, medicine, transport, and recovery care.",
 							},

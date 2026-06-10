@@ -54,7 +54,7 @@ const programs = [
 		title: "Medical Emergencies",
 		badge: "Urgent Need",
 		badgeBg: "#F26421",
-		image: "/D-4231r_26.jpg",
+		image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80",
 		cost: "Any amount helps",
 		description:
 			"Send urgent funds to people facing serious health crises, including surgery, emergency procedures, medication, transport, and recovery care.",
