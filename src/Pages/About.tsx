@@ -8,12 +8,17 @@ const milestones = [
 	{
 		year: "January 2026",
 		event:
-			"Foundation established in Kampala, Uganda, with a focus on community health and education. First community outreach reaches 50+ people in Wakiso District.",
+			"Foundation established in Kampala, Uganda, with a focus on community health and education. ",
 	},
 	{
-		year: "June 2026",
+		year: "April 2026 – First Outreach Mission",
 		event:
-			"Second community outreach completed, serving 80 additional people across a second community. Total lives reached rises to 130+ across 2 communities.",
+			"Acts of Love Empowerment Foundation conducted its first mission at the Police Children School in Kibuli, Wakiso District. During this outreach, 50 students received essential scholastic materials, including exercise books, pens, pencils, mathematical sets, and other learning supplies to support their daily classroom studies and academic success.",
+	},
+	{
+		year: "June 2026 – Community Food Support Initiative",
+		event:
+			"As part of our mission to promote healthy eating and improve household nutrition, Acts of Love Empowerment Foundation provided grocery support to 80 families across Kibuli and Zzana-Nfuufu. Each family received a food basket containing 2 kilograms of meat and 1 kilogram of rice, helping to enhance access to nutritious meals within their homes.",
 	},
 ];
 
