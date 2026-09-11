@@ -17,6 +17,7 @@ export default function Footer() {
 		{ name: "Programs", path: "/programs" },
 		{ name: "Get Involved", path: "/get-involved" },
 		{ name: "Contact", path: "/contact" },
+		{ name: "Blog", path: "/blog" },
 	];
 
 	return (
@@ -30,7 +31,7 @@ export default function Footer() {
 							<Link to="/" className="flex items-center gap-4 group">
 								<div className="bg-white p-2 rounded-xl shadow-lg transition-transform group-hover:scale-105">
 									<img
-										src="./logo.png"
+										src="/logo.png"
 										alt="Acts of Love Logo"
 										className="w-12 h-12 object-contain"
 									/>
@@ -50,13 +51,13 @@ export default function Footer() {
 								inclusion, and community programs across Uganda.
 							</p>
 
-							<div
+							{/* <div
 								className="inline-flex items-center gap-2 text-xs px-3 py-2 rounded-lg self-start"
 								style={{ backgroundColor: "rgba(99,158,144,0.15)", color: "#639E90" }}
 							>
 								<span className="w-1.5 h-1.5 rounded-full bg-[#639E90]" />
 								Serving Communities - Kampala, Uganda
-							</div>
+							</div> */}
 
 							<div className="flex gap-3">
 								{[

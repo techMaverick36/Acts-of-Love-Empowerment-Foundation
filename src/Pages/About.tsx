@@ -142,7 +142,7 @@ export default function AboutPage() {
 			<section
 				id="principles"
 				className="py-20 scroll-mt-28"
-				style={{ backgroundColor: "#eef3fb" }}
+				style={{ backgroundColor: "#f8f9fb" }}
 			>
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="text-center max-w-2xl mx-auto mb-14">

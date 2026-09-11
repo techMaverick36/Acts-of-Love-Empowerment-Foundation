@@ -37,7 +37,7 @@ const impactAreas = [
 		icon: FiBook,
 		area: "Education",
 		accent: "#204487",
-		bg: "#eef3fb",
+		bg: "#f8f9fb",
 		border: "#b5c8ed",
 		desc: "We believe that quality education sets young people up for lifelong success.",
 	},
@@ -74,7 +74,7 @@ export default function HomePage() {
 								<div key={item.label} className="flex items-center gap-3">
 									<div
 										className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-										style={{ backgroundColor: "#eef3fb" }}
+										style={{ backgroundColor: "#f8f9fb" }}
 									>
 										<Icon size={16} style={{ color: "#204487" }} />
 									</div>
@@ -203,7 +203,7 @@ export default function HomePage() {
 			</section>
 
 			{/* ── IMPACT AREAS ── */}
-			<section className="py-20" style={{ backgroundColor: "#eef3fb" }}>
+			<section className="py-20" style={{ backgroundColor: "#f8f9fb" }}>
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="text-center max-w-2xl mx-auto mb-14">
 						<p
@@ -496,7 +496,7 @@ export default function HomePage() {
 				<img
 					src="/D-4231r_22.jpg"
 					alt="Volunteers working with the community"
-					className="absolute inset-0 w-full h-full object-cover"
+					className="absolute inset-0 w-full h-full object-top object-cover"
 				/>
 				<div
 					className="absolute inset-0"
@@ -506,13 +506,7 @@ export default function HomePage() {
 					}}
 				/>
 				<div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-					<div
-						className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-widest mb-6"
-						style={{ backgroundColor: "rgba(217,30,38,0.2)", color: "#ff8080" }}
-					>
-						<span className="w-1.5 h-1.5 rounded-full bg-[#D91E26]" />
-						Join Our Team
-					</div>
+					
 					<h2
 						className="font-serif text-4xl md:text-5xl font-bold text-white mb-5"
 					>

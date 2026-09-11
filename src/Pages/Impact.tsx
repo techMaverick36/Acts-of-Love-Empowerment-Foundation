@@ -57,7 +57,7 @@ const pillars = [
 		icon: FiBook,
 		area: "Education",
 		accent: "#204487",
-		bg: "#eef3fb",
+		bg: "#f8f9fb",
 		border: "#b5c8ed",
 		image: "/D-4231r_18.jpg",
 		summary:
@@ -150,7 +150,7 @@ export default function ImpactPage() {
 					<section
 						key={p.area}
 						className="py-20"
-						style={{ backgroundColor: isEven ? "#ffffff" : "#eef3fb" }}
+						style={{ backgroundColor: isEven ? "#ffffff" : "#f8f9fb" }}
 					>
 						<div className="max-w-7xl mx-auto px-6">
 							<div

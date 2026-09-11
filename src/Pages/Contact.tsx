@@ -182,7 +182,7 @@ export default function ContactPage() {
 									<div key={c.label} className="flex items-start gap-4">
 										<div
 											className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-											style={{ backgroundColor: "#eef3fb" }}
+											style={{ backgroundColor: "#f8f9fb" }}
 										>
 											<Icon size={17} style={{ color: "#204487" }} />
 										</div>
@@ -233,12 +233,12 @@ export default function ContactPage() {
 										key={label}
 										href="#"
 										className="w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:text-white"
-										style={{ backgroundColor: "#eef3fb", color: "#204487" }}
+										style={{ backgroundColor: "#f8f9fb", color: "#204487" }}
 										onMouseEnter={(e) => {
 											e.currentTarget.style.backgroundColor = "#204487";
 										}}
 										onMouseLeave={(e) => {
-											e.currentTarget.style.backgroundColor = "#eef3fb";
+											e.currentTarget.style.backgroundColor = "#f8f9fb";
 											e.currentTarget.style.color = "#204487";
 										}}
 									>
@@ -254,7 +254,7 @@ export default function ContactPage() {
 						{submitted ? (
 							<div
 								className="rounded-2xl p-12 text-center border border-blue-100"
-								style={{ backgroundColor: "#eef3fb", height: "100%" }}
+								style={{ backgroundColor: "#f8f9fb", height: "100%" }}
 							>
 								<div
 									className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
@@ -394,7 +394,7 @@ export default function ContactPage() {
 						className="rounded-2xl overflow-hidden"
 						style={{
 							height: 360,
-							backgroundColor: "#eef3fb",
+							backgroundColor: "#f8f9fb",
 							border: "1px solid #dce8f8",
 						}}
 					>
@@ -420,7 +420,7 @@ export default function ContactPage() {
 			</section>
 
 			{/* ── FAQ ── */}
-			<section className="py-20" style={{ backgroundColor: "#eef3fb" }}>
+			<section className="py-20" style={{ backgroundColor: "#f8f9fb" }}>
 				<div className="max-w-3xl mx-auto px-6">
 					<div className="text-center mb-12">
 						<p

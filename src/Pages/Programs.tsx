@@ -140,7 +140,7 @@ function DonateModal({ prog, onClose }: { prog: Program; onClose: () => void }) 
 				{/* ── Compact header ── */}
 				<div className="shrink-0 flex items-center justify-between px-7 py-5 border-b border-gray-100 rounded-t-2xl bg-white">
 					<div className="flex items-center gap-3">
-						<div className="p-2 rounded-full" style={{ backgroundColor: "#eef3fb" }}>
+						<div className="p-2 rounded-full" style={{ backgroundColor: "#f8f9fb" }}>
 							<FiHeart size={18} style={{ color: "#D91E26" }} />
 						</div>
 						<div>
@@ -173,7 +173,7 @@ function DonateModal({ prog, onClose }: { prog: Program; onClose: () => void }) 
 				<div className="flex flex-col lg:grid lg:grid-cols-[15rem_1fr] flex-1 min-h-0 overflow-hidden rounded-b-2xl">
 
 					{/* Left info strip */}
-					<div className="lg:overflow-y-auto p-6 flex flex-col gap-5 shrink-0 lg:shrink" style={{ backgroundColor: "#eef3fb" }}>
+					<div className="lg:overflow-y-auto p-6 flex flex-col gap-5 shrink-0 lg:shrink" style={{ backgroundColor: "#f8f9fb" }}>
 						<p className="text-sm leading-relaxed" style={{ color: "#4a4a4a" }}>{prog.description}</p>
 						<div className="flex flex-col gap-3 pt-3 border-t border-blue-100">
 							{prog.includes.map((item) => (
@@ -412,7 +412,7 @@ function ProgramCard({
 					</button>
 					<Link
 						to="/contact"
-						className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold rounded-full border-2 hover:bg-[#eef3fb] transition-colors"
+						className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold rounded-full border-2 hover:bg-[#f8f9fb] transition-colors"
 						style={{ borderColor: "#204487", color: "#204487" }}
 					>
 						Learn More <FiArrowRight size={14} />
@@ -479,7 +479,7 @@ export default function ProgramsPage() {
 			</div>
 
 			{/* Program Cards */}
-			<section className="py-20" style={{ backgroundColor: "#eef3fb" }}>
+			<section className="py-20" style={{ backgroundColor: "#f8f9fb" }}>
 				<div className="max-w-7xl mx-auto px-6 flex flex-col gap-10">
 					<div className="text-center max-w-2xl mx-auto mb-4">
 						<p
@@ -540,7 +540,7 @@ export default function ProgramsPage() {
 							<div
 								key={c.title}
 								className="rounded-2xl p-8 border border-blue-100 hover:shadow-md transition-shadow duration-300"
-								style={{ backgroundColor: "#eef3fb" }}
+								style={{ backgroundColor: "#f8f9fb" }}
 							>
 								<h3
 									className="font-serif text-xl font-bold mb-3"

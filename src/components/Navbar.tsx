@@ -19,6 +19,7 @@ export default function Navbar() {
 		{ name: "Programs", path: "/programs" },
 		{ name: "Get Involved", path: "/get-involved" },
 		{ name: "Contact", path: "/contact" },
+		{ name: "Blog", path: "/blog" },
 	];
 
 	return (
@@ -61,7 +62,7 @@ export default function Navbar() {
 						<Link to="/" className="flex items-center gap-3 shrink-0">
 							<div className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shrink-0">
 								<img
-									src="./logo.png"
+									src="/logo.png"
 									alt="Acts of Love Empowerment Foundation Logo"
 									className="w-full h-full object-contain"
 								/>
@@ -83,7 +84,7 @@ export default function Navbar() {
 						</Link>
 
 						{/* Desktop Links */}
-						<div className="hidden lg:flex items-center gap-7">
+						<div className="hidden xl:flex items-center gap-6">
 							{navLinks.map((link) => (
 								<NavLink
 									key={link.name}
@@ -116,7 +117,7 @@ export default function Navbar() {
 						</div>
 
 						{/* Donate Button */}
-						<div className="hidden lg:block">
+						<div className="hidden xl:block">
 							<Link
 								to="/donate"
 								className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white rounded-full transition-all duration-200 hover:opacity-90 hover:scale-105 shadow-sm"
@@ -128,10 +129,12 @@ export default function Navbar() {
 
 						{/* Mobile Menu Toggle */}
 						<button
-							className="lg:hidden p-2 rounded-lg transition-colors hover:bg-gray-100"
+							className="xl:hidden p-2 rounded-lg transition-colors hover:bg-gray-100"
 							onClick={() => setMenuOpen(!menuOpen)}
 							style={{ color: "#204487" }}
 							aria-label="Toggle navigation menu"
+							aria-expanded={menuOpen}
+							aria-controls="mobile-navigation"
 						>
 							{menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
 						</button>
@@ -140,7 +143,7 @@ export default function Navbar() {
 
 				{/* Mobile Menu */}
 				{menuOpen && (
-					<div className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-1">
+					<div id="mobile-navigation" className="xl:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-1">
 						{navLinks.map((link) => (
 							<NavLink
 								key={link.name}

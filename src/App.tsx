@@ -7,6 +7,8 @@ import ContactPage from "./Pages/Contact";
 import GetInvolvedPage from "./Pages/GetInvolved";
 import DonatePage from "./Pages/Donate";
 import CheckoutPage from "./Pages/Checkout";
+import BlogPage from "./Pages/Blog";
+import BlogPostPage from "./Pages/BlogPost";
 import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
@@ -22,6 +24,8 @@ const App = () => {
 				<Route path="/get-involved" element={<GetInvolvedPage />} />
 				<Route path="/donate" element={<DonatePage />} />
 				<Route path="/checkout" element={<CheckoutPage />} />
+				<Route path="/blog" element={<BlogPage />} />
+				<Route path="/blog/:slug" element={<BlogPostPage />} />
 			</Routes>
 		</Router>
 	);

@@ -174,7 +174,7 @@ export default function GetInvolvedPage() {
 			</section>
 
 			{/* ── VOLUNTEER INTRO ── */}
-			<section id="volunteer" className="py-20 scroll-mt-28" style={{ backgroundColor: "#eef3fb" }}>
+			<section id="volunteer" className="py-20 scroll-mt-28" style={{ backgroundColor: "#f8f9fb" }}>
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="grid lg:grid-cols-2 gap-16 items-center">
 						<div>
@@ -257,7 +257,7 @@ export default function GetInvolvedPage() {
 								<div
 									key={p.title}
 									className="rounded-2xl p-7 border border-blue-100"
-									style={{ backgroundColor: "#eef3fb" }}
+									style={{ backgroundColor: "#f8f9fb" }}
 								>
 									<div
 										className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
@@ -285,7 +285,7 @@ export default function GetInvolvedPage() {
 			</section>
 
 			{/* ── OPEN ROLES ── */}
-			<section className="py-20" style={{ backgroundColor: "#eef3fb" }}>
+			<section className="py-20" style={{ backgroundColor: "#f8f9fb" }}>
 				<div className="max-w-7xl mx-auto px-6">
 					<div className="text-center max-w-xl mx-auto mb-14">
 						<p
@@ -322,15 +322,15 @@ export default function GetInvolvedPage() {
 								<div className="flex flex-wrap gap-2 pt-4 border-t border-blue-50">
 									<span
 										className="text-xs font-medium px-3 py-1 rounded-full"
-										style={{ backgroundColor: "#eef3fb", color: "#204487" }}
+										style={{ backgroundColor: "#f8f9fb", color: "#204487" }}
 									>
-										⏱ {r.commitment}
+										{r.commitment}
 									</span>
 									<span
 										className="text-xs font-medium px-3 py-1 rounded-full"
 										style={{ backgroundColor: "#f0faf4", color: "#00A54F" }}
 									>
-										📍 {r.location}
+										{r.location}
 									</span>
 								</div>
 							</div>
@@ -364,7 +364,7 @@ export default function GetInvolvedPage() {
 					{submitted ? (
 						<div
 							className="rounded-2xl p-12 text-center border border-blue-100"
-							style={{ backgroundColor: "#eef3fb" }}
+							style={{ backgroundColor: "#f8f9fb" }}
 						>
 							<div
 								className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
