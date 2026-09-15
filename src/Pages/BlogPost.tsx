@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import Button from "../components/Button";
+import { useParams } from "react-router-dom";
 import { FiArrowLeft, FiArrowRight, FiHeart, FiMail } from "react-icons/fi";
 import {
 	FaFacebookF,
@@ -6,27 +7,13 @@ import {
 	FaLinkedinIn,
 	FaWhatsapp,
 } from "react-icons/fa6";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BlogCard from "../components/BlogCard";
-import {
-	getPostBySlug,
-	getRelatedPosts,
-	formatDate,
-	type BodyBlock,
-} from "../data/blogPosts";
-
-const impactStats = [
-	{ val: "130+", label: "Lives directly reached" },
-	{ val: "80+", label: "Households supported" },
-	{ val: "2", label: "Communities served" },
-];
-
-const slugify = (s: string) =>
-	s
-		.toLowerCase()
-		.replace(/[^a-z0-9]+/g, "-")
-		.replace(/(^-|-$)/g, "");
+import { formatDate, type BlogPost, type BodyBlock } from "../data/blogPosts";
+import { getPublishedPost, listRelatedPosts } from "../lib/posts";
+import DOMPurify from "dompurify";
 
 const initials = (name: string) =>
 	name
@@ -36,6 +23,12 @@ const initials = (name: string) =>
 		.slice(0, 2)
 		.join("")
 		.toUpperCase();
+
+const slugify = (s: string) =>
+	s
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/(^-|-$)/g, "");
 
 function Block({ block }: { block: BodyBlock }) {
 	if (block.type === "h2")
@@ -51,23 +44,26 @@ function Block({ block }: { block: BodyBlock }) {
 	if (block.type === "ul")
 		return (
 			<ul className="list-disc pl-6 mb-7 space-y-2.5">
-				{block.items.map((item) => (
-					<li key={item} className="pl-1" style={{ color: "#4a4a4a" }}>
-						{item}
-					</li>
+				{block.items.map((item, i) => (
+					<li
+						key={i}
+						className="pl-1"
+						style={{ color: "#4a4a4a" }}
+						dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item) }}
+					/>
 				))}
 			</ul>
 		);
 	if (block.type === "image") {
-		const right = block.align === "right";
+		const floated = block.align === "right" || block.align === "left";
+		const figureClass =
+			block.align === "right"
+				? "my-6 lg:float-right lg:w-[46%] lg:ml-7 lg:mb-5"
+				: block.align === "left"
+					? "my-6 lg:float-left lg:w-[46%] lg:mr-7 lg:mb-5"
+					: "my-8 clear-both";
 		return (
-			<figure
-				className={
-					right
-						? "my-6 lg:float-right lg:w-[46%] lg:ml-7 lg:mb-5"
-						: "my-8 clear-both"
-				}
-			>
+			<figure className={figureClass}>
 				<img
 					src={block.src}
 					alt={block.caption || ""}
@@ -75,7 +71,7 @@ function Block({ block }: { block: BodyBlock }) {
 				/>
 				{block.caption && (
 					<figcaption
-						className={`mt-2.5 text-xs italic ${right ? "text-left" : "text-center"}`}
+						className={`mt-2.5 text-xs italic ${floated ? "text-left" : "text-center"}`}
 						style={{ color: "#888" }}
 					>
 						{block.caption}
@@ -94,9 +90,11 @@ function Block({ block }: { block: BodyBlock }) {
 			</blockquote>
 		);
 	return (
-		<p className="text-lg leading-[1.9] mb-7" style={{ color: "#4a4a4a" }}>
-			{block.text}
-		</p>
+		<p
+			className="text-lg leading-[1.9] mb-7"
+			style={{ color: "#4a4a4a" }}
+			dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(block.text) }}
+		/>
 	);
 }
 
@@ -120,7 +118,7 @@ function ShareBar({ url, title }: { url: string; title: string }) {
 			</p>
 			<div className="flex flex-wrap gap-2">
 				{links.map(({ Icon, label, href }) => (
-					<a
+					<Button variant="ghost"
 						key={label}
 						href={href}
 						target="_blank"
@@ -130,7 +128,7 @@ function ShareBar({ url, title }: { url: string; title: string }) {
 						style={{ backgroundColor: "#f8f9fb", color: "#204487" }}
 					>
 						<Icon size={14} />
-					</a>
+					</Button>
 				))}
 			</div>
 		</div>
@@ -139,7 +137,39 @@ function ShareBar({ url, title }: { url: string; title: string }) {
 
 export default function BlogPostPage() {
 	const { slug } = useParams<{ slug: string }>();
-	const post = slug ? getPostBySlug(slug) : undefined;
+	const [post, setPost] = useState<BlogPost | null>(null);
+	const [related, setRelated] = useState<BlogPost[]>([]);
+	const [loading, setLoading] = useState(true);
+	const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+
+	useEffect(() => {
+		if (!slug) {
+			setLoading(false);
+			return;
+		}
+		setLoading(true);
+		getPublishedPost(slug)
+			.then(async (p) => {
+				setPost(p);
+				if (p) setRelated(await listRelatedPosts(p.slug, p.category));
+			})
+			.catch(() => setPost(null))
+			.finally(() => setLoading(false));
+	}, [slug]);
+
+	if (loading) {
+		return (
+			<div>
+				<Navbar />
+				<div className="min-h-[70vh] flex items-center justify-center bg-white pt-20">
+					<p className="text-sm" style={{ color: "#888" }}>
+						Loading…
+					</p>
+				</div>
+				<Footer />
+			</div>
+		);
+	}
 
 	if (!post) {
 		return (
@@ -162,22 +192,18 @@ export default function BlogPostPage() {
 						<p className="text-base mb-8" style={{ color: "#4a4a4a" }}>
 							The article you're looking for may have moved or no longer exists.
 						</p>
-						<Link
+						<Button variant="secondary" size="custom" effect="elevated"
 							to="/blog"
-							className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
-							style={{ backgroundColor: "#204487" }}
+							className="px-7 py-3.5 text-sm"
 						>
 							<FiArrowLeft size={15} /> Back to the Journal
-						</Link>
+						</Button>
 					</div>
 				</section>
 				<Footer />
 			</div>
 		);
 	}
-
-	const related = getRelatedPosts(post.slug);
-	const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
 	return (
 		<div>
@@ -205,13 +231,13 @@ export default function BlogPostPage() {
 			{/* ── ARTICLE BODY (share rail + article + impact card) ── */}
 			<section className="py-14 md:py-20 bg-white">
 				<div className="max-w-7xl mx-auto px-6">
-					<Link
+					<Button variant="ghost"
 						to="/blog"
 						className="inline-flex items-center gap-2 text-sm font-semibold mb-8 hover:opacity-80 transition-opacity"
 						style={{ color: "#204487" }}
 					>
 						<FiArrowLeft size={15} /> Back to the Journal
-					</Link>
+					</Button>
 
 					<div className="grid lg:grid-cols-[190px_minmax(0,1fr)_250px] gap-x-12 gap-y-8">
 						{/* LEFT RAIL — author + share */}
@@ -252,38 +278,17 @@ export default function BlogPostPage() {
 						</aside>
 
 						{/* CENTER — article */}
-						<article className="min-w-0">
+						<article className="min-w-0 post-rich">
 							{post.body.map((block, i) => (
 								<Block key={i} block={block} />
 							))}
 
-							{/* Inline CTA */}
-							<div className="mt-12 pt-8 border-t border-gray-100 clear-both">
-								<p className="text-base mb-5" style={{ color: "#4a4a4a" }}>
-									Every story here is made possible by people who choose to give.
-									You can be part of the next one.
-								</p>
-								<div className="flex flex-wrap gap-4">
-									<Link
-										to="/donate"
-										className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
-										style={{ backgroundColor: "#D91E26" }}
-									>
-										<FiHeart size={15} /> Donate
-									</Link>
-									<Link
-										to="/get-involved"
-										className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold rounded-full border-2 hover:bg-[#f8f9fb] transition-colors"
-										style={{ borderColor: "#204487", color: "#204487" }}
-									>
-										Get Involved <FiArrowRight size={15} />
-									</Link>
-								</div>
-							</div>
+						
 						</article>
 
 						{/* RIGHT RAIL — subtle impact card */}
 						<aside className="hidden lg:block lg:sticky lg:top-28 self-start">
+							{post.impactStats.length > 0 && (
 							<div className="rounded-2xl border border-blue-100 p-6" style={{ backgroundColor: "#f8f9fb" }}>
 								<p
 									className="text-[11px] font-bold uppercase tracking-widest mb-5"
@@ -292,9 +297,9 @@ export default function BlogPostPage() {
 									Our Impact So Far
 								</p>
 								<div className="flex flex-col gap-4">
-									{impactStats.map((s, i) => (
+									{post.impactStats.map((s, i) => (
 										<div
-											key={s.label}
+											key={i}
 											className={`flex items-baseline gap-3 ${
 												i > 0 ? "pt-4 border-t border-blue-100" : ""
 											}`}
@@ -303,7 +308,7 @@ export default function BlogPostPage() {
 												className="font-serif text-2xl font-bold leading-none w-14 shrink-0"
 												style={{ color: "#204487" }}
 											>
-												{s.val}
+												{s.value}
 											</p>
 											<p
 												className="text-xs leading-snug"
@@ -314,15 +319,16 @@ export default function BlogPostPage() {
 										</div>
 									))}
 								</div>
-								<Link
+								<Button variant="ghost"
 									to="/donate"
 									className="mt-6 inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:text-[#D91E26]"
 									style={{ color: "#204487" }}
 								>
 									<FiHeart size={14} style={{ color: "#D91E26" }} /> Support our
 									work <FiArrowRight size={14} />
-								</Link>
+								</Button>
 							</div>
+							)}
 						</aside>
 					</div>
 				</div>
@@ -376,20 +382,18 @@ export default function BlogPostPage() {
 						family reach care, or a community receive practical support.
 					</p>
 					<div className="flex flex-wrap justify-center gap-4">
-						<Link
+						<Button variant="primary" size="lg" effect="raised"
 							to="/donate"
-							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
-							style={{ backgroundColor: "#D91E26" }}
 						>
 							Donate <FiArrowRight size={16} />
-						</Link>
-						<Link
+						</Button>
+						<Button variant="transparent" size="lg" effect="custom"
 							to="/get-involved"
-							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded-full border-2 hover:bg-white hover:text-[#08415C] transition-all duration-200"
+							className="hover:bg-white hover:text-[#08415C] transition-all duration-200"
 							style={{ borderColor: "rgba(255,255,255,0.4)" }}
 						>
 							Get Involved <FiArrowRight size={16} />
-						</Link>
+						</Button>
 					</div>
 				</div>
 			</section>

@@ -1,3 +1,4 @@
+import Button from "./Button";
 import {
 	FiMail,
 	FiPhone,
@@ -66,14 +67,14 @@ export default function Footer() {
 									{ Icon: FiInstagram, link: "#" },
 									{ Icon: FiLinkedin, link: "#" },
 								].map((item, i) => (
-									<a
+									<Button variant="ghost"
 										key={i}
 										href={item.link}
 										aria-label="Social media"
 										className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#D91E26] hover:border-[#D91E26] transition-all duration-300"
 									>
 										<item.Icon size={17} />
-									</a>
+									</Button>
 								))}
 							</div>
 						</div>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Button from "../components/Button";
 import {
 	FiActivity,
 	FiUsers,
@@ -236,13 +236,13 @@ export default function ImpactPage() {
 											</li>
 										))}
 									</ul>
-									<Link
+									<Button variant="accent" size="custom" effect="elevated"
 										to="/programs"
-										className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
+										className="px-6 py-3 text-sm"
 										style={{ backgroundColor: p.accent }}
 									>
 										Support This Program <FiArrowRight size={15} />
-									</Link>
+									</Button>
 								</div>
 							</div>
 						</div>
@@ -303,13 +303,12 @@ export default function ImpactPage() {
 								Every donation helps cover real program costs.
 							</p>
 						</div>
-						<Link
+						<Button variant="primary" size="lg" layout="custom" effect="raised"
 							to="/programs"
-							className="flex-shrink-0 inline-block px-8 py-3.5 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity whitespace-nowrap"
-							style={{ backgroundColor: "#D91E26" }}
+							className="flex-shrink-0 inline-block font-semibold whitespace-nowrap"
 						>
 							Give Support
-						</Link>
+						</Button>
 					</div>
 				</div>
 			</section>

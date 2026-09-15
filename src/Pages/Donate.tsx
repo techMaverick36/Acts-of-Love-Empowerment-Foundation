@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -106,7 +107,7 @@ export default function DonatePage() {
                                 {/* Frequency */}
                                 <div className="flex gap-4 p-1 bg-gray-100 rounded-lg mb-8">
                                     {["one-time", "monthly"].map((freq) => (
-                                        <button
+                                        <Button variant="ghost"
 											key={freq}
 											type="button"
 											onClick={() => setFormData({ ...formData, frequency: freq })}
@@ -117,7 +118,7 @@ export default function DonatePage() {
 											}`}
 										>
 											{freq.charAt(0).toUpperCase() + freq.slice(1)}
-										</button>
+										</Button>
 									))}
         </div>
 
@@ -128,7 +129,7 @@ export default function DonatePage() {
             </label>
             <div className="grid sm:grid-cols-2 gap-3 mb-3" role="group" aria-label="Donation reason">
                 {donationReasons.map((r) => (
-                    <button
+                    <Button variant="ghost"
                         key={r}
                         type="button"
                         onClick={() => setReason(r)}
@@ -140,7 +141,7 @@ export default function DonatePage() {
                         aria-pressed={reason === r}
                     >
                         {r}
-                    </button>
+                    </Button>
                 ))}
             </div>
             {reason === "Other" && (
@@ -168,7 +169,7 @@ export default function DonatePage() {
             </label>
 									<div className="grid grid-cols-3 gap-3 mb-4">
 										{donationAmounts.map((amt) => (
-											<button
+											<Button variant="ghost"
 												key={amt.label}
 												type="button"
 												onClick={() => setAmount(amt.value)}
@@ -179,7 +180,7 @@ export default function DonatePage() {
 												}`}
 											>
 												{amt.label}
-											</button>
+											</Button>
 										))}
 									</div>
 									{amount === "other" && (
@@ -246,13 +247,13 @@ export default function DonatePage() {
 									/>
 								</div>
 
-								<button
+								<Button variant="primary" size="custom" layout="custom" effect="custom"
 									type="submit"
-									className="w-full bg-[#D91E26] text-white py-4 rounded-full font-bold text-lg shadow-lg hover:bg-[#b81a20] transition-all flex items-center justify-center gap-2 group"
+									className="w-full py-4 font-bold text-lg shadow-lg hover:bg-[#b81a20] transition-all flex items-center justify-center gap-2 group"
 								>
 									Continue to Checkout
 									<FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-								</button>
+								</Button>
 
 								<p className="text-[10px] text-center text-gray-400 leading-relaxed">
 									By continuing, you agree to our Terms of Service and Privacy Policy. 

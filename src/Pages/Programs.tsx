@@ -1,5 +1,6 @@
+import Button from "../components/Button";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
 	FiArrowRight,
 	FiCheckCircle,
@@ -160,13 +161,13 @@ function DonateModal({ prog, onClose }: { prog: Program; onClose: () => void }) 
 							</span>
 						)}
 					</div>
-					<button
+					<Button variant="ghost"
 						onClick={onClose}
 						className="p-2 rounded-full text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all"
 						aria-label="Close"
 					>
 						<FiX size={20} />
-					</button>
+					</Button>
 				</div>
 
 				{/* ── Body (scrolls as a unit on small screens, columns on large) ── */}
@@ -195,7 +196,7 @@ function DonateModal({ prog, onClose }: { prog: Program; onClose: () => void }) 
 						{/* Frequency toggle */}
 						<div className="flex gap-1 p-1 bg-gray-100 rounded-full">
 							{["one-time", "monthly"].map((freq) => (
-								<button
+								<Button variant="ghost"
 									key={freq}
 									type="button"
 									onClick={() => setFormData({ ...formData, frequency: freq })}
@@ -206,7 +207,7 @@ function DonateModal({ prog, onClose }: { prog: Program; onClose: () => void }) 
 									}`}
 								>
 									{freq.charAt(0).toUpperCase() + freq.slice(1)}
-								</button>
+								</Button>
 							))}
 						</div>
 
@@ -217,7 +218,7 @@ function DonateModal({ prog, onClose }: { prog: Program; onClose: () => void }) 
 							</label>
 							<div className="grid grid-cols-5 gap-2 mb-3">
 								{donationAmounts.map((amt) => (
-									<button
+									<Button variant="ghost"
 										key={amt.label}
 										type="button"
 										onClick={() => setAmount(amt.value)}
@@ -228,7 +229,7 @@ function DonateModal({ prog, onClose }: { prog: Program; onClose: () => void }) 
 										}`}
 									>
 										{amt.label}
-									</button>
+									</Button>
 								))}
 							</div>
 							{amount === "other" && (
@@ -253,7 +254,7 @@ function DonateModal({ prog, onClose }: { prog: Program; onClose: () => void }) 
 							</label>
 							<div className="grid grid-cols-2 gap-2">
 								{donationReasons.map((r) => (
-									<button
+									<Button variant="ghost"
 										key={r}
 										type="button"
 										onClick={() => setReason(r)}
@@ -265,7 +266,7 @@ function DonateModal({ prog, onClose }: { prog: Program; onClose: () => void }) 
 										aria-pressed={reason === r}
 									>
 										{r}
-									</button>
+									</Button>
 								))}
 							</div>
 							{reason === "Other" && (
@@ -321,14 +322,14 @@ function DonateModal({ prog, onClose }: { prog: Program; onClose: () => void }) 
 						</div>
 
 						{/* Submit */}
-						<button
+						<Button variant="primary" size="custom" layout="custom" effect="custom"
 							type="submit"
-							className="w-full bg-[#D91E26] text-white py-3.5 rounded-full font-bold text-sm shadow-lg hover:bg-[#b81a20] transition-all flex items-center justify-center gap-2 group"
+							className="w-full py-3.5 font-bold text-sm shadow-lg hover:bg-[#b81a20] transition-all flex items-center justify-center gap-2 group"
 						>
 							<FiHeart size={15} />
 							Donate to {prog.title}
 							<FiArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-						</button>
+						</Button>
 
 						<p className="text-[10px] text-center text-gray-400 leading-relaxed">
 							By continuing you agree to our Terms of Service and Privacy Policy.
@@ -401,22 +402,22 @@ function ProgramCard({
 					))}
 				</ul>
 				<div className="mt-auto pt-5 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
-					<button
+					<Button variant="accent" size="custom" effect="raised"
 						type="button"
 						onClick={() => onDonate(prog)}
-						className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
+						className="flex-1 justify-center px-6 py-3 text-sm"
 						style={{ backgroundColor: "#D91E26" }}
 					>
 						<FiHeart size={15} />
 						Donate to This Program
-					</button>
-					<Link
+					</Button>
+					<Button variant="outline" size="custom" effect="custom"
 						to="/contact"
-						className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold rounded-full border-2 hover:bg-[#f8f9fb] transition-colors"
+						className="justify-center px-5 py-3 text-sm hover:bg-[#f8f9fb] transition-colors"
 						style={{ borderColor: "#204487", color: "#204487" }}
 					>
 						Learn More <FiArrowRight size={14} />
-					</Link>
+					</Button>
 				</div>
 			</div>
 		</div>
@@ -551,13 +552,13 @@ export default function ProgramsPage() {
 								<p className="text-sm leading-relaxed mb-5" style={{ color: "#4a4a4a" }}>
 									{c.desc}
 								</p>
-								<Link
+								<Button variant="ghost"
 									to="/contact"
 									className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors hover:opacity-80"
 									style={{ color: "#D91E26" }}
 								>
 									{c.action} <FiArrowRight size={14} />
-								</Link>
+								</Button>
 							</div>
 						))}
 					</div>
@@ -583,16 +584,15 @@ export default function ProgramsPage() {
 						Our Medical Emergency Fund is running low. A child may need surgery.
 						A mother may need care. Gifts today go directly to urgent cases.
 					</p>
-					<button
+					<Button variant="accent" size="xl" effect="raised"
 						type="button"
 						onClick={() =>
 							setDonateTarget(programs.find((p) => p.id === "medical")!)
 						}
-						className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
 						style={{ backgroundColor: "#D91E26" }}
 					>
 						Give to Emergency Fund <FiArrowRight size={18} />
-					</button>
+					</Button>
 				</div>
 			</section>
 

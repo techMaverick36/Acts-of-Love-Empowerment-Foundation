@@ -1,16 +1,30 @@
-import { useState } from "react";
+import Button from "../components/Button";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BlogCard from "../components/BlogCard";
-import { blogPosts, categories } from "../data/blogPosts";
+import { listPublishedPosts } from "../lib/posts";
+import { categories, type BlogPost } from "../data/blogPosts";
 
 export default function BlogPage() {
 	const [active, setActive] = useState<(typeof categories)[number]>("All");
+	const [posts, setPosts] = useState<BlogPost[]>([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
+
+	useEffect(() => {
+		listPublishedPosts()
+			.then(setPosts)
+			.catch((e) =>
+				setError(
+					e instanceof Error ? e.message : "Stories couldn't be loaded right now."
+				)
+			)
+			.finally(() => setLoading(false));
+	}, []);
 
 	const filtered =
-		active === "All"
-			? blogPosts
-			: blogPosts.filter((p) => p.category === active);
+		active === "All" ? posts : posts.filter((p) => p.category === active);
 
 	return (
 		<div>
@@ -64,14 +78,14 @@ export default function BlogPage() {
 					</div>
 
 					{/* Filters (shown once there is more than one story) */}
-					{blogPosts.length > 1 && (
+					{posts.length > 1 && (
 						<div
 							className="flex flex-wrap justify-center gap-3 mb-12"
 							role="group"
 							aria-label="Filter articles by category"
 						>
 							{categories.map((c) => (
-								<button
+								<Button variant="ghost"
 									key={c}
 									type="button"
 									onClick={() => setActive(c)}
@@ -83,18 +97,28 @@ export default function BlogPage() {
 									}`}
 								>
 									{c}
-								</button>
+								</Button>
 							))}
 						</div>
 					)}
 
-					{/* Grid */}
-					{filtered.length === 0 ? (
+					{/* States */}
+					{loading ? (
+						<p className="text-center text-base py-10" style={{ color: "#888" }}>
+							Loading stories…
+						</p>
+					) : error ? (
+						<p className="text-center text-base py-10" style={{ color: "#991b1b" }}>
+							{error}
+						</p>
+					) : filtered.length === 0 ? (
 						<p
 							className="text-center text-base py-10"
 							style={{ color: "#4a4a4a" }}
 						>
-							No stories in this category yet — please check back soon.
+							{posts.length === 0
+								? "No stories published yet — please check back soon."
+								: "No stories in this category yet."}
 						</p>
 					) : (
 						<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

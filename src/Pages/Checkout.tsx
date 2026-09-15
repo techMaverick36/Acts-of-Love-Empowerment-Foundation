@@ -1,4 +1,5 @@
-import { useLocation, Link } from "react-router-dom";
+import Button from "../components/Button";
+import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FiLock, FiCreditCard, FiCheck } from "react-icons/fi";
@@ -103,12 +104,12 @@ export default function CheckoutPage() {
 								</p>
 							</div>
 
-							<Link
+							<Button variant="primary" size="custom" layout="custom" effect="custom"
 								to="/"
-								className="block w-full text-center bg-[#D91E26] text-white py-4 rounded-full font-bold text-lg shadow-lg hover:bg-[#b81a20] transition-all"
+								className="block w-full text-center py-4 font-bold text-lg shadow-lg hover:bg-[#b81a20] transition-all"
 							>
 								Complete Donation
-							</Link>
+							</Button>
 						</div>
 					</div>
 				</div>

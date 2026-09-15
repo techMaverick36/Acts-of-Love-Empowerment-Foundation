@@ -1,5 +1,5 @@
+import Button from "./Button";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import {
 	FiArrowRight,
 	// FiChevronLeft,
@@ -101,21 +101,21 @@ export default function Hero() {
 
 					{/* CTA Buttons */}
      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-16 sm:justify-center lg:justify-start">
-                        <Link
+                        <Button variant="primary" size="custom" layout="custom" effect="custom"
                             to="/donate"
-                            className="group flex items-center justify-center gap-3 bg-[#D91E26] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all hover:bg-[#b81a20] hover:scale-105 active:scale-95 shadow-xl text-sm sm:text-base"
+                            className="group flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 font-semibold transition-all hover:bg-[#b81a20] hover:scale-105 active:scale-95 shadow-xl text-sm sm:text-base"
                         >
                             <FiHeart className="group-hover:animate-pulse" />
                             Donate
-                        </Link>
+                        </Button>
 
-      <Link
+      <Button variant="transparent" size="custom" layout="custom" effect="custom"
                             to="/get-involved#partnerships"
-                            className="flex items-center justify-center gap-2 border-2 border-white/40 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white hover:text-black transition-all text-sm sm:text-base"
+                            className="flex items-center justify-center gap-2 border-white/40 backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 font-semibold hover:bg-white hover:text-black transition-all text-sm sm:text-base"
                         >
                             Become a Partner
                             <FiArrowRight />
-                        </Link>
+                        </Button>
                     </div>
 
 					{/* Stats */}
@@ -141,24 +141,24 @@ export default function Hero() {
 
 			{/* Navigation Arrows */}
 			{/* <div className="absolute right-8 bottom-24 md:bottom-auto md:top-1/2 md:-translate-y-1/2 flex flex-col gap-4 z-20">
-				<button
+				<Button variant="ghost"
 					onClick={prev}
 					className="p-4 rounded-full border border-white/30 text-white hover:bg-white hover:text-black transition-all backdrop-blur-md"
 				>
 					<FiChevronLeft size={24} />
-				</button>
-				<button
+				</Button>
+				<Button variant="ghost"
 					onClick={next}
 					className="p-4 rounded-full bg-white text-black hover:bg-[#D91E26] hover:text-white transition-all shadow-2xl"
 				>
 					<FiChevronRight size={24} />
-				</button>
+				</Button>
 			</div> */}
 
 			{/* Slide Progress Bars */}
 			<div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-4 z-20">
 				{slides.map((_, i) => (
-					<button
+					<Button variant="ghost"
 						key={i}
 						onClick={() => setCurrent(i)}
 						className="relative h-1 w-14 bg-white/30 overflow-hidden rounded-full"
@@ -168,7 +168,7 @@ export default function Hero() {
 								i === current ? "translate-x-0" : "-translate-x-full"
 							}`}
 						/>
-					</button>
+					</Button>
 				))}
 			</div>
 		</section>

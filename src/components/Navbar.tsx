@@ -1,3 +1,4 @@
+import Button from "./Button";
 import { useState, useEffect } from "react";
 import { FiMenu, FiX, FiMail, FiPhone } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
@@ -19,7 +20,7 @@ export default function Navbar() {
 		{ name: "Programs", path: "/programs" },
 		{ name: "Get Involved", path: "/get-involved" },
 		{ name: "Contact", path: "/contact" },
-		{ name: "Blog", path: "/blog" },
+		{ name: "Blogs", path: "/blog" },
 	];
 
 	return (
@@ -118,17 +119,15 @@ export default function Navbar() {
 
 						{/* Donate Button */}
 						<div className="hidden xl:block">
-							<Link
+							<Button variant="primary"
 								to="/donate"
-								className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white rounded-full transition-all duration-200 hover:opacity-90 hover:scale-105 shadow-sm"
-								style={{ backgroundColor: "#D91E26" }}
 							>
 								Donate Now
-							</Link>
+							</Button>
 						</div>
 
 						{/* Mobile Menu Toggle */}
-						<button
+						<Button variant="ghost"
 							className="xl:hidden p-2 rounded-lg transition-colors hover:bg-gray-100"
 							onClick={() => setMenuOpen(!menuOpen)}
 							style={{ color: "#204487" }}
@@ -137,7 +136,7 @@ export default function Navbar() {
 							aria-controls="mobile-navigation"
 						>
 							{menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-						</button>
+						</Button>
 					</div>
 				</div>
 
@@ -160,14 +159,13 @@ export default function Navbar() {
 								{link.name}
 							</NavLink>
 						))}
-						<Link
+						<Button variant="primary" size="custom" effect="custom"
 							to="/donate"
-							className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-full text-center mt-3"
-							style={{ backgroundColor: "#D91E26" }}
+							className="justify-center px-6 py-3 text-sm text-center mt-3"
 							onClick={() => setMenuOpen(false)}
 						>
 							Donate Now
-						</Link>
+						</Button>
 						<div className="mt-4 pt-3 border-t border-gray-100 text-xs text-gray-400 text-center">
 							Serving Communities - Kampala, Uganda
 						</div>

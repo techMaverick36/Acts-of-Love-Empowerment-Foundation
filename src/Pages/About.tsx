@@ -1,5 +1,6 @@
+import Button from "../components/Button";
 import { FiArrowRight, FiShield, FiUsers, FiTarget, FiGlobe } from "react-icons/fi";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -101,13 +102,12 @@ export default function AboutPage() {
 
 
 							</p>
-							<Link
+							<Button variant="secondary" size="custom" effect="elevated"
 								to="/impact"
-								className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
-								style={{ backgroundColor: "#204487" }}
+								className="px-7 py-3 text-sm"
 							>
 								See Our Work <FiArrowRight size={15} />
-							</Link>
+							</Button>
 						</div>
 						<div className="relative mt-8 lg:mt-0">
 							<img
@@ -306,20 +306,18 @@ export default function AboutPage() {
 						a family reach care, or a community receive practical support.
 					</p>
 					<div className="flex flex-wrap justify-center gap-4">
-						<Link
+						<Button variant="primary" size="lg" effect="raised"
 							to="/donate"
-							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
-							style={{ backgroundColor: "#D91E26" }}
 						>
 							Donate <FiArrowRight size={16} />
-						</Link>
-						<Link
+						</Button>
+						<Button variant="transparent" size="lg" effect="custom"
 							to="/get-involved"
-							className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded-full border-2 hover:bg-white hover:text-[#08415C] transition-all duration-200"
+							className="hover:bg-white hover:text-[#08415C] transition-all duration-200"
 							style={{ borderColor: "rgba(255,255,255,0.4)" }}
 						>
 							Get Involved <FiArrowRight size={16} />
-						</Link>
+						</Button>
 					</div>
 				</div>
 			</section>

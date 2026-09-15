@@ -1,3 +1,4 @@
+import Button from "./Button";
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
 
 type PaymentComponentProps = {
@@ -28,7 +29,7 @@ const PaymentComponent = ({ amount }: PaymentComponentProps) => {
 
   return (
     <div className="App">
-      <button
+      <Button variant="ghost"
         onClick={() => {
           handleFlutterPayment({
             callback: (response: unknown) => {
@@ -42,7 +43,7 @@ const PaymentComponent = ({ amount }: PaymentComponentProps) => {
         }}
       >
         Pay Now
-      </button>
+      </Button>
     </div>
   );
 }

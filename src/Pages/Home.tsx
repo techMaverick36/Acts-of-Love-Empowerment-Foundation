@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import Button from "../components/Button";
+
 import {
 	FiArrowRight,
 	FiActivity,
@@ -138,13 +139,13 @@ export default function HomePage() {
 							<p className="text-base leading-relaxed mb-8" style={{ color: "#4a4a4a" }}>
 								Our work starts with listening. Communities help shape the programs they receive, from school needs to health outreach and family care.
 							</p>
-							<Link
+							<Button variant="ghost"
 								to="/about"
 								className="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:opacity-80"
 								style={{ color: "#204487" }}
 							>
 								Our Full Story <FiArrowRight size={16} />
-							</Link>
+							</Button>
 						</div>
 					</div>
 
@@ -252,13 +253,13 @@ export default function HomePage() {
 						})}
 					</div>
 					<div className="text-center">
-						<Link
+						<Button variant="ghost"
 							to="/impact"
 							className="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:opacity-80"
 							style={{ color: "#204487" }}
 						>
 							Explore Our Work <FiArrowRight size={16} />
-						</Link>
+						</Button>
 					</div>
 				</div>
 			</section>
@@ -344,20 +345,19 @@ export default function HomePage() {
 								- Acts of Love Empowerment Foundation
 							</p>
 							<div className="flex flex-wrap gap-4">
-								<Link
+								<Button variant="transparent" size="custom" effect="custom"
 									to="/impact"
-									className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-white rounded-full border-2 hover:bg-white hover:text-[#08415C] transition-all duration-200"
+									className="px-7 py-3.5 text-sm hover:bg-white hover:text-[#08415C] transition-all duration-200"
 									style={{ borderColor: "rgba(255,255,255,0.4)" }}
 								>
 									See Our Work <FiArrowRight size={15} />
-								</Link>
-								<Link
+								</Button>
+								<Button variant="primary" size="custom" effect="raised"
 									to="/donate"
-									className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
-									style={{ backgroundColor: "#D91E26" }}
+									className="px-7 py-3.5 text-sm"
 								>
 									Support a Child <FiHeart size={15} />
-								</Link>
+								</Button>
 							</div>
 						</div>
 
@@ -466,27 +466,26 @@ export default function HomePage() {
 										<span className="text-sm font-semibold" style={{ color: "#204487" }}>
 											{c.cost}
 										</span>
-										<Link
+										<Button variant="primary" size="sm" effect="raised"
 											to="/donate"
 											aria-label={`Donate: ${c.title}`}
-											className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white rounded-full transition-all hover:scale-[1.02] active:scale-95"
-											style={{ backgroundColor: "#D91E26" }}
+											className="justify-center"
 										>
 											Donate <FiArrowRight size={14} />
-										</Link>
+										</Button>
 									</div>
 								</div>
 							</div>
 						))}
 					</div>
 					<div className="text-center">
-						<Link
+						<Button variant="ghost"
 							to="/programs"
 							className="inline-flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition-opacity"
 							style={{ color: "#204487" }}
 						>
 							View All Giving Options <FiArrowRight size={16} />
-						</Link>
+						</Button>
 					</div>
 				</div>
 			</section>
@@ -521,20 +520,18 @@ export default function HomePage() {
 						fundraising, and community visits across Uganda.
 					</p>
 					<div className="flex flex-wrap gap-4 justify-center">
-						<Link
+						<Button variant="primary" size="xl" effect="raised"
 							to="/get-involved#volunteer"
-							className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white rounded-full hover:opacity-90 transition-opacity"
-							style={{ backgroundColor: "#D91E26" }}
 						>
 							Become a Volunteer <FiArrowRight size={18} />
-						</Link>
-						<Link
+						</Button>
+						<Button variant="transparent" size="xl" effect="custom"
 							to="/get-involved#partnerships"
-							className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white rounded-full border-2 hover:bg-white hover:text-blue-900 transition-all duration-200"
+							className="hover:bg-white hover:text-blue-900 transition-all duration-200"
 							style={{ borderColor: "rgba(255,255,255,0.4)" }}
 						>
 							Partner With Us
-						</Link>
+						</Button>
 					</div>
 				</div>
 			</section>

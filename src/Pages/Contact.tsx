@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import {
@@ -229,7 +230,7 @@ export default function ContactPage() {
 									{ Icon: FiTwitter, label: "Twitter" },
 									{ Icon: FiInstagram, label: "Instagram" },
 								].map(({ Icon, label }) => (
-									<a
+									<Button variant="ghost"
 										key={label}
 										href="#"
 										className="w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:text-white"
@@ -243,7 +244,7 @@ export default function ContactPage() {
 										}}
 									>
 										<Icon size={16} />
-									</a>
+									</Button>
 								))}
 							</div>
 						</div>
@@ -281,15 +282,15 @@ export default function ContactPage() {
 								>
 									Send Us a Message
 								</h3>
-    				<form onSubmit={handleSubmit} className="flex flex-col gap-5">
-    					{error && (
-    						<div
-    							className="text-sm p-3 rounded-md border"
-    							style={{ backgroundColor: "#fff5f5", borderColor: "#fecaca", color: "#991b1b" }}
-    						>
-    							{error}
-    						</div>
-    					)}
+				<form onSubmit={handleSubmit} className="flex flex-col gap-5">
+					{error && (
+						<div
+							className="text-sm p-3 rounded-md border"
+							style={{ backgroundColor: "#fff5f5", borderColor: "#fecaca", color: "#991b1b" }}
+						>
+							{error}
+						</div>
+					)}
 									<div className="grid sm:grid-cols-2 gap-5">
 										<div>
 											<label
@@ -372,15 +373,14 @@ export default function ContactPage() {
 											placeholder="Tell us how we can help..."
 										/>
 									</div>
-    					<button
-    						type="submit"
-    						disabled={sending}
-    						className="w-full py-3.5 text-sm font-semibold text-white rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70 disabled:cursor-not-allowed"
-    						style={{ backgroundColor: "#D91E26" }}
-    					>
-    						{sending ? "Sending..." : "Send Message"} <FiArrowRight size={15} />
-    					</button>
-    				</form>
+					<Button variant="primary" size="custom" layout="custom" effect="raised"
+						type="submit"
+						disabled={sending}
+						className="w-full py-3.5 text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+					>
+						{sending ? "Sending..." : "Send Message"} <FiArrowRight size={15} />
+					</Button>
+				</form>
 							</div>
 						)}
 					</div>
@@ -442,7 +442,7 @@ export default function ContactPage() {
 								key={i}
 								className="bg-white rounded-xl border border-blue-100 overflow-hidden"
 							>
-								<button
+								<Button variant="ghost"
 									onClick={() => setOpenFaq(openFaq === i ? null : i)}
 									className="w-full flex items-center justify-between px-6 py-4 text-left"
 								>
@@ -458,7 +458,7 @@ export default function ContactPage() {
 									>
 										{openFaq === i ? "−" : "+"}
 									</span>
-								</button>
+								</Button>
 								{openFaq === i && (
 									<div className="px-6 pb-5 border-t border-blue-50">
 										<p

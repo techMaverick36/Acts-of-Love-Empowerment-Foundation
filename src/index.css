@@ -111,3 +111,64 @@ img {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* ── Inline WYSIWYG block editors (paragraph + list) ── */
+.mini-editor { padding: 12px 14px; font-size: 14px; line-height: 1.7; color: #1D1E1F; min-height: 120px; cursor: text; }
+.mini-editor:focus { outline: none; }
+.mini-editor p { margin: 0; }
+.mini-editor.mini-list { min-height: 100px; }
+.mini-editor.mini-list ul { list-style: disc; padding-left: 20px; margin: 0; }
+.mini-editor.mini-list li { margin: 3px 0; }
+.mini-editor a { color: #204487; text-decoration: underline; }
+.mini-editor strong { font-weight: 700; }
+.mini-editor em { font-style: italic; }
+/* Placeholder — list items use TipTap's Placeholder extension (data-placeholder
+   + .is-empty); the inline-only paragraph editor has no child node to decorate,
+   so it falls back to a CSS placeholder driven by data-ph on an empty editor. */
+.mini-editor .is-empty[data-placeholder]::before {
+	content: attr(data-placeholder);
+	float: left;
+	height: 0;
+	pointer-events: none;
+	color: #9aa1ab;
+}
+.mini-editor[data-ph]:has(> br.ProseMirror-trailingBreak:only-child)::before {
+	content: attr(data-ph);
+	float: left;
+	height: 0;
+	pointer-events: none;
+	color: #9aa1ab;
+}
+
+/* ── Shared button styling ──────────────────────────────────
+   .btn-primary  → the brand red CTA (solid red, drop shadow,
+                   darken-on-hover, subtle scale). Base color can be
+                   set inline; the hover darken uses !important so it
+                   wins over an inline background-color.
+   .btn-elevated → same shadow/scale/darken feel but colour-agnostic
+                   (keeps whatever background the element already has),
+                   for the blue / program-accent CTAs. */
+.btn-primary {
+	background-color: #D91E26;
+	box-shadow: 0 10px 22px -8px rgba(217, 30, 38, 0.5);
+	transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+}
+.btn-primary:not(:disabled):hover {
+	background-color: #b81a20 !important;
+	transform: scale(1.05);
+	box-shadow: 0 16px 28px -8px rgba(217, 30, 38, 0.55);
+}
+.btn-primary:not(:disabled):active { transform: scale(0.96); }
+
+.btn-elevated {
+	box-shadow: 0 10px 22px -10px rgba(0, 0, 0, 0.35);
+	transition: transform 0.18s ease, filter 0.18s ease, box-shadow 0.18s ease;
+}
+.btn-elevated:not(:disabled):hover { transform: scale(1.05); filter: brightness(0.92); }
+.btn-elevated:not(:disabled):active { transform: scale(0.96); }
+
+/* Inline formatting inside rendered article paragraphs + list items */
+.post-rich a { color: #204487; text-decoration: underline; text-underline-offset: 2px; }
+.post-rich a:hover { color: #9c302c; }
+.post-rich strong { font-weight: 700; color: #1D1E1F; }
+.post-rich em { font-style: italic; }

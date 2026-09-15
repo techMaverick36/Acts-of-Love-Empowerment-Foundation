@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import {
@@ -384,18 +385,18 @@ export default function GetInvolvedPage() {
 							</p>
 						</div>
 					) : (
- 					<form
- 						onSubmit={handleSubmit}
- 						className="bg-white rounded-2xl p-8 border border-blue-100 shadow-sm flex flex-col gap-5"
- 					>
- 						{error && (
- 							<div
- 								className="text-sm p-3 rounded-md border"
- 								style={{ backgroundColor: "#fff5f5", borderColor: "#fecaca", color: "#991b1b" }}
- 							>
- 								{error}
- 							</div>
- 						)}
+					<form
+						onSubmit={handleSubmit}
+						className="bg-white rounded-2xl p-8 border border-blue-100 shadow-sm flex flex-col gap-5"
+					>
+						{error && (
+							<div
+								className="text-sm p-3 rounded-md border"
+								style={{ backgroundColor: "#fff5f5", borderColor: "#fecaca", color: "#991b1b" }}
+							>
+								{error}
+							</div>
+						)}
 							<div className="grid sm:grid-cols-2 gap-5">
 								<div>
 									<label
@@ -491,15 +492,14 @@ export default function GetInvolvedPage() {
 									placeholder="Tell us a little about yourself and why this work matters to you..."
 								/>
 							</div>
- 						<button
- 							type="submit"
- 							disabled={sending}
- 							className="w-full py-3.5 text-sm font-semibold text-white rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70 disabled:cursor-not-allowed"
- 							style={{ backgroundColor: "#D91E26" }}
- 						>
- 							{sending ? "Sending..." : "Submit Application"} <FiArrowRight size={15} />
- 						</button>
- 					</form>
+						<Button variant="primary" size="custom" layout="custom" effect="raised"
+							type="submit"
+							disabled={sending}
+							className="w-full py-3.5 text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+						>
+							{sending ? "Sending..." : "Submit Application"} <FiArrowRight size={15} />
+						</Button>
+					</form>
 					)}
 				</div>
 			</section>
@@ -528,12 +528,12 @@ export default function GetInvolvedPage() {
 						communities, improve projects, and strengthen relationships. Talk to a member of our team if our values
 						and goals align with your Corporate Social Responsibilities and strategies.
 					</p>
-					<a
+					<Button variant="transparent" size="xl" effect="custom"
 						href="/contact"
-						className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold rounded-full border-2 border-white/50 text-white hover:bg-white hover:text-[#08415C] transition-all duration-300"
+						className="border-white/50 hover:bg-white hover:text-[#08415C] transition-all duration-300"
 					>
 						Discuss Partnership <FiArrowRight size={18} />
-					</a>
+					</Button>
 				</div>
 			</section>
 			<Footer />
