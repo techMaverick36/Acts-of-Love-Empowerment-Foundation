@@ -15,7 +15,7 @@ import {
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { FaMapPin } from "react-icons/fa";
+import { FaLinkedin, FaMapPin } from "react-icons/fa";
 import L from "leaflet";
 import { renderToStaticMarkup } from "react-dom/server";
 
@@ -63,31 +63,36 @@ export default function ContactPage() {
 		if (!serviceId || !templateId || !publicKey) {
 			setSending(false);
 			setError(
-				"Email service is not configured. Please add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID and VITE_EMAILJS_PUBLIC_KEY to your .env file."
+				"Email service is not configured. Please add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID and VITE_EMAILJS_PUBLIC_KEY to your .env file.",
 			);
 			return;
 		}
 
 		try {
-			await emailjs.send(
-				serviceId,
-				templateId,
-				{
-					name: form.name,
-					email: form.email,
-					subject: form.subject || "General Enquiry",
-					message: form.message,
-				},
-				{ publicKey }
-			).catch((error) => {
-				throw new Error(error.text || error.message || "Failed to send email");
-			});
+			await emailjs
+				.send(
+					serviceId,
+					templateId,
+					{
+						name: form.name,
+						email: form.email,
+						subject: form.subject || "General Enquiry",
+						message: form.message,
+					},
+					{ publicKey },
+				)
+				.catch((error) => {
+					throw new Error(
+						error.text || error.message || "Failed to send email",
+					);
+				});
 
 			setSubmitted(true);
-			setForm({name: "", email: "", subject: "", message: ""});
+			setForm({ name: "", email: "", subject: "", message: "" });
 		} catch (err: any) {
 			setError(
-				err?.message || "We couldn't send your message right now. Please try again shortly or email us directly."
+				err?.message ||
+					"We couldn't send your message right now. Please try again shortly or email us directly.",
 			);
 		} finally {
 			setSending(false);
@@ -226,13 +231,33 @@ export default function ContactPage() {
 							</p>
 							<div className="flex gap-3">
 								{[
-									{ Icon: FiFacebook, label: "Facebook" },
-									{ Icon: FiTwitter, label: "Twitter" },
-									{ Icon: FiInstagram, label: "Instagram" },
-								].map(({ Icon, label }) => (
-									<Button variant="ghost"
+									{
+										Icon: FiFacebook,
+										label: "Facebook",
+										link: "https://www.facebook.com/profile.php?id=61594453510201",
+									},
+									{
+										Icon: FiTwitter,
+										label: "Twitter",
+										link: "https://x.com/actsoflove_ug",
+									},
+									{
+										Icon: FiInstagram,
+										label: "Instagram",
+										link: "https://www.instagram.com/actsofloveempowerment/",
+									},
+									{
+										Icon: FaLinkedin,
+										label: "LinkedIn",
+										link: "https://www.linkedin.com/company/actsofloveempowermentfoundation",
+									},
+								].map(({ Icon, label, link }) => (
+									<Button
+										variant="ghost"
 										key={label}
-										href="#"
+										href={link}
+										target="_blank"
+										rel="noopener noreferrer"
 										className="w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:text-white"
 										style={{ backgroundColor: "#f8f9fb", color: "#204487" }}
 										onMouseEnter={(e) => {
@@ -243,7 +268,7 @@ export default function ContactPage() {
 											e.currentTarget.style.color = "#204487";
 										}}
 									>
-										<Icon size={16} />
+										<Icon size={16} className="hover:text-white" />
 									</Button>
 								))}
 							</div>
@@ -282,15 +307,19 @@ export default function ContactPage() {
 								>
 									Send Us a Message
 								</h3>
-				<form onSubmit={handleSubmit} className="flex flex-col gap-5">
-					{error && (
-						<div
-							className="text-sm p-3 rounded-md border"
-							style={{ backgroundColor: "#fff5f5", borderColor: "#fecaca", color: "#991b1b" }}
-						>
-							{error}
-						</div>
-					)}
+								<form onSubmit={handleSubmit} className="flex flex-col gap-5">
+									{error && (
+										<div
+											className="text-sm p-3 rounded-md border"
+											style={{
+												backgroundColor: "#fff5f5",
+												borderColor: "#fecaca",
+												color: "#991b1b",
+											}}
+										>
+											{error}
+										</div>
+									)}
 									<div className="grid sm:grid-cols-2 gap-5">
 										<div>
 											<label
@@ -373,14 +402,19 @@ export default function ContactPage() {
 											placeholder="Tell us how we can help..."
 										/>
 									</div>
-					<Button variant="primary" size="custom" layout="custom" effect="raised"
-						type="submit"
-						disabled={sending}
-						className="w-full py-3.5 text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-					>
-						{sending ? "Sending..." : "Send Message"} <FiArrowRight size={15} />
-					</Button>
-				</form>
+									<Button
+										variant="primary"
+										size="custom"
+										layout="custom"
+										effect="raised"
+										type="submit"
+										disabled={sending}
+										className="w-full py-3.5 text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+									>
+										{sending ? "Sending..." : "Send Message"}{" "}
+										<FiArrowRight size={15} />
+									</Button>
+								</form>
 							</div>
 						)}
 					</div>
@@ -442,7 +476,8 @@ export default function ContactPage() {
 								key={i}
 								className="bg-white rounded-xl border border-blue-100 overflow-hidden"
 							>
-								<Button variant="ghost"
+								<Button
+									variant="ghost"
 									onClick={() => setOpenFaq(openFaq === i ? null : i)}
 									className="w-full flex items-center justify-between px-6 py-4 text-left"
 								>
