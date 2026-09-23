@@ -62,15 +62,17 @@ export default function Footer() {
 
 							<div className="flex gap-3">
 								{[
-									{ Icon: FiFacebook, link: "#" },
-									{ Icon: FiTwitter, link: "#" },
-									{ Icon: FiInstagram, link: "#" },
-									{ Icon: FiLinkedin, link: "#" },
-								].map((item, i) => (
+									{ Icon: FiFacebook, label: "Facebook", link: "https://www.facebook.com/profile.php?id=61594453510201" },
+									{ Icon: FiTwitter, label: "Twitter", link: "https://x.com/actsoflove_ug" },
+									{ Icon: FiInstagram, label: "Instagram", link: "https://www.instagram.com/actsofloveempowerment/" },
+									{ Icon: FiLinkedin, label: "LinkedIn", link: "https://www.linkedin.com/company/actsofloveempowermentfoundation" },
+								].map((item) => (
 									<Button variant="ghost"
-										key={i}
+										key={item.label}
 										href={item.link}
-										aria-label="Social media"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label={item.label}
 										className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#D91E26] hover:border-[#D91E26] transition-all duration-300"
 									>
 										<item.Icon size={17} />
