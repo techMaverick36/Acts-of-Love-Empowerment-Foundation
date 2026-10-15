@@ -2,19 +2,33 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="icon" type="image/png" href="/logo.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#204487" />
+		<link rel="icon" type="image/png" href="/logo.png" />
+		<link rel="apple-touch-icon" href="/logo.png" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
-		<meta
-			name="google-site-verification"
-			content="qUrshUNhxheT8Yy9cU5pfzE_3MVwX08PKveeDmVgrWw"
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
 		/>
+		<meta name="google-site-verification" content="qUrshUNhxheT8Yy9cU5pfzE_3MVwX08PKveeDmVgrWw" />
+		<!--
+			Per-page tags go between these markers. The build (scripts/prerender.mjs)
+			replaces the defaults below with each page's own title, description,
+			canonical URL and social tags; in the browser, React manages them.
+		-->
+		<!--app-head-->
 		<title>Acts of Love Empowerment Foundation</title>
+		<meta
+			name="description"
+			content="Acts of Love Empowerment Foundation is an organization committed to improving people's lives through Education, Inclusive support, and Sustainable development."
+		/>
+		<!--/app-head-->
 	</head>
 	<body>
-		<div id="root"></div>
+		<div id="root"><!--app-html--></div>
+		<!--app-data-->
 		<script type="module" src="/src/main.tsx"></script>
 	</body>
 </html>

@@ -1,77 +1,124 @@
-# Acts of Love Empowerment Foundation — Web App
+# Acts of Love Empowerment Foundation — Website
 
-This is a React + TypeScript + Vite project.
+React 19 + TypeScript + Vite + Tailwind CSS v4. Public pages are prerendered to
+static HTML at build time (for search engines and link previews), then run as a
+normal single-page app in the browser. The blog and its admin use Supabase.
 
-## EmailJS Integration (Forms)
+## Getting started
 
-The site uses EmailJS to send submissions to your email on these pages:
-- Volunteer application: `src/Pages/GetInvolved.tsx`
-- Contact message: `src/Pages/Contact.tsx`
-
-### 1) Install dependency
-
-```
-npm i @emailjs/browser
+```bash
+npm install
+cp .env.example .env   # fill in the EmailJS + Supabase keys
+npm run dev            # http://localhost:5173
 ```
 
-### 2) Create EmailJS service and template
+| Script            | What it does                                                         |
+| ----------------- | -------------------------------------------------------------------- |
+| `npm run dev`     | Dev server with hot reload (no prerendering).                        |
+| `npm run build`   | Type-check, build, then prerender every page into `dist/`.           |
+| `npm run preview` | Serve `dist/` locally to check a production build.                  |
+| `npm run lint`    | ESLint.                                                              |
 
-1. Go to https://www.emailjs.com/ and sign in.
-2. Create a new Email Service (choose your email provider).
-3. Create an Email Template with variables used by both forms. Required across both:
-   - `name`
-   - `email`
-   - `message`
-
-   Optional (form-specific):
-   - `phone` (Volunteer form)
-   - `role` (Volunteer form)
-   - `subject` (Contact form)
-4. Copy your Service ID, Template ID, and Public Key.
-
-### 3) Add environment variables
-
-Create a `.env` file in the project root (same folder as `package.json`) and add:
+## Project structure
 
 ```
-VITE_EMAILJS_SERVICE_ID=your_service_id
-VITE_EMAILJS_TEMPLATE_ID=your_template_id
-VITE_EMAILJS_PUBLIC_KEY=your_public_key
+src/
+  main.tsx               Browser entry (BrowserRouter)
+  entry-server.tsx       Build-time renderer used by scripts/prerender.mjs
+  App.tsx                All routes
+  index.css              Design tokens (colours, fonts) + a few global styles
+
+  config/
+    site.ts              Organisation details, contact info, socials, navigation
+    seo.ts               Title / description / share image for every page
+
+  pages/                 One file per route — composes components, holds page copy
+    admin/               Blog admin (lazy-loaded, never sent to public visitors)
+
+  components/
+    ui/                  Generic building blocks (Button, Card, Badge, Modal, …)
+    layout/              Page shell: Navbar, Footer, PageLayout, PageHero, Section, CtaBand
+    forms/               Field inputs and the shared DonationForm
+    blog/                BlogCard, PostBody, ShareBar
+    home/                HeroSlider
+    contact/             ContactMap (Leaflet, lazy-loaded)
+    seo/                 Seo (<head> tags + JSON-LD)
+    admin/               Admin-only pieces (rich-text editors, route guard)
+
+  hooks/                 useEmailForm, useIsClient
+  lib/                   Non-UI code: Supabase, posts API, email, sanitizing, structured data
+  data/                  Shared types and option lists (blog types, donation options)
+  context/               AuthContext (admin sign-in)
+
+scripts/prerender.mjs    Prerender step (see "SEO" below)
+supabase/                Database schema + setup guide for the blog
+public/                  Static files served as-is (images, logo, robots.txt)
 ```
 
-Restart the dev server after changing env vars.
+## Conventions
 
-### 4) Field mapping
+- **Never hard-code colours.** Use the tokens in `src/index.css` as Tailwind classes:
+  `text-brand-blue`, `bg-brand-red`, `bg-surface`, `text-body`, `text-muted`, `border-line`, …
+  For per-item accent colours (program areas), set a `--accent` CSS variable and use
+  `bg-(--accent)` / `text-(--accent)`; `IconTile`, `Button variant="accent"` and friends read it.
+- **Never build a button by hand.** Use `Button` (text) or `IconButton` (icon only, requires
+  a `label`). Icons come from `react-icons` via the `icon` / `trailingIcon` props.
 
-`GetInvolved.tsx` (Volunteer) sends:
+  ```tsx
+  <Button to="/donate">Donate Now</Button>                                   // router link
+  <Button href="https://…" target="_blank">Open</Button>                     // external link
+  <Button variant="outline-light" trailingIcon={FiArrowRight}>Partner</Button>
+  <Button type="submit" fullWidth disabled={sending}>Send Message</Button>
+  <Button variant="link" trailingIcon={FiArrowRight}>Our Full Story</Button>
+  <IconButton icon={FiTrash2} label="Delete" tone="danger" onClick={…} />
+  ```
 
-```
-{
-  name: form.name,
-  email: form.email,
-  phone: form.phone,
-  role: form.role || 'Not specified',
-  message: form.message
-}
-```
+  Variants: `primary` (red), `secondary` (blue), `accent`, `outline`, `outline-light`,
+  `subtle`, `link`, `link-red`, `ghost`. Sizes: `sm`, `md`, `lg`.
+- **A new page** = `src/pages/X.tsx` wrapped in `<PageLayout seo={PAGES.x}>`, usually starting
+  with `<PageHero>` and built from `<Section>` + `<SectionHeading>`. Add its route in `App.tsx`
+  and its metadata in `src/config/seo.ts` — it is then prerendered and added to the sitemap.
+- **Contact details / social links / nav items** live only in `src/config/site.ts`.
+- `className` is appended, not merged, so don't pass classes that conflict with a
+  component's own (e.g. a second padding or `display`); add a prop or variant instead.
+- Files use tabs; components are one per file, default-exported.
 
-`Contact.tsx` (Contact) sends:
+## SEO
 
-```
-{
-  name: form.name,
-  email: form.email,
-  subject: form.subject || 'General Enquiry',
-  message: form.message
-}
-```
+- `npm run build` runs `scripts/prerender.mjs`, which renders each page to its own HTML file
+  (`about.html`, `blog/<slug>.html`, …) containing the full content, a unique title and
+  description, canonical URL, Open Graph/Twitter tags and schema.org JSON-LD
+  (organisation, FAQ, blog posts, breadcrumbs). In the browser React takes over as usual.
+- Published blog posts are fetched from Supabase during the build. **Posts published after a
+  deploy still work** (they render in the browser) but only get static HTML and a sitemap
+  entry on the next deploy — trigger a redeploy after publishing (a Netlify build hook is ideal).
+- The build also writes `dist/sitemap.xml` and `dist/_redirects` (Netlify routing: each page
+  → its HTML file, `/admin` and new posts → the app shell, anything else → a real 404).
+- `robots.txt` (in `public/`) blocks `/admin` and `/checkout`; those pages are also `noindex`.
 
-Make sure your EmailJS template references the same variable names, e.g. `{{name}}`, `{{email}}`, etc. Variables that aren’t sent by a given form can be marked optional in the template or wrapped in conditionals.
+## Forms (EmailJS)
 
-### 5) UI Behavior
+The contact form (`pages/Contact.tsx`) and volunteer form (`pages/GetInvolved.tsx`) send
+through one EmailJS template via `useEmailForm`. The template should use these variables:
 
-- Both forms disable the button and show “Sending…” while the request is in flight.
-- On success, forms clear and a confirmation panel is shown.
-- On failure, a small error alert is displayed at the top of the form.
+| Variable  | Sent by                      |
+| --------- | ---------------------------- |
+| `name`    | both                         |
+| `email`   | both                         |
+| `message` | both                         |
+| `phone`   | volunteer form               |
+| `role`    | volunteer form ("Not specified" if empty) |
+| `subject` | contact form ("General Enquiry" if empty) |
 
-If you need to adjust recipients or email content, do that inside your EmailJS template settings.
+Mark variables a form doesn't send as optional in the EmailJS template. Restart the dev
+server after changing `.env`.
+
+## Blog admin
+
+See [`supabase/README.md`](./supabase/README.md) for the one-time database setup. Admins sign
+in at `/admin/login`.
+
+## Deploying (Netlify)
+
+`netlify.toml` sets the build command (`npm run build`) and publish directory (`dist`).
+Set the five `VITE_*` variables from `.env.example` in Netlify's environment settings.

@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 const url = import.meta.env.VITE_SUPABASE_URL as string | undefined;
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
@@ -9,9 +9,17 @@ const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
  */
 export const isSupabaseConfigured = Boolean(url && anonKey);
 
-// Fall back to harmless placeholders so importing this module never throws;
-// actual calls are gated behind `isSupabaseConfigured` in the UI.
-export const supabase = createClient(
-	url || "https://placeholder.supabase.co",
-	anonKey || "public-anon-placeholder"
-);
+let client: Promise<SupabaseClient> | undefined;
+
+/**
+ * The shared Supabase client. The SDK (~200 kB) is downloaded the first time
+ * this is called, so pages that never touch the blog or admin don't pay for it.
+ */
+export function getSupabase(): Promise<SupabaseClient> {
+	client ??= import("@supabase/supabase-js").then(({ createClient }) =>
+		// Placeholders keep createClient from throwing when .env is incomplete;
+		// callers check `isSupabaseConfigured` first.
+		createClient(url || "https://placeholder.supabase.co", anonKey || "public-anon-placeholder"),
+	);
+	return client;
+}

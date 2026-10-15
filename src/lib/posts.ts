@@ -1,4 +1,4 @@
-import { supabase, isSupabaseConfigured } from "./supabase";
+import { getSupabase, isSupabaseConfigured } from "./supabase";
 import type { BlogPost, BodyBlock, ImpactStat, PostCategory } from "../data/blogPosts";
 
 const BUCKET = "blog-images";
@@ -79,6 +79,7 @@ function inputToRow(input: PostInput) {
 
 /** Published posts for the public listing, newest first. */
 export async function listPublishedPosts(): Promise<BlogPost[]> {
+	const supabase = await getSupabase();
 	const { data, error } = await supabase
 		.from("posts")
 		.select("*")
@@ -90,6 +91,7 @@ export async function listPublishedPosts(): Promise<BlogPost[]> {
 
 /** A single published post by slug (or null if not found). */
 export async function getPublishedPost(slug: string): Promise<BlogPost | null> {
+	const supabase = await getSupabase();
 	const { data, error } = await supabase
 		.from("posts")
 		.select("*")
@@ -106,6 +108,7 @@ export async function listRelatedPosts(
 	category: PostCategory,
 	limit = 2
 ): Promise<BlogPost[]> {
+	const supabase = await getSupabase();
 	const { data, error } = await supabase
 		.from("posts")
 		.select("*")
@@ -121,6 +124,7 @@ export async function listRelatedPosts(
 
 /** All posts (published or not) for the admin dashboard. */
 export async function listAllPosts(): Promise<(BlogPost & { published: boolean })[]> {
+	const supabase = await getSupabase();
 	const { data, error } = await supabase
 		.from("posts")
 		.select("*")
@@ -135,6 +139,7 @@ export async function listAllPosts(): Promise<(BlogPost & { published: boolean }
 export async function getPostForEdit(
 	slug: string
 ): Promise<(BlogPost & { published: boolean }) | null> {
+	const supabase = await getSupabase();
 	const { data, error } = await supabase
 		.from("posts")
 		.select("*")
@@ -147,6 +152,7 @@ export async function getPostForEdit(
 }
 
 export async function createPost(input: PostInput): Promise<void> {
+	const supabase = await getSupabase();
 	const { error } = await supabase.from("posts").insert(inputToRow(input));
 	if (error) throw error;
 }
@@ -155,6 +161,7 @@ export async function updatePost(
 	originalSlug: string,
 	input: PostInput
 ): Promise<void> {
+	const supabase = await getSupabase();
 	const { error } = await supabase
 		.from("posts")
 		.update(inputToRow(input))
@@ -163,12 +170,14 @@ export async function updatePost(
 }
 
 export async function deletePost(slug: string): Promise<void> {
+	const supabase = await getSupabase();
 	const { error } = await supabase.from("posts").delete().eq("slug", slug);
 	if (error) throw error;
 }
 
 /** Upload an image to the blog-images bucket; returns its public URL. */
 export async function uploadImage(file: File): Promise<string> {
+	const supabase = await getSupabase();
 	if (!isSupabaseConfigured) {
 		throw new Error("Supabase is not configured — set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.");
 	}
