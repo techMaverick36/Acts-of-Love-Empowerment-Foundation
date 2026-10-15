@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import {
 	FiActivity,
 	FiArrowRight,
@@ -54,25 +53,33 @@ const impactAreas = [
 	{
 		icon: FiActivity,
 		area: "Health",
-		accent: "var(--color-brand-green)",
+		accent: "#00A54F",
+		bg: "#f0faf4",
+		border: "#b3e6c8",
 		desc: "A healthy community can focus on creating a better, stable future.",
 	},
 	{
 		icon: FiUsers,
 		area: "Inclusion",
-		accent: "var(--color-brand-orange)",
+		accent: "#F26421",
+		bg: "#fdf4ee",
+		border: "#f8ceae",
 		desc: "Ensuring that all people, regardless of their background, identity, or circumstances, can participate in and benefit from societal progress.",
 	},
 	{
 		icon: FiBook,
 		area: "Education",
-		accent: "var(--color-brand-blue)",
+		accent: "#204487",
+		bg: "#f8f9fb",
+		border: "#b5c8ed",
 		desc: "We believe that quality education sets young people up for lifelong success.",
 	},
 	{
 		icon: FiSun,
 		area: "Sustainable Development",
-		accent: "var(--color-brand-green)",
+		accent: "#00A54F",
+		bg: "#f0faf4",
+		border: "#b3e6c8",
 		desc: "Focusing on Environmental, Social, and Economic projects that meet our present needs without compromising the ability of future generations to meet their own needs.",
 	},
 ];
@@ -174,15 +181,21 @@ export default function HomePage() {
 					intro="Our work focuses on 4 areas where steady support can change daily life for children, families, and communities."
 					className="mb-14"
 				/>
-				<div className="mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+				<div className="mb-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 					{impactAreas.map((item) => (
 						<article
 							key={item.area}
-							style={{ "--accent": item.accent } as CSSProperties}
-							className="flex flex-col rounded-2xl border border-(--accent)/25 border-t-4 border-t-(--accent) bg-white p-7"
+							style={{ backgroundColor: item.bg, borderColor: item.border }}
+							className="group flex flex-col rounded-2xl border p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
 						>
-							<IconTile icon={item.icon} accent={item.accent} className="mb-5" />
-							<h3 className="mb-3 font-serif text-xl font-semibold text-ink">{item.area}</h3>
+							<span
+								aria-hidden
+								style={{ backgroundColor: item.accent }}
+								className="mb-5 flex size-12 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
+							>
+								<item.icon size={22} className="text-white" />
+							</span>
+							<h3 className="mb-3 font-serif text-xl font-bold text-ink">{item.area}</h3>
 							<p className="text-sm leading-relaxed text-body">{item.desc}</p>
 						</article>
 					))}
