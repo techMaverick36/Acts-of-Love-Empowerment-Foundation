@@ -1,0 +1,60 @@
+# Keeps the Supabase project (blog + admin) from being paused.
+#
+# Supabase's free plan pauses a project after 7 days without activity. This job
+# reads one published post twice a week, which counts as activity. If Supabase
+# doesn't answer (e.g. the project is already paused), the run fails and GitHub
+# emails the repository owner.
+#
+# Needs two repository secrets (Settings → Secrets and variables → Actions):
+#   SUPABASE_URL       same value as VITE_SUPABASE_URL
+#   SUPABASE_ANON_KEY  same value as VITE_SUPABASE_ANON_KEY
+#
+# Run it by hand from the Actions tab ("Run workflow") to test.
+
+name: Supabase keep-alive
+
+on:
+  schedule:
+    - cron: "0 8 * * 1,4" # Mondays and Thursdays, 08:00 UTC (11:00 in Kampala)
+  workflow_dispatch:
+
+permissions:
+  actions: write # lets the last step keep this scheduled workflow enabled
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Query Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "::error::Add the SUPABASE_URL and SUPABASE_ANON_KEY repository secrets."
+            exit 1
+          fi
+          for attempt in 1 2 3; do
+            status=$(curl -sS -o response.json -w "%{http_code}" \
+              "$SUPABASE_URL/rest/v1/posts?select=slug&published=eq.true&limit=1" \
+              -H "apikey: $SUPABASE_ANON_KEY" \
+              -H "Authorization: Bearer $SUPABASE_ANON_KEY" || echo "000")
+            if [ "$status" = "200" ]; then
+              echo "Supabase is awake (HTTP 200)."
+              exit 0
+            fi
+            echo "Attempt $attempt: HTTP $status"
+            sleep 20
+          done
+          echo "::error::Supabase did not respond. If the project is paused, restore it at https://supabase.com/dashboard"
+          exit 1
+
+      # GitHub turns off scheduled workflows in repositories with no commits for
+      # 60 days. Re-enabling the workflow each run resets that timer.
+      - name: Keep this schedule enabled
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow enable supabase-keepalive.yml --repo "$GITHUB_REPOSITORY"

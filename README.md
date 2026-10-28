@@ -118,6 +118,12 @@ server after changing `.env`.
 See [`supabase/README.md`](./supabase/README.md) for the one-time database setup. Admins sign
 in at `/admin/login`.
 
+**Keep-alive:** Supabase's free plan pauses a project after 7 days without activity, which
+takes the blog offline. `.github/workflows/supabase-keepalive.yml` reads one post every Monday
+and Thursday to prevent that. It needs the `SUPABASE_URL` and `SUPABASE_ANON_KEY` repository
+secrets (same values as the `VITE_` ones). If a run fails, GitHub emails the repo owner;
+the usual cause is that the project is already paused — restore it in the Supabase dashboard.
+
 ## Deploying (Netlify)
 
 `netlify.toml` sets the build command (`npm run build`) and publish directory (`dist`).
